@@ -529,8 +529,7 @@
           </table>
           <br />
           <p>
-            Biaya Pengujian dibebankan sebesar Rp. {{$jumlah}}
-            (...........................) kepada
+            Biaya Pengujian dibebankan sebesar Rp. {{$jumlah}} kepada
             <span style="font-weight: bold">PIHAK PERTAMA</span> sesuai
             Peraturan dan Perundang-undangan yang berlaku.
           </p>

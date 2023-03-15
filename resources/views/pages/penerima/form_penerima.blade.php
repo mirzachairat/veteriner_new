@@ -34,20 +34,21 @@
                             @foreach($data_detail as $item)
                             <input class="form-control" type="text" id="users_id" name="users_id" value="{{$item->users_id}}" hidden>
                             <div class="form-group row">
-                                <label for="hewan" class="col-sm-2 col-form-label text-right">Jenis Hewan</label>
+                                <label for="jenis_hewan" class="col-sm-2 col-form-label text-right">Jenis Hewan</label>
                                 <div class="col-sm-6">
                                     <input class="form-control" type="text" value="{{$item->jenis_hewan}}" name="jenis_hewan" id="jenis_hewan">
                                 </div>
                             </div>
                             <!-- Contoh UJI/Jenis_sampel -->
+                        
                             <div class="col-lg-12">
                                 <div class="card">
                                     @foreach($data_sample as $sampel)
-                                    <input class="form-control" type="text" id="permohonan_id-0" name="permohonan_id[]" value="{{$sampel->permohonan_id}}" hidden>
+                                    <input class="form-control" type="text" id="permohonan_id-0" name="permohonan_id[]" value="{{$sampel->permohonan_id}}" hidden >
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="jenis_sampel">Contoh Uji/Jenis Sampel</label>
-                                            <input type="text" class="form-control" id="jenis_sampel-0" value="{{$sampel->jenis_sampel}}" name="jenis_sampel[]" disable>
+                                            <input type="text" class="form-control" id="jenis_sampel-0" value="{{$sampel->jenis_sampel}}" name="jenis_sampel[]">
                                         </div>
                                     </div>      
                                     <div class="card-body">
@@ -79,21 +80,22 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="total_harga">Total Harga</label>
-                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" value="{{$sampel->total_harga}}" name="total_harga[]">
+                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" value="{{formatRupiah($sampel->total_harga)}}" name="total_harga[]">
                                                     </div>
                                                 </div> 
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="bahan_pengawet">Bahan Pengawet</label>
-                                                        <input type="text" class="form-control input-total_harga" id="bahan_pengawet-0" value="{{$sampel->bahan_pengawet}}" name="bahan_pengawet[]">
+                                                        <input type="text" class="form-control input-total_harga" id="bahan_pengawet-0" name="bahan_pengawet[]">
                                                     </div>
                                                 </div> 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="kondisi-0">Kondisi Contoh Uji</label>
                                                         <select type="text" class="form-control" id="kondisi-0" name="kondisi[]">
-                                                                <option value="Baik">Baik</option>
-                                                                <option value="Kurang baik">Kurang baik</option>
+                                                            <option value selected disabled>=== PILIH JENIS ===</option>
+                                                            <option value="Baik">Baik</option>
+                                                            <option value="Kurang baik">Kurang baik</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -101,8 +103,9 @@
                                                     <div class="form-group">
                                                         <label for="kriteria-0">KRITERIA</label>
                                                         <select type="text" class="form-control" id="kriteria-0" name="kriteria[]">
-                                                                <option value="Memenuhi">Memenuhi</option>
-                                                                <option value="Kurang memenuhi">Kurang memenuhi</option>
+                                                            <option value selected disabled>=== PILIH ===</option>
+                                                            <option value="Memenuhi">Memenuhi</option>
+                                                            <option value="Kurang memenuhi">Kurang memenuhi</option>
                                                         </select>
                                                     </div>
                                                 </div>  
@@ -113,6 +116,14 @@
                                         </div>
                                     </div><!--end card-body-->
                                     @endforeach
+                                    <div style="float: right">
+                                        <div class="form-group row">
+                                            <label for="jumlah_seluruhya" class="col-sm-8 col-form-label text-right" >Jumlah Seluruhnya</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" id="jumlah_seluruhnya" value="{{formatRupiah($item->jumlah)}}" name="jumlah_seluruhnya" style="background-color: rgb(243, 236, 236) ">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div><!--end card-->
                             </div><!--end col-->
                             <!-- END contoh UJI     -->

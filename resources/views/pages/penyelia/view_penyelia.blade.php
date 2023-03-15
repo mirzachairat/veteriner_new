@@ -11,7 +11,7 @@
                             <div class="page-title-box">
                                 <div class="row">
                                     <div class="col">
-                                        <h4 class="page-title">DETAIL MANAGER</h4>
+                                        <h4 class="page-title">HALAMAN DETAIL PENYELIA</h4>
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="javascript:void(0);">Love - Banten</a></li>
                                             <li class="breadcrumb-item active">Dashboard</li>
@@ -141,11 +141,12 @@
                                                     <h6 class="m-0">{{$item->nama_dokumen}}</h6>                                                             
                                                 </div><!--end media body-->
                                             </div>
-                                           
+
+                                            @foreach($data_permohonan as $fs) 
                                             <div class="align-self-center">
-                                                <a href="{{env('APP_URL')}}/download/form_f3/" class="btn btn-sm btn-soft-primary">Download File <i class="las la-external-link-alt font-15"></i></a>  
+                                                <a href="{{env('APP_URL')}}/download/form/{{$fs->id}}" class="btn btn-sm btn-soft-primary">Download File <i class="las la-external-link-alt font-15"></i></a>  
                                             </div>       
-                                                                           
+                                            @endforeach                               
                                         </li>
                                        @endforeach 
                                     </ul>                                

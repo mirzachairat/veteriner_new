@@ -22,7 +22,7 @@ class ManagerController extends Controller
         return view('pages.manager.detail_manager', compact('data'));
     }
 
-    //Menampilkan 
+    //Menampilkan data ke halaman form
     public function form_detail($id)
     {
         $data_detail = Permohonan::with('jenis_sampel')->where('id', $id)->get();

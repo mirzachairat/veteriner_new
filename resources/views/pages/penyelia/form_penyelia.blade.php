@@ -123,6 +123,10 @@
                                 <label for="kesimpulan">Kesimpulan</label>
                                 <textarea class="form-control" id="kesimpulan" name="kesimpulan" rows="3"></textarea>
                             </div>
+                            <div class="form-group mb-0">
+                                <label for="catatan">Catatan</label>
+                                <textarea class="form-control" id="catatan" name="catatan" rows="3"></textarea>
+                            </div>
                             <button style="float:left" type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>

@@ -29,7 +29,6 @@
                                 <td><span class="badge badge-soft-success">Approved</span></td>
                                 <td class="text-right">
                                     <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/manager/{{$item->permohonan->id}}" >Lihat</a>
-                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/manager/{{$item->permohonan->id}}" >Detail</a>
                                 </td>
                             </tr>
                             @endforeach

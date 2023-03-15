@@ -41,7 +41,12 @@ class DokumenController extends Controller
                 'jenis_hewan' => $permohonan->jenis_hewan,
                 'alamat' => $permohonan->alamat,
                 'instansi' => $permohonan->instansi,
-                'jenis_hewan' => $permohonan->jenis_hewan,
+                'no_epi' => $permohonan->no_epi,
+                'tgl_terima' => $permohonan->tgl_terima,
+                'tgl_diserahkan_mt' => $permohonan->tgl_diserahkan_mt,
+                'jumlah' => $permohonan->jumlah,
+                'saran' => $permohonan->saran,
+                'kesimpulan' => $permohonan->kesimpulan,
                 'jenis' => $jenis
                 // 'jenis_sampel' => $jenis->jenis_sampel,
                 // 'jumlah_contoh' => $jenis->jumlah_contoh,
@@ -51,18 +56,28 @@ class DokumenController extends Controller
                 // 'jenis_pengujian' => $jenis->jenis_pengujian,
                 // 'total_harga' => $jenis->total_harga,
             ];
-            
+           
+        //user pemohon    
         if($user == 1){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
             return $pdf->download('Pemohon.pdf');
             }
+        //user penerima    
         if($user == 2){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
             return $pdf->download('Penerima.pdf');
             }
+
+        //user manager    
         if($user == 3){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F3',$data_pass);
             return $pdf->download('Kontrak Pengujian.pdf');
+        }
+
+        //user penyelia
+        if($user == 4){
+            $pdf = Pdf::loadView('pages.pdf_template.Form_7F6',$data_pass);
+            return $pdf->download('Kesimpulan Diagnosa.pdf');
         }
     }
 

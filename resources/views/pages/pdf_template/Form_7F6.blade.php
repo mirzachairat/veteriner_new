@@ -294,7 +294,7 @@
       margin-bottom: 48px;
     "
   >
-    <div class="header">
+    <<div class="header">
       <table class="has-padding" style="width: 100%">
         <tr>
           <td
@@ -308,8 +308,8 @@
             "
           >
             <img
-              style="width: 50%; height: 50%"
-              src="../image/logo banten.png"
+              style="width: 90px"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Coat_of_arms_of_Banten.png/1200px-Coat_of_arms_of_Banten.png"
               alt=""
             />
           </td>
@@ -320,8 +320,8 @@
               text-align: center;
               vertical-align: middle !important;
               background-color: #d4d4d4d4;
-              width: 50%;
-              padding: 15px 100px 15px;
+              width: 40%;
+              padding: 15px 10px 15px;
             "
           >
             <span class="bold-text">UNIT PELAKSANA TEKNIS DAERAH</span><br />
@@ -354,7 +354,7 @@
               text-align: left;
               vertical-align: middle !important;
               background-color: #d4d4d4d4;
-              padding: 15px 10px 15px;
+              padding: 15px 6px 15px;
             "
           >
             <span class="bold-text">:</span><br />
@@ -370,7 +370,7 @@
               text-align: left;
               vertical-align: middle !important;
               background-color: #d4d4d4d4;
-              padding: 15px 10px 15px;
+              padding: 28px 6px 26px;
             "
           >
             <span class="bold-text">7 F 6</span><br />
@@ -404,23 +404,28 @@
       <table class="bodysurat" style="width: 100%">
         <tr>
           <td>No.Contoh Uji</td>
-          <td>: ..............................................</td>
+          <td>:</td>
+          <td></td>
         </tr>
         <tr>
           <td>No. Epi</td>
-          <td>: ..............................................</td>
+          <td>:</td>
+          <td>{{$no_epi}}</td>
         </tr>
         <tr>
           <td>Kesimpulan</td>
-          <td>: ..............................................</td>
+          <td>:</td>
+          <td>{{$kesimpulan}}</td>
         </tr>
         <tr>
           <td>Catatan</td>
-          <td>: ..............................................</td>
+          <td>:</td>
+          <td>{{$catatan}}</td>
         </tr>
         <tr>
           <td>Saran</td>
-          <td>: ..............................................</td>
+          <td>:</td>
+          <td>{{$saran}}</td>
         </tr>
       </table>
       <div style="display: block; height: 50px; width: 100%"></div>

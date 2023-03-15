@@ -23,6 +23,12 @@ class PenyeliaController extends Controller
         return view('pages.penyelia.form_penyelia', compact(['data_detail','data_sample']));
     }
 
+     //menampilkan tabel semua user yang telah di approval untuk di cetak dokumen pdf
+     public function view_allform(){
+        $data = Permohonan::with('jenis_sampel')->get();
+        return view('pages.penyelia.detail_penyelia', compact('data'));
+    }
+
     public function update_jenis_sampel(Request $request){
         $data_permohonan = Permohonan::where('id', $request->permohonan_id)->first();
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
@@ -52,7 +58,8 @@ class PenyeliaController extends Controller
             'jumlah' => $data_permohonan->jumlah_serluruhnya,
             'jenis_hewan' => $data_permohonan->jenis_hewan,
             'kesimpulan' => $request->kesimpulan,
-            'saran' => $request->saran
+            'saran' => $request->saran,
+            'catatan' => $request->catatan
         ]);
 
 

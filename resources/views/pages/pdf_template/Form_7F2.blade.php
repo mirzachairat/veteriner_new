@@ -445,17 +445,19 @@ margin-bottom: 48px;
             <tr>
                 <tr>
                     <td>Tanggal Terima</td>
-                    <td style="width: 25%;">:</td>
-                    <td style="width: 1%;"></td>
+                    <td style="width: 2%;">:</td>
+                    <td>{{$tgl_terima}}</td>
                     <td >No.Contoh Uji</td>
-                    <td style="width: 20%;">:</td>
+                    <td style="width: 2%;">:</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Tanggal diserahkan ke MT</td>
-                    <td style="width: 25%;">:</td>
-                    <td style="width: 1%;"></td>
-                    <td>No.Epi</td>
                     <td style="width: 20%;">:</td>
+                    <td>{{$tgl_diserahkan_mt}}</td>
+                    <td>No.Epi</td>
+                    <td style="width: 2%;">:</td>
+                    <td>{{$no_epi}}</td>
                 </tr>
             </tr>
             <tr>
@@ -512,7 +514,7 @@ margin-bottom: 48px;
                            
                             <br /><br /><br /><br />
                         
-                            <span>.......................</span>
+                            <span>{{Auth::user()->nama}}</span>
                     </td>
                     <td>
                             <span>Serang,...................</span><br />

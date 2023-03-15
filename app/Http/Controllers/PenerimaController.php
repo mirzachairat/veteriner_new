@@ -38,6 +38,8 @@ class PenerimaController extends Controller
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
         $status_a = $request->status_delete;
         $data_a = Progres::where('status', $status_a)->delete();
+
+        
         foreach ($request->permohonan_id as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $request->permohonan_id[$index],

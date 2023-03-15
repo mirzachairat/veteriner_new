@@ -53,14 +53,16 @@
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="harga_satuan">Harga Satuan</label>
-                                                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-0" name="harga_satuan[]">
+                                                        <input type="hidden" class="form-control input-harga_satuan" id="harga_satuan-0" name="harga_satuan[]">
+                                                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan_formatted-0" name="harga_satuan_formatted[]">
                                                     </div>
                                                 </div>
     
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="total_harga">Total Harga</label>
-                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" name="total_harga[]">
+                                                        <input type="hidden" class="form-control input-total_harga" id="total_harga-0" name="total_harga[]">
+                                                        <input type="text" class="form-control input-total_harga" id="total_harga_formated-0" name="total_harga_formated[]">
                                                     </div>
                                                 </div> 
                                                 <input type="hidden" value = "0" id="status" name="status" >    
@@ -71,7 +73,8 @@
                                         <div class="form-group row">
                                             <label for="jumlah_seluruhya" class="col-sm-6 col-form-label text-right">Jumlah Seluruhnya</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control"  type="text" id="jumlah_seluruhnya" name="jumlah_seluruhnya">
+                                                <input class="form-control"  type="hidden" id="jumlah_seluruhnya" name="jumlah_seluruhnya">
+                                                <input class="form-control"  type="text" id="jumlah_seluruhnya_formated" name="jumlah_seluruhnya_formated">
                                             </div>
                                         </div>
                                     </div>
@@ -96,6 +99,23 @@
 
 @section('script')
 <script type="text/javascript">
+    function formatRupiah(angka, prefix = 'Rp. '){
+        var	number_string = angka.toString(),
+        sisa 	= number_string.length % 3,
+        rupiah 	= number_string.substr(0, sisa),
+        ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        if(prefix){
+            rupiah = prefix + rupiah
+        }
+
+        return rupiah
+    }
 
     $(".add-btn").click(function(){
         let key = uuidv4();
@@ -123,14 +143,16 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="harga_satuan-${key}">Harga Satuan</label>
-                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-${key}" name="harga_satuan[]">
+                        <input type="hidden" class="form-control input-harga_satuan" id="harga_satuan-${key}" name="harga_satuan[]">
+                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan_formatted-${key}" name="harga_satuan_formatted[]">
                     </div>
                 </div>
 
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="total_harga-${key}">Total Harga</label>
-                        <input type="text" class="form-control input-total_harga" id="total_harga-${key}" name="total_harga[]">
+                        <input type="hidden" class="form-control input-total_harga" id="total_harga-${key}" name="total_harga[]">
+                        <input type="text" class="form-control input-total_harga" id="total_harga_formated-${key}" name="total_harga_formated[]">
                     </div>
                 </div>
 
@@ -159,25 +181,28 @@
     function totalHarga(key){
         const jumlah = $(`#jumlah_contoh-${key}`).val();
         const harga = $(`#harga_satuan-${key}`).val()
+        
+        //format rupiah  
+        $(`#harga_satuan_formatted-${key}`).val(formatRupiah(harga))
+        
         let total = parseFloat(jumlah * harga);
         
         if(total === NaN || total === undefined){
             total = 0
         }
-        $(`#total_harga-${key}`).val(total)
+        
         // let sum_total = harga
+        $(`#total_harga-${key}`).val(total)
+        $(`#total_harga_formated-${key}`).val(formatRupiah(total))
+        
+        //summary
         let sum_total = 0;
-        // const values = $("input[name='total_harga[]']")
-            
-        // console.log({ values})
-        // // values.map(item => {
-        // //     total += item.val()
-        // // })
         $('input[name="total_harga[]"]').each( function() {
             sum_total += parseInt(this.value);
         });
 
         $('#jumlah_seluruhnya').val(sum_total);
+        $('#jumlah_seluruhnya_formated').val(formatRupiah(sum_total));
     }
 
     function getPrice(key){
@@ -193,6 +218,7 @@
             success: function(data)
             {
                 $(`#harga_satuan-${key}`).val(data.tarif);
+                $(`#harga_satuan_formatted-${key}`).val(formatRupiah(data.tarif));
             } 
         });
     }
