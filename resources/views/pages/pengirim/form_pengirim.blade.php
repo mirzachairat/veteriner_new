@@ -74,7 +74,7 @@
                                             <label for="jumlah_seluruhya" class="col-sm-6 col-form-label text-right">Jumlah Seluruhnya</label>
                                             <div class="col-sm-4">
                                                 <input class="form-control"  type="hidden" id="jumlah_seluruhnya" name="jumlah_seluruhnya">
-                                                <input class="form-control"  type="text" id="jumlah_seluruhnya_formated" name="jumlah_seluruhnya_formated">
+                                                <input class="form-control"  type="text"  id="jumlah_seluruhnya_formatted" name="jumlah_seluruhnya_formatted">
                                             </div>
                                         </div>
                                     </div>
@@ -202,7 +202,7 @@
         });
 
         $('#jumlah_seluruhnya').val(sum_total);
-        $('#jumlah_seluruhnya_formated').val(formatRupiah(sum_total));
+        $('#jumlah_seluruhnya_formatted').val(formatRupiah(sum_total));
     }
 
     function getPrice(key){

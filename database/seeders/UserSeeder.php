@@ -71,5 +71,27 @@ class UserSeeder extends Seeder
             "longitude" => "",
             "latitude" => ""
         ]);
+        User::create([
+            "nama" => "admin",
+            "jabatan" => "admin",
+            "no_hp" => "08123354",
+            "jabatan_id" => 6,
+            "instansi" => "staff",
+            "email" => "admin@gmail.com",
+            "password" => bcrypt("123456"),
+            "longitude" => "",
+            "latitude" => ""
+        ]);
+        User::create([
+            "nama" => "superadmin",
+            "jabatan" => "superadmin",
+            "no_hp" => "08123354",
+            "jabatan_id" => 7,
+            "instansi" => "staff",
+            "email" => "superadmin@gmail.com",
+            "password" => bcrypt("123456"),
+            "longitude" => "",
+            "latitude" => ""
+        ]);
     }
 }

@@ -316,8 +316,8 @@
 
   <body
     style="
-      margin-left: 200px;
-      margin-right: 200px;
+      margin-left: 50px;
+      margin-right: 50px;
       margin-top: 48px;
       margin-bottom: 48px;
     "
@@ -335,8 +335,8 @@
               "
             >
               <img
-                style="width: 50%; height: 50%"
-                src="../image/logo banten.png"
+                style="width: 50%; height: 8%"
+                src="assets/images/banten.png"
                 alt=""
               />
             </td>
@@ -349,17 +349,16 @@
             >
               <span class="bold-text" style="font-size: 20px"
                 >PEMERINTAH PROVINSI BANTEN</span
-              ><br />
+              ><br /><br>
               <span class="bold-text" style="font-size: 28px"
                 >DINAS PERTANIAN</span
-              ><br />
+              ><br /><br>
               <span class="bold-text" style="font-size: 15px"
                 >UPTD PELAYANAN DAN PENGUJIAN VETERINER</span
               ><br />
               <span class="bold-text" style="font-size: 10px"
                 >Jl. Raya Cilegon KM.04 Drangong - Serang 42162 Telp. (0254)
                 7913148 Fax. (0254) 7913148</span
-              ><br />
             </td>
           </tr>
         </table>
@@ -394,7 +393,8 @@
             </tr>
             <tr>
               <td>No Epi</td>
-              <td>: ..................</td>
+              <td>:</td>
+              <td>{{$no_epi}}</td>
             </tr>
             <tr>
               <td>Jenis Layanan</td>
@@ -412,10 +412,10 @@
               <td>Kepada YTH:</td>
             </tr>
             <tr>
-              <td>PT. AAAA</td>
+              <td>{{$instansi}}</td>
             </tr>
             <tr>
-              <td>Jl. Raya :</td>
+              <td>{{$alamat}}</td>
             </tr>
             <tr>
               <td>Kabupaten Tangerang</td>
@@ -435,22 +435,20 @@
             <th>Lokasi</th>
             <th>Pemilik</th>
             <th>Jns Sample</th>
-            <th>COLF</th>
-            <th>ECO</th>
-            <th>SALMO</th>
-            <th>TPC</th>
+            <th>Nilai</th>
+            <th>Nama Jenis Pengujian</th>
           </tr>
+          @foreach($jenis as $item)
           <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{$nama}}</td>
+            <td>{{$item->jenis_sampel}}</td>
+            <td>{{$item->nilai}}</td>
+            <td>{{$item->jenis_harga->jenis_pengujian}}</td>
           </tr>
+          @endforeach
         </table>
         <br />
         <text>Keterangan Uji</text>
@@ -459,14 +457,8 @@
             <th>Uji</th>
             <th>Keterangan</th>
             <th>Tgl Selesai</th>
-            <th>Uji</th>
-            <th>Keterangan</th>
-            <th>Tgl Selesai</th>
           </tr>
           <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
             <td>1</td>
             <td>1</td>
             <td>1</td>
@@ -475,22 +467,9 @@
         <br />
         <text>ID Keterangan/Nama Hewan</text>
         <table style="width: 100%">
-          <tr>
-            <th>Uji</th>
-            <th>Keterangan</th>
-            <th>Tgl Selesai</th>
-            <th>Uji</th>
-            <th>Keterangan</th>
-            <th>Tgl Selesai</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-          </tr>
+        @foreach($jenis as $item)
+          <th>{{$item->jenis_sampel}}</th>
+        @endforeach
         </table>
         <br />
         <text>Diagnosa</text>
@@ -514,22 +493,22 @@
         <text>Catatan</text>
         <table style="width: 100%">
           <tr>
-            <td>1. Test</td>
+            <td style="height:20%">{{$catatan}}</td>
           </tr>
         </table>
         <br />
         <text>Saran</text>
         <table style="width: 100%">
           <tr>
-            <td>1. Test</td>
+            <td style="height:20%">{{$saran}}</td>
           </tr>
         </table>
       </div>
 
       <div class="tanda_tangan">
-        <table style="border-style: hidden">
+        <table style="border-style: hidden; width: 100%;">
           <tr>
-            <td style="width: 85%">
+            <td>
               <span style="font-weight: bold">Kepala UPTD</span><br />
               <span>Pelanggan</span>
               <br />
@@ -541,7 +520,7 @@
 
               <span>.......................</span>
             </td>
-            <td style="float: right; width: 100%">
+            <td>
               <span style="font-weight: bold">Serang, .............</span><br />
               <span>Penanggung Jawab Teknis</span><br />
               <br />
@@ -581,7 +560,7 @@
         </text>
         <br />
         <br />
-        <table style="width: 60%">
+        <table style="width: 100%">
           <tr>
             <th>No</th>
             <th>Jenis Uji</th>
@@ -590,14 +569,16 @@
             <th>Total(Rp)</th>
             <th>Verif Ptg PNBP</th>
           </tr>
+          @foreach($jenis as $key => $item)
           <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
+            <td>{{$key+1}}</td>
+            <td>{{$item->jenis_harga->jenis_pengujian}}</td>
+            <td>{{$item->jumlah_contoh}}</td>
+            <td>{{formatRupiah($item->harga_satuan)}}</td>
+            <td>{{formatRupiah($item->total_harga)}}</td>
             <td>1</td>
           </tr>
+          @endforeach
           <tr>
             <td
               colspan="5"

@@ -135,20 +135,45 @@
                                     <ul class="list-group custom-list-group mb-n3">
                                         <div class="tab-pane fade show active" id="files-projects">
                                             <div class="file-box-content">
-                                                @foreach($data_dok as $item)
-                                                     <div class="file-box">
-                                                        @foreach($data_permohonan as $fs)
-                                                        <a href="{{env('APP_URL')}}/download/form/{{$fs->id}}" class="download-icon-link">
+                                                    <div class="file-box">
+                                                         {{-- form 7f1 --}}
+                                                         @foreach($data_permohonan as $dt)
+                                                        <a href="{{env('APP_URL')}}/download/form/{{$dt->id}}" class="download-icon-link">
                                                             <i class="dripicons-download file-download-icon"></i>
                                                         </a>
-                                                        @endforeach    
+                                                        @endforeach
                                                         <div class="text-center">
                                                             <i class="lar la-file-alt text-primary"></i>
-                                                            <h6 class="text-truncate">{{$item->nama_dokumen}}</h6>
+                                                            <h6 class="text-truncate">Formulir 7 F1 </h6>
                                                             <small class="text-muted">06 March 2019 / 5MB</small>
                                                         </div>                                                        
-                                                        </div>
-                                                    @endforeach 
+                                                    </div>
+                                                    {{-- invoice    --}}
+                                                    <div class="file-box">
+                                                        @foreach($data_permohonan as $dt)
+                                                        <a href="{{env('APP_URL')}}/download/invoice/{{$dt->id}}" class="download-icon-link">
+                                                            <i class="dripicons-download file-download-icon"></i>
+                                                        </a>
+                                                        @endforeach
+                                                        <div class="text-center">
+                                                            <i class="lar la-file-alt text-primary"></i>
+                                                            <h6 class="text-truncate">Invoice</h6>
+                                                            <small class="text-muted">06 March 2019 / 5MB</small>
+                                                        </div>                                                        
+                                                    </div>
+                                                    {{-- sertifikat  --}}
+                                                    <div class="file-box">
+                                                        @foreach($data_permohonan as $dt)
+                                                        <a href="{{env('APP_URL')}}/download/sertifikat/{{$dt->id}}" class="download-icon-link">
+                                                            <i class="dripicons-download file-download-icon"></i>
+                                                        </a>
+                                                        @endforeach
+                                                        <div class="text-center">
+                                                            <i class="lar la-file-alt text-primary"></i>
+                                                            <h6 class="text-truncate">Sertifikat</h6>
+                                                            <small class="text-muted">06 March 2019 / 5MB</small>
+                                                        </div>                                                        
+                                                    </div>
                                                 </div>
                                             </div><!--end tab-pane-->       
                                     </ul>                                
@@ -206,3 +231,7 @@
                 @include('components.footer');
             </div>
 @endsection
+
+<script>
+
+</script>

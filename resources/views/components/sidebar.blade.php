@@ -70,9 +70,14 @@
                             <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/manager"><i data-feather="home" class="align-self-center menu-icon"></i>Tabel Bendahara</a></li>
                         </ul>
                     </li>
+                    @if(Auth::user()->jabatan_id == 6)
                     <li>
-                        <a href="{{env('APP_URL')}}/dartar_harga"><i data-feather="grid" class="align-self-center menu-icon"></i><span>Daftar Harga</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>                        
-                    </li>    
+                        <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>DAFTAR HARGA</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/harga"><i data-feather="home" class="align-self-center menu-icon"></i>Tabel Bendahara</a></li>
+                        </ul>
+                    </li>
+                    @endif
                 </ul>
     
             </div>

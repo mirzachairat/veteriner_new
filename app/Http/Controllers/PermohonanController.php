@@ -10,11 +10,11 @@ use App\Models\Progres;
 
 use Illuminate\Support\Facades\Auth;
 
-
 class PermohonanController extends Controller
 {
     public function tambah(Request $request)
     {
+        
         $permohonan = Permohonan::create([
             'users_id' => Auth::user()->id,
             'nama' => Auth::user()->nama,

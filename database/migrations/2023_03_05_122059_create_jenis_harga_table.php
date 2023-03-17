@@ -15,11 +15,11 @@ class CreateJenisHargaTable extends Migration
     {
         Schema::create('jenis_harga', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_lab');
-            $table->string('jenis_pengujian');
-            $table->string('satuan');
-            $table->integer('tarif');
-            $table->string('lama_pengujian');
+            $table->string('jenis_lab')->nullable();
+            $table->string('jenis_pengujian')->nullable();
+            $table->string('satuan')->nullable();
+            $table->integer('tarif')->nullable();
+            $table->string('lama_pengujian')->nullable();
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
     <ul class="list-unstyled topbar-nav mb-0">    
         <li class="creat-btn">
             <div class="nav-link">
-                <a class=" btn btn-sm btn-soft-primary" href="{{env('APP_URL')}}/daftar_harga" role="button"><i class="fas fa-plus mr-2"></i>Tambah Permohonan</a>
+                <a class=" btn btn-sm btn-soft-primary" href="{{env('APP_URL')}}/view/form" role="button"><i class="fas fa-plus mr-2"></i>Tambah Permohonan</a>
             </div>                                
         </li>
     </ul>        
@@ -20,23 +20,28 @@
                                         <table class="table table-bordered mb-0 table-centered">
                                             <thead>
                                             <tr>
-                                                <th>Nama Pemohon</th>
-                                                <th>Jenis Hewan</th>
-                                                <th>Status</th>
-                                                <th class="text-right">Action</th>
+                                                <th>No</th>
+                                                <th>Jenis Pengujian</th>
+                                                <th>Satuan</th>
+                                                <th>Tarif</th>
+                                                <th>Lama Pengujian</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($data as $items)
+                                        @foreach($data as $key => $item)
                                             <tr>
-                                                <td>{{$items->user->name}}</td>
-                                                <td>{{$items->jenis_hewan}}</td>
-                                                <td><span class="badge badge-soft-success">Approved</span></td>
+                                                <td>{{$key+1}}</td>
+                                                <td>{{$item->jenis_pengujian}}</td>
+                                                <td>{{$item->satuan}}</td>
+                                                <td>{{formatRupiah($item->tarif)}}</td>
+                                                <td>{{$item->lama_pengujian}}</td>
                                                 <td>
-                                                    <button class="btn btn-primary btm-sm">Detail</button>
+                                                    <a href="{{env('APP_URL')}}/view/form/{{$item->id}}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <a href="{{env('APP_URL')}}/harga/delete/{{$item->id}}" class="btn btn-danger btn-sm">Delete</a>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                        @endforeach    
                                             </tbody>
                                         </table><!--end /table-->
                                     </div><!--end /tableresponsive-->

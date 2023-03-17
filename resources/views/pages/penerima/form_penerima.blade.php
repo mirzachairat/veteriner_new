@@ -80,7 +80,7 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="total_harga">Total Harga</label>
-                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" value="{{formatRupiah($sampel->total_harga)}}" name="total_harga[]">
+                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" value="{{$sampel->total_harga}}" name="total_harga[]">
                                                     </div>
                                                 </div> 
                                                 <div class="col-sm-2">
@@ -120,7 +120,8 @@
                                         <div class="form-group row">
                                             <label for="jumlah_seluruhya" class="col-sm-8 col-form-label text-right" >Jumlah Seluruhnya</label>
                                             <div class="col-sm-2">
-                                                <input class="form-control" type="text" id="jumlah_seluruhnya" value="{{formatRupiah($item->jumlah)}}" name="jumlah_seluruhnya" style="background-color: rgb(243, 236, 236) ">
+                                                <input class="form-control" type="hidden" id="jumlah_seluruhnya" value="{{$item->jumlah}}" name="jumlah_seluruhnya" style="background-color: rgb(243, 236, 236) ">
+                                                <input class="form-control" type="text" id="jumlah_seluruhnya_formatted" value="{{$item->jumlah}}" name="jumlah_seluruhnya_formatted" style="background-color: rgb(243, 236, 236) ">
                                             </div>
                                         </div>
                                     </div>
@@ -137,3 +138,7 @@
     </div><!--end col-->
 
 @endsection
+
+<script>
+
+</script>

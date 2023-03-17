@@ -68,14 +68,20 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Getdata harga
-    Route::get('/daftar_harga', [Jenis_hargaController::class, 'index']);
+    Route::get('/harga', [Jenis_hargaController::class, 'index'])->name('pageharga');
     Route::get('/daftar_harga/select', [Jenis_hargaController::class, 'getHarga']);
-    Route::post('/daftar_harga/create', [Jenis_hargaController::class, 'store']);
-    Route::get('/tambah_form', [Jenis_hargaController::class, 'add_form']);
+    Route::post('/tambah/harga', [Jenis_hargaController::class, 'tambahharga']);
+    //panggil from ketika ingin menambahkan data jenis harga   
+    Route::get('/view/form/', [Jenis_hargaController::class, 'viewform']);
+    //panggil from ketika ingin edit form
+    Route::get('/view/form/{id}', [Jenis_hargaController::class, 'vieweditform']);
+    Route::get('/harga/delete/{id}', [Jenis_hargaController::class, 'deleteharga']);
+    Route::post('/harga/update', [Jenis_hargaController::class, 'updateharga']);
     
     //Dokumen route
- 
     Route::get('/download/form/{id}',[DokumenController::class, 'filepdf']);
+    Route::get('/download/invoice/{id}',[DokumenController::class, 'invoice']);
+    Route::get('/download/sertifikat/{id}',[DokumenController::class, 'sertifikat']);
     Route::get('/dokumen/{form_f6}', 'DokumenController@index');
 
 

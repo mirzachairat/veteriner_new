@@ -29,6 +29,7 @@ class PenyeliaController extends Controller
         return view('pages.penyelia.detail_penyelia', compact('data'));
     }
 
+    // update status progress dan permohonan
     public function update_jenis_sampel(Request $request){
         $data_permohonan = Permohonan::where('id', $request->permohonan_id)->first();
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();

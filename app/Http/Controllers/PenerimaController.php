@@ -39,7 +39,6 @@ class PenerimaController extends Controller
         $status_a = $request->status_delete;
         $data_a = Progres::where('status', $status_a)->delete();
 
-        
         foreach ($request->permohonan_id as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $request->permohonan_id[$index],
@@ -74,7 +73,6 @@ class PenerimaController extends Controller
      public function view_dokument($id){
         $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
         $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
-        dd($data_permohonan);
         return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok']));
      }
 
