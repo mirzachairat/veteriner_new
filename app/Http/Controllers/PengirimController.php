@@ -17,10 +17,14 @@ class PengirimController extends Controller
     public function index()
     {
         // $data = Permohonan::with('jenis_sampel')->with('user')->where('users_id', auth()->id())->get();
-        $data = Permohonan::where('users_id', auth()->id())->get();
-        $data_prog = Progres::where('workflow')->get();
-        return $data_prog;
-        return view('pages.pengirim.pengirim', compact('data'));
+        $data = Permohonan::with('progres')->where('users_id', auth()->id())->get();
+        foreach($data as $item){
+            $data_fs = [
+                'users_id' => $item->users_id,
+            ];
+        }
+
+        return view('pages.pengirim.pengirim', compact('data',));
         // return $data;
     }
 

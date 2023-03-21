@@ -33,8 +33,12 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect(RouteServiceProvider::HOME);
+            $dt = $request->session()->regenerate();
+            $data_user = Auth::user()->jabatan_id;
+            $data_type = User::with('jabatan')->where('jabatan_id',$data_user)->first();
+            $link = $data_type->jabatan->type;
+            // return $data_type->jabatan->type;
+                return redirect(RouteServiceProvider::HOME.`/{{$link}}`);
         }
 
         return back()->withErrors([

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             "nama" => "mirza",
-            "jabatan" => "staff",
+            "nama_jabatan" => "staff",
             "no_hp" => "0812343354",
             "jabatan_id" => 1,
             "instansi" => "PT.A",
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             "nama" => "penerima",
-            "jabatan" => "staff",
+            "nama_jabatan" => "staff",
             "no_hp" => "08123354",
             "jabatan_id" => 2,
             "instansi" => "staff",
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             "nama" => "manager",
-            "jabatan" => "manager",
+            "nama_jabatan" => "manager",
             "no_hp" => "08123354",
             "jabatan_id" => 3,
             "instansi" => "staff",
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             "nama" => "penyelia",
-            "jabatan" => "penyelia",
+            "nama_jabatan" => "penyelia",
             "no_hp" => "08123354",
             "jabatan_id" => 4,
             "instansi" => "staff",
@@ -62,7 +62,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             "nama" => "penguji",
-            "jabatan" => "penguji",
+            "nama_jabatan" => "penguji",
             "no_hp" => "08123354",
             "jabatan_id" => 5,
             "instansi" => "staff",
@@ -73,22 +73,11 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             "nama" => "admin",
-            "jabatan" => "admin",
+            "nama_jabatan" => "admin",
             "no_hp" => "08123354",
             "jabatan_id" => 6,
             "instansi" => "staff",
             "email" => "admin@gmail.com",
-            "password" => bcrypt("123456"),
-            "longitude" => "",
-            "latitude" => ""
-        ]);
-        User::create([
-            "nama" => "superadmin",
-            "jabatan" => "superadmin",
-            "no_hp" => "08123354",
-            "jabatan_id" => 7,
-            "instansi" => "staff",
-            "email" => "superadmin@gmail.com",
             "password" => bcrypt("123456"),
             "longitude" => "",
             "latitude" => ""

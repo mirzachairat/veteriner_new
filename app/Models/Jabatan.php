@@ -12,8 +12,4 @@ class Jabatan extends Model
     protected $table = 'jabatan';
     protected $guarded = [];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'users_id');
-    }
 }

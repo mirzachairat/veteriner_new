@@ -16,7 +16,6 @@ class PenerimaController extends Controller
     public function index()
     {
         $data = Progres::with('permohonan')->with('workflow')->where('status',0)->get();
-        return $data;
         return view('pages.penerima.penerima', compact('data'));
     }
 
