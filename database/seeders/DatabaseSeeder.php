@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call([UserSeeder::class]);
         $this->call([Jenis_hargaSeeder::class]);
         $this->call([JabatanSeeder::class]);
-        $this->call([DokumenSeeder::class]);
         $this->call([WorkflowSeeder::class]);
     }
 }

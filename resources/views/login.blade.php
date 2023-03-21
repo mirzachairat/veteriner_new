@@ -10,6 +10,9 @@
         <meta content="" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Leaflet CSS -->
+        <style>
+        #mapid { min-height: 250px; }
+        </style>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin=""/>
@@ -18,12 +21,9 @@
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin="">
         </script>
-        <style>
-        #mapid { min-height: 250px; }
-        </style>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('assets/images/banten.ico')}}">
 
         <!-- App css -->
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -151,6 +151,16 @@
                                                         <input type="password" class="form-control" name="conf-password" id="conf_password" placeholder="Confirm Password">
                                                     </div>
                                                 </div><!--end form-group-->
+                                                <div class="form-group mb-2">                                          
+                                                    <div class="input-group">                                   
+                                                        <input type="hidden" class="form-control" name="latitude" id="latitude">
+                                                    </div>
+                                                </div><!--end form-group-->
+                                                <div class="form-group mb-2">
+                                                    <div class="input-group">                                   
+                                                        <input type="hidden" class="form-control" name="longitude" id="longitude">
+                                                    </div>
+                                                </div><!--end form-group-->
                     
                                                 <div class="form-group mb-0 row">
                                                     <div class="col-12">
@@ -184,12 +194,33 @@
         <script src="{{asset('js/simplebar.min.js')}}"></script>
 
     <script>
+    function map(){
         var map = L.map('mapid').setView([{{ config('leafletsetup.map_center_latitude') }},
             {{ config('leafletsetup.map_center_longitude') }}],
             {{ config('leafletsetup.zoom_level') }});
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
+            var pin1 = new google.maps.Marker({
+                position: ledbury,
+                map: map,
+                zIndex: 1,
+                optimized: false
+                });
+                bounds.extend(pin1.getPosition());
+                map.fitBounds(bounds);
+        map.on('click', function(e){
+            var marker = new L.marker(e.latlng).addTo(map);
+            var data = {
+                    lat: e.latlng.lat,
+                    lng: e.latlng.lng
+                }
+            var lat = data.lat;
+            var lng = data.lng;    
+            $('#latitude').val(data.lat),
+            $('#longitude').val(data.lng)
+        })    
+    }
     </script>
     </body>
 

@@ -15,8 +15,9 @@ class CreateDokumenTable extends Migration
     {
         Schema::create('dokumen', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jabatan_id');
-            $table->string('nama_dokumen');
+            $table->foreignId('permohonan_id');
+            $table->integer('workflow_id');
+            $table->integer('approval')->nullable();
             $table->timestamps();
         });
     }

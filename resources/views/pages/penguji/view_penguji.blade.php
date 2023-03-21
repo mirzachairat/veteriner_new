@@ -11,7 +11,7 @@
                             <div class="page-title-box">
                                 <div class="row">
                                     <div class="col">
-                                        <h4 class="page-title">DETAIL MANAGER</h4>
+                                        <h4 class="page-title">DETAIL PENGUJI</h4>
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="javascript:void(0);">Love - Banten</a></li>
                                             <li class="breadcrumb-item active">Dashboard</li>
@@ -133,21 +133,21 @@
                                 </div><!--end card-header-->                                
                                 <div class="card-body">
                                     <ul class="list-group custom-list-group mb-n3">
-                                        @foreach($data_dok as $item)
                                         <li class="list-group-item align-items-center d-flex justify-content-between pt-0">
                                             <div class="media">
                                                 <img src="/assets/images/small/rgb.svg" height="30" class="mr-3 align-self-center rounded" alt="...">
                                                 <div class="media-body align-self-center"> 
-                                                    <h6 class="m-0">{{$item->nama_dokumen}}</h6>                                                             
+                                                    <h6 class="m-0">Form Penguji</h6>                                                             
                                                 </div><!--end media body-->
                                             </div>
-                                           
+                                            
+                                            @foreach($data_permohonan as $item)
                                             <div class="align-self-center">
-                                                <a href="{{env('APP_URL')}}/download/form_f3/" class="btn btn-sm btn-soft-primary">Download File <i class="las la-external-link-alt font-15"></i></a>  
+                                                <a href="{{env('APP_URL')}}/download/form_f3/{{$item->id}}" class="btn btn-sm btn-soft-primary">Download File <i class="las la-external-link-alt font-15"></i></a>  
                                             </div>       
+                                            @endforeach 
                                                                            
                                         </li>
-                                       @endforeach 
                                     </ul>                                
                                 </div><!--end card-body--> 
                             </div><!--end card--> 
@@ -177,6 +177,7 @@
                                 </div><!--end card-header-->                                              
                                 <div class="card-body"> 
                                     <div class="analytic-dash-activity" data-simplebar>
+                                        @foreach($data_dok as $item)
                                         <div class="activity">
                                             <div class="activity-info">
                                                 <div class="icon-info-activity">
@@ -184,70 +185,13 @@
                                                 </div>
                                                 <div class="activity-info-text">
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="text-muted mb-0 font-13 w-75"><span>Permohonan Di Proses </span> 
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>{{$item->workflow->nama_aksi}} </span> 
                                                         </p>
                                                     </div>    
                                                 </div>
-                                            </div>   
-
-                                            <div class="activity-info">
-                                                <div class="icon-info-activity">
-                                                    <i class="mdi mdi-timer-off bg-soft-primary"></i>
-                                                </div>
-                                                <div class="activity-info-text">
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="text-muted mb-0 font-13 w-75"><span>Menunggu Approval Manager</span> 
-                                                        </p>
-                                                    </div>    
-                                                </div>
-                                            </div>   
-
-                                            <div class="activity-info">
-                                                <div class="icon-info-activity">
-                                                    <img src="/assets/images/users/user-5.jpg" alt="" class="rounded-circle thumb-sm">
-                                                </div>
-                                                <div class="activity-info-text">
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="text-muted mb-0 font-13 w-75"><span>Menunggu Approval Penyelia</span> 
-                                                        </p>
-                                                    </div>    
-                                                </div>
-                                            </div>   
-
-                                            <div class="activity-info">
-                                                <div class="icon-info-activity">
-                                                    <i class="mdi mdi-clock-outline bg-soft-primary"></i>
-                                                </div>
-                                                <div class="activity-info-text">
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="text-muted mb-0 font-13 w-75"><span>Menunggu Prosses Pengguji</span> 
-                                                        </p>
-                                                    </div>    
-                                                </div>
-                                            </div>   
-                                            <div class="activity-info">
-                                                <div class="icon-info-activity">
-                                                    <i class="mdi mdi-alert-outline bg-soft-primary"></i>
-                                                </div>
-                                                <div class="activity-info-text">
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="text-muted mb-0 font-13 w-75"><span>Menunggu Hasil Uji</span> 
-                                                        </p>
-                                                    </div>    
-                                                </div>
-                                            </div> 
-                                            <div class="activity-info">
-                                                <div class="icon-info-activity">
-                                                    <img src="/assets/images/users/user-4.jpg" alt="" class="rounded-circle thumb-sm">
-                                                </div>
-                                                <div class="activity-info-text">
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="text-muted mb-0 font-13 w-75"><span>Menggu Approval Manager</span> 
-                                                        </p>
-                                                    </div>    
-                                                </div>
-                                            </div>                                                                                                                                      
+                                            </div>                                                                                                                                     
                                         </div><!--end activity-->
+                                        @endforeach
                                     </div><!--end analytics-dash-activity-->
                                 </div>  <!--end card-body-->                                     
                             </div><!--end card--> 

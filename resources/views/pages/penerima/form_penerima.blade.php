@@ -36,7 +36,8 @@
                             <div class="form-group row">
                                 <label for="jenis_hewan" class="col-sm-2 col-form-label text-right">Jenis Hewan</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" type="text" value="{{$item->jenis_hewan}}" name="jenis_hewan" id="jenis_hewan">
+                                    <input class="form-control" type="hidden" value="{{$item->jenis_hewan}}" name="jenis_hewan" id="jenis_hewan">
+                                    <input class="form-control" type="text" value="{{$item->jenis_hewan}}" name="jenis_hewan_formatted" id="jenis_hewan_formatted" disabled>
                                 </div>
                             </div>
                             <!-- Contoh UJI/Jenis_sampel -->
@@ -48,7 +49,8 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="jenis_sampel">Contoh Uji/Jenis Sampel</label>
-                                            <input type="text" class="form-control" id="jenis_sampel-0" value="{{$sampel->jenis_sampel}}" name="jenis_sampel[]">
+                                            <input type="hidden" class="form-control" id="jenis_sampel-0" value="{{$sampel->jenis_sampel}}" name="jenis_sampel[]">
+                                            <input type="text" class="form-control" id="jenis_sampel_formatted-0" value="{{$sampel->jenis_sampel}}" name="jenis_sampel_formatted[]" disabled>
                                         </div>
                                     </div>      
                                     <div class="card-body">
@@ -66,21 +68,24 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="jumlah_contoh">Jumlah Contoh Uji</label>
-                                                        <input type="text" onkeyup="totalHarga(0)" class="form-control input-jumlah_contoh" id="jumlah_contoh-0" value ="{{$sampel->jumlah_contoh}}" name="jumlah_contoh[]">
+                                                        <input type="hidden" onkeyup="totalHarga(0)" class="form-control input-jumlah_contoh" id="jumlah_contoh-0" value ="{{$sampel->jumlah_contoh}}" name="jumlah_contoh[]">
+                                                        <input type="text" onkeyup="totalHarga(0)" class="form-control input-jumlah_contoh" id="jumlah_contoh_formatted" value ="{{$sampel->jumlah_contoh}}" name="jumlah_contoh_formatted[]" disabled>
                                                     </div>
                                                 </div>
     
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="harga_satuan">Harga Satuan</label>
-                                                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-0" value="{{$sampel->harga_satuan}}"name="harga_satuan[]">
+                                                        <input type="hidden" class="form-control input-harga_satuan" id="harga_satuan-0" value="{{$sampel->harga_satuan}}"name="harga_satuan[]">
+                                                        <input type="text" class="form-control input-harga_satuan_formatted" id="harga_satuan_formatted-0" value="{{formatRupiah($sampel->harga_satuan)}}"name="harga_satuan_formatted[]" disabled>
                                                     </div>
                                                 </div>
     
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="total_harga">Total Harga</label>
-                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" value="{{$sampel->total_harga}}" name="total_harga[]">
+                                                        <input type="hidden" class="form-control input-total_harga" id="total_harga-0" value="{{$sampel->total_harga}}" name="total_harga[]">
+                                                        <input type="text" class="form-control input-total_harga" id="total_harga_formatted-0" value="{{formatRupiah($sampel->total_harga)}}" name="total_harga_formatted[]" disabled>
                                                     </div>
                                                 </div> 
                                                 <div class="col-sm-2">
@@ -111,7 +116,7 @@
                                                 </div>  
                                                 <input type="hidden" value = "0" id="status_delete" name="status_delete" >                                            
                                                 <input type="hidden" value = "1" id="status" name="status" >     
-                                                <input type="hidden" value = "3" id="workflow_id" name="workflow_id" >                                      
+                                                <input type="hidden" value = "2" id="workflow_id" name="workflow_id" >                                      
                                             </div>
                                         </div>
                                     </div><!--end card-body-->
@@ -120,8 +125,8 @@
                                         <div class="form-group row">
                                             <label for="jumlah_seluruhya" class="col-sm-8 col-form-label text-right" >Jumlah Seluruhnya</label>
                                             <div class="col-sm-2">
-                                                <input class="form-control" type="hidden" id="jumlah_seluruhnya" value="{{$item->jumlah}}" name="jumlah_seluruhnya" style="background-color: rgb(243, 236, 236) ">
-                                                <input class="form-control" type="text" id="jumlah_seluruhnya_formatted" value="{{$item->jumlah}}" name="jumlah_seluruhnya_formatted" style="background-color: rgb(243, 236, 236) ">
+                                                <input class="form-control" type="hidden" id="jumlah_seluruhnya" value="{{$item->jumlah}}" name="jumlah_seluruhnya" style="background-color: rgb(243, 236, 236)">
+                                                <input class="form-control" type="text" id="jumlah_seluruhnya_formatted" value="{{formatRupiah($item->jumlah)}}" name="jumlah_seluruhnya_formatted" style="background-color: rgb(243, 236, 236) " disabled>
                                             </div>
                                         </div>
                                     </div>

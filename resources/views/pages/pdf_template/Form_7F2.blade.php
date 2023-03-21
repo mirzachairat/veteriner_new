@@ -168,10 +168,10 @@
 
     .header {
         position: relative;
-        top: 20px;
+        top: 10px;
         /* left: 0; */
         width: 100%;
-        padding: 20px;
+        /* padding: 20px; */
         /* height: 150px; */
         display: block;
         /* background: yellow; */
@@ -181,6 +181,7 @@
     .content {
         position: relative;
         padding: 20px;
+        margin-left: 20px;
         /* top: 150px; */
         width: 100%;
         display: block;
@@ -241,6 +242,7 @@
     .has-padding td {
         font-size: 12px;
         padding: 0.3em;
+        text-align: center;
     }
 
     .draft-img {
@@ -305,7 +307,7 @@
     padding: 0.5em;
 }
 .tanda_tangan{
-    margin-top: 20px;
+    margin-top: 30px;
     width: 100% ;
     vertical-align: middle;
 }
@@ -314,8 +316,10 @@
 }
 .tanda_tangan tr td{
     border-style: none;
+    font-size: 14px;
 }
 .tanggal_surat{
+    margin-top:10px;
     border-style: none;
 }
 .tanggal_surat tr td{
@@ -326,16 +330,40 @@
     padding-top: 20px;
 }
 
+.column {
+  float: left;
+  width: 45%;
+  font-size: 5px;
+  height: 100px; /* Should be removed. Only for demonstration */
+}
+
+.datasampel tr{
+}
+.datasampel tr td{
+    width: 180px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tanggal_surat tr td{
+    font-size: 14px;
+}
+.ceklist_tabel tr td{
+    font-size: 13px;
+}
+
 </style>
 
 <body  style="
-margin-left: 50px;
-margin-right: 80px;
-margin-top: 30px;
+margin-left: 40px;
+margin-right: 90px;
+margin-top: 10px;
 margin-bottom: 48px; 
 ">
     <div class="content">
-
         <div class="header">
             <table style="width: 100%">
               <tr>
@@ -346,6 +374,7 @@ margin-bottom: 48px;
                     text-align: right;
                     vertical-align: middle !important;
                     background-color: #d4d4d4d4;
+                    padding: 15px 10px 20px 0px;
                     width: 10%;
                   "
                 >
@@ -363,14 +392,14 @@ margin-bottom: 48px;
                     vertical-align: middle !important;
                     background-color: #d4d4d4d4;
                     width: 40%;
-                    /* padding: 15px 10px 26px; */
-                    line-height:25px
+                    padding: 15px 10px 20px 0px;
+                    line-height:21px;
                   "
                 >
                   <span class="bold-text">UNIT PELAKSANA TEKNIS DAERAH</span>
                   <span class="bold-text">PELAYANAN DAN PENGUJIAN VETERINER</span>
-                  <span class="bold-text">DINAS PERTANIAN PROVINSI BANTEN</span><br>
-                  <span class="bold-text" style="font-size: 30px">FORMULIR</span>
+                  <span class="bold-text">DINAS PERTANIAN PROVINSI BANTEN</span><br><br>
+                  <span class="bold-text" style="font-size: 23px">FORMULIR</span>
                 </td>
                 <td
                   style="
@@ -379,6 +408,7 @@ margin-bottom: 48px;
                     vertical-align: middle !important;
                     background-color: #d4d4d4d4;
                     padding: 15px 10px 15px;
+                    line-height: 100%;
                   "
                 >
                   <span class="bold-text">No.Bagian</span><br />
@@ -394,9 +424,10 @@ margin-bottom: 48px;
                     text-align: left;
                     vertical-align: middle !important;
                     background-color: #d4d4d4d4;
-                    padding: 15px 6px 15px;
+                    padding: 13px 6px 15px 10px;
                   "
                 >
+                  <span class="bold-text">:</span><br />
                   <span class="bold-text">:</span><br />
                   <span class="bold-text">:</span><br />
                   <span class="bold-text">:</span><br />
@@ -410,7 +441,7 @@ margin-bottom: 48px;
                     text-align: left;
                     vertical-align: middle !important;
                     background-color: #d4d4d4d4;
-                    padding: 28px 6px 26px;
+                    padding: 20px 6px 15px;
                   "
                 >
                   <span class="bold-text">7 F 2</span><br />
@@ -418,7 +449,7 @@ margin-bottom: 48px;
                   <span class="bold-text">4/0</span><br />
                   <span class="bold-text">21 Januari 2022</span><br />
                   <span class="bold-text">-</span><br />
-                  <span class="bold-text"></span><br />
+                  <span class="bold-text">-</span><br />
                 </td>
               </tr>
               <tr>
@@ -429,10 +460,10 @@ margin-bottom: 48px;
                     text-align: center;
                     vertical-align: middle !important;
                     background-color: #d4d4d4d4;
-                    padding: 15px 10px 15px;
+                    padding: 15px 10px 10px;
                   "
                 >
-                  <span class="bold-text" style="font-size: 20px"
+                  <span class="bold-text" style="font-size: 15px"
                     >KAJI ULANG PERMINTAAN</span
                   ><br />
                 </td>
@@ -440,21 +471,20 @@ margin-bottom: 48px;
             </table>
           </div>
         <br>
-        <div class="tanggal_surat"></div>
           <table style="width: 100%;line-height: 30px;" class="tanggal_surat" >
             <tr>
                 <tr>
                     <td>Tanggal Terima</td>
                     <td style="width: 2%;">:</td>
-                    <td>{{$tgl_terima}}</td>
+                    <td style="padding-left:0px">{{$tgl_terima}}</td>
                     <td >No.Contoh Uji</td>
                     <td style="width: 2%;">:</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Tanggal diserahkan ke MT</td>
-                    <td style="width: 20%;">:</td>
-                    <td>{{$tgl_diserahkan_mt}}</td>
+                    <td style="width: 5%;">:</td>
+                    <td style="padding-left:0px">{{$tgl_diserahkan_mt}}</td>
                     <td>No.Epi</td>
                     <td style="width: 2%;">:</td>
                     <td>{{$no_epi}}</td>
@@ -464,7 +494,7 @@ margin-bottom: 48px;
             </tr>
           </table>
 
-        <div class="table-content" style="margin-top: 30px">
+        <div class="table-content" style="margin-top: 10px">
             <div class="container">
                 <table class="has-padding" style="width: 100%;" style>
                     <tr>
@@ -484,16 +514,16 @@ margin-bottom: 48px;
                         <td>Memenuhi</td>
                         <td>Kurang</td>
                     </tr>
-                    @foreach($jenis as $item)
+                    @foreach($jenis as $key => $item)
                     <tr>
-                        <td>1</td>
+                        <td>{{$key+1}}</td>
                         <td>{{$jenis_hewan}}</td>
                         <td>{{$item->jenis_sampel}}</td>
                         <td>{{$item->jumlah_contoh}}</td>
                         <td>{{$item->bahan_pengawet}}</td>
                         <td colspan="2">{{$item->kondisi}}</td>
                         <td colspan="2">{{$item->kriteria}}</td>
-                        <td>{{$item->jenis_pengujian}}</td>
+                        <td>{{$item->jenis_harga->jenis_pengujian}}</td>
                         
                     </tr>
                     @endforeach
@@ -501,193 +531,191 @@ margin-bottom: 48px;
            </div>
         </div>
     
-        <div class="tanda_tangan">
-            <table style=" border-style: hidden; width: 100%;" >
-                <tr>
-                    <td style="width: 60%;">
-                            <span>Penerima Contoh Uji</span><br />
-                           
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                           
-                            <br /><br /><br /><br />
+        {{-- class tandan tangan --}}
+        <table style=" border-style: hidden; width: 100%;" class="tanda_tangan" >
+            <tr>
+                <td style="width: 60%;">
+                        <span>Penerima Contoh Uji</span><br />
                         
-                            <span>{{Auth::user()->nama}}</span>
-                    </td>
-                    <td>
-                            <span>Serang,...................</span><br />
-                            <span>Pengirim Contoh Uji</span><br />
-                           
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                           
-                            <br /><br /><br /><br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                         
-                            <span>.......................</span>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                        <br />
+                    
+                        <span>{{Auth::user()->nama}}</span>
+                </td>
+                <td>
+                        <span>Serang,...................</span><br />
+                        <span>Pengirim Contoh Uji</span><br />
+                        
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        
+                        <br />
+                    
+                        <span>.......................</span>
+                </td>
+            </tr>
+        </table>
     
         <div style="padding: 20px;">
             <text>Data Sampel/Contoh : Ruang Lingkup Akreditasi</text>
         </div>
     
-        <div class="data_sample">
-            <table class="tabel_sample">
-                <tr>
-                    <td style="width:30%">1.Tanggal Penerima</td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">2.Pengiriman Sampel </td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">3.Jenis Sampel </td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">4.Jumlah Sampel </td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">5. Metode Uji </td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">6. Biaya Uji </td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">7. Laboratorium </td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">8. No. Epid/Contoh Uji </td>
-                    <td>:.....</td>
-                </tr>
-                <tr>
-                    <td style="width:30%">8. Lama Pengujian </td>
-                    <td>:.....</td>
-                </tr>
-            </table>
-            <table style="font-size:x-small;width:50%;">
-                <tr style="text-align: center;">
-                    <td>Jenis Pengujian atau 
-                        <br>sifat-sifat yang diukur</td>
-                    <td>Metode Pengujian, teknik yang di gunakan</td>
-                    
-                </tr>
-                <tr>
+        <div class="row">
+            <div class="column">
+                <table style="font-size:x-small;width:80%;">
                     <tr>
-                        <td>
-                            <span>Seriologi</span><br>
-                            <span>Rose Bengal Test(RBT)</span><br>
-                        </td>
-                        <td>OIE Terrestrial Manual 2018, Chapter 3.1.4:368-369</td>
+                        <td style="width:30%">1.Tanggal Penerima</td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Pulorum test</span><br>
-                        </td>
-                        <td>OIE Terrestrial Manual 2018, Chapter 3.3.11:922-923</td>
+                        <td style="width:30%">2.Pengiriman Sampel </td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk Ai</span><br />
-                        </td>
-                        <td>OIE Terrestrial Manual 2018, Chapter 3.3.4:830-831</td>
+                        <td style="width:30%">3.Jenis Sampel </td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk ND</span><br>
-                            <td>OIE Terrestrial Manual 2018, Chapter 3.3.14:970-971</td>
-                        </td>
+                        <td style="width:30%">4.Jumlah Sampel </td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Parasitologi:</span><br>
-                            <span>Uji Sedimentasi (telur cacing Fasiola sp paramphistomum)</span><br />
-                        </td>
-                        <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 38-51</td>
+                        <td style="width:30%">5. Metode Uji </td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Uji Kualitatif telur cacing</span><br>
-                        </td>
-                        <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 34-37</td>
+                        <td style="width:30%">6. Biaya Uji </td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Formaldehyde</span><br>
-                        </td>
-                        <td>7IK 1.7(Kuantitatif)</td>
+                        <td style="width:30%">7. Laboratorium </td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Total Plate Count (TPC)</span><br>
-                        </td>
-                        <td>SNI 2987:2008, butir 1</td>
+                        <td style="width:30%">8. No. Epid/Contoh Uji </td>
+                        <td>:.....</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>Coliform</span><br>
-                        </td>
-                        <td>ISO 16649-2:2001</td>
+                        <td style="width:30%">8. Lama Pengujian </td>
+                        <td>:.....</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="column">
+                <table class="datasampel" style="font-size:10px;">
+                    <tr style="t10xt-align: center;">
+                        <td>Jenis Pengujian atau 
+                            <br>sifat-sifat yang diukur</td>
+                        <td>Metode Pengujian, teknik yang di gunakan</td>
+                        
                     </tr>
                     <tr>
-                        <td>
-                            <span>E Coli</span><br>
-                        </td>
-                        <td>ISO 16649-2:2001</td>
+                        <tr>
+                            <td>
+                                <span>Seriologi</span><br>
+                                <span>Rose Bengal Test(RBT)</span><br>
+                            </td>
+                            <td>OIE Terrestrial Manual 2018, Chapter 3.1.4:368-369</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Pulorum test</span><br>
+                            </td>
+                            <td>OIE Terrestrial Manual 2018, Chapter 3.3.11:922-923</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk Ai</span><br />
+                            </td>
+                            <td>OIE Terrestrial Manual 2018, Chapter 3.3.4:830-831</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk ND</span><br>
+                                <td>OIE Terrestrial Manual 2018, Chapter 3.3.14:970-971</td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Parasitologi:</span><br>
+                                <span>Uji Sedimentasi (telur cacing Fasiola sp paramphistomum)</span><br />
+                            </td>
+                            <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 38-51</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Uji Kualitatif telur cacing</span><br>
+                            </td>
+                            <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 34-37</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Formaldehyde</span><br>
+                            </td>
+                            <td>7IK 1.7(Kuantitatif)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Total Plate Count (TPC)</span><br>
+                            </td>
+                            <td>SNI 2987:2008, butir 1</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Coliform</span><br>
+                            </td>
+                            <td>ISO 16649-2:2001</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>E Coli</span><br>
+                            </td>
+                            <td>ISO 16649-2:2001</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Salmonelia sp</span><br>
+                            </td>
+                            <td>SNI 2987:2008, butir 4</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Indetifikasi spesies babi(pork)</span><br>
+                            </td>
+                            <td>User Manual IQ Plus tm, User manual Procine ingredient Reagent Set Tahun 2012(Poumerase Chain Reaction)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Identifikasi Avian Influenza</span><br>
+                            </td>
+                            <td>User Manual IQ Plus tm, User Manual Pockit  Avian Influenza H5 Detection KIT H5 Detection KIT Tahun 2012(Polymerase Chain Reaction)</td>
+                        </tr>
                     </tr>
-                    <tr>
-                        <td>
-                            <span>Salmonelia sp</span><br>
-                        </td>
-                        <td>SNI 2987:2008, butir 4</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Indetifikasi spesies babi(pork)</span><br>
-                        </td>
-                        <td>User Manual IQ Plus tm, User manual Procine ingredient Reagent Set Tahun 2012(Poumerase Chain Reaction)</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Identifikasi Avian Influenza</span><br>
-                        </td>
-                        <td>User Manual IQ Plus tm, User Manual Pockit  Avian Influenza H5 Detection KIT H5 Detection KIT Tahun 2012(Polymerase Chain Reaction)</td>
-                    </tr>
-                </tr>
-            </table>
-            <br>
-            <br>
-            <table class="ceklist_tabel" width="40%">
-                <tr>
-                    <td>Dilanjutkan</td>
-                    <td>Disubkontrak</td>
-                    <td>Tidak Dapat Dilakukan Pengujian</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>      
-            </table>
-            <text>Catatan : Bubuhkan tanda </text>
+                </table>
+            </div>
         </div>
-        <div class="list_jenis">
-           
-        </div>
-
+        
+        <table class="ceklist_tabel" style=" width: 40%; margin-top:149px;">
+            <tr>
+                <td>Dilanjutkan</td>
+                <td>Disubkontrak</td>
+                <td>Tidak Dapat Dilakukan Pengujian</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>      
+        </table>
+        <text>Catatan : Bubuhkan tanda </text>
         <div class="td_pj" >
-                <table>
+                <table style="border-style: hidden">
                     <tr>
                         <span>Mengetahui</span><br>
                         <span>Penanggung Jawab Teknis</span><br>

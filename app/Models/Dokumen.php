@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Workflow;
 
 class Dokumen extends Model
 {
@@ -13,5 +14,9 @@ class Dokumen extends Model
     public function jabatan()
     {
         return $this->belongsTo(Jabatan::class);
+    }
+    public function workflow()
+    {
+        return $this->belongsTo(Workflow::class, 'id');
     }
 }

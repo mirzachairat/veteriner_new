@@ -26,26 +26,31 @@ class WorkflowSeeder extends Seeder
         ]);
         Workflow::create([
             "sort" => 3,
-            "nama_aksi" => "Menunggu Approval Manager",
+            "nama_aksi" => "Approval Penyelia",
             "label" => "lanjutkan"
         ]);
         Workflow::create([
             "sort" => 4,
-            "nama_aksi" => "Menunggu Approval Penyelia",
+            "nama_aksi" => "Approval Penguji",
             "label" => "lanjutkan"
         ]);
         Workflow::create([
             "sort" => 5,
-            "nama_aksi" => "Menunggu Approval Penguji",
-            "label" => "lanjutkan"
-        ]);
-        Workflow::create([
-            "sort" => 6,
             "nama_aksi" => "Input Hasil Uji Penyelia ",
             "label" => "lanjutkan"
         ]);
         Workflow::create([
+            "sort" => 6,
+            "nama_aksi" => "Setujui Manager ",
+            "label" => "lanjutkan"
+        ]);
+        Workflow::create([
             "sort" => 7,
+            "nama_aksi" => "Cek status pembayaran",
+            "label" => "lanjutkan"
+        ]);
+        Workflow::create([
+            "sort" => 8,
             "nama_aksi" => "Setujui Permohonan ",
             "label" => "lanjutkan"
         ]);

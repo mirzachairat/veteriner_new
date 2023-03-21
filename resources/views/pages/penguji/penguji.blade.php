@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Tabel Manager</h4>
+                <h4 class="card-title">Tabel Penguji</h4>
                 <p class="text-muted mb-0">Add <code>.table-bordered</code> for
                     borders on all sides of the table and cells.
                 </p>
@@ -28,8 +28,8 @@
                                 <td>{{$item->permohonan->jenis_hewan}}</td>
                                 <td><span class="badge badge-soft-success">Approved</span></td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/penyelia/{{$item->permohonan->id}}" >Lihat</a>
-                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/penyelia/{{$item->id}}" >Detail</a>
+                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/penguji/{{$item->permohonan->id}}" >Lihat</a>
+                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/penguji/{{$item->id}}" >Detail</a>
                                 </td>
                             </tr>
                             @endforeach

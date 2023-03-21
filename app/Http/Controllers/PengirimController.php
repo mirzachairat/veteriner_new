@@ -7,6 +7,8 @@ use App\Models\Permohonan;
 use App\Models\Jenis_harga;
 use Illuminate\Support\Facades\Session;
 use App\Models\Dokumen;
+use App\Models\Progres;
+use App\Models\Workflow;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -16,6 +18,8 @@ class PengirimController extends Controller
     {
         // $data = Permohonan::with('jenis_sampel')->with('user')->where('users_id', auth()->id())->get();
         $data = Permohonan::where('users_id', auth()->id())->get();
+        $data_prog = Progres::where('workflow')->get();
+        return $data_prog;
         return view('pages.pengirim.pengirim', compact('data'));
         // return $data;
     }

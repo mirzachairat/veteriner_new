@@ -18,6 +18,7 @@ class CreateProgresTable extends Migration
             $table->integer('permohonan_id');
             $table->integer('workflow_id');
             $table->integer('status')->nullable();
+            $table->integer('next_status')->nullable();
             $table->timestamps();
         });
     }

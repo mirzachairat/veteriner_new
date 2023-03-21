@@ -18,6 +18,13 @@ class UserController extends Controller
         return view('login');
     }
 
+    public function view_user(){
+        $data = User::get();
+        return view('pages.users.user')->with([
+            'data' => $data
+        ]);
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -43,15 +50,17 @@ class UserController extends Controller
         ]);
 
         $user = User::create([
-            'nama' => trim($request->input('nama')),
-            'email' => strtolower($request->input('email')),
-            'password' => bcrypt($request->input('password')),
-            'no_hp' => $request->input('no_hp'),
+            'nama' => trim($request->nama),
+            'email' => strtolower($request->email),
+            'password' => bcrypt($request->password),
+            'no_hp' => $request->no_hp,
+            'jabatan' => $request->jabatan,
+            'type' => $request->type,
             'jabatan_id' => 1,
-            'instansi' => $request->input('instansi'),
-            'alamat' => $request->input('alamat'),
-            'longitude' => $request->input('longitude'),
-            'latitude' => $request->input('latitude')
+            'instansi' => $request->instansi,
+            'alamat' => $request->alamat,
+            'longitude' => $request->longitude,
+            'latitude' => $request->latitude
         ]);
 
         session()->flash('message', 'Your account is created');

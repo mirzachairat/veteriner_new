@@ -37,6 +37,11 @@ class PermohonanController extends Controller
             "workflow_id" => 1,
             "status" => 0
         ]);
+        $dokumen = Dokumen::create([
+            'permohonan_id' => $permohonan->id,
+            'workflow_id' => 1,
+            'approval' => $request->approval
+        ]);
 
         return redirect()->back();
     }

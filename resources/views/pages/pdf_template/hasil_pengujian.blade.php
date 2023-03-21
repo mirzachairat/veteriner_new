@@ -385,11 +385,13 @@
             </tr>
             <tr>
               <td>Tgl. Kirim / No Surat</td>
-              <td>: ..................</td>
+              <td>:</td>
+              <td></td>
             </tr>
             <tr>
               <td>Tgl. Terima</td>
-              <td>: ..................</td>
+              <td>:</td>
+              <td>{{$tgl_terima}}</td>
             </tr>
             <tr>
               <td>No Epi</td>
@@ -398,7 +400,7 @@
             </tr>
             <tr>
               <td>Jenis Layanan</td>
-              <td>: ..................</td>
+              <td>:</td>
             </tr>
             <tr>
               <td>Input Data</td>

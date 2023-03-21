@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Permohonan;
 use App\Models\Jenis_sampel;
 use App\Models\Progres;
+use App\Models\Dokumen;
 
 class ManagerController extends Controller
 {
     //menampilkan tabel pemohon yg blm di Approval
     public function index(){
-        $data = Progres::with('permohonan')->where('status',1)->get();
+        $data = Progres::with('permohonan')->where('status',1)->orWhere('status',5)->get();
         return view('pages.manager.manager', compact('data'));
     }
 
@@ -33,7 +34,7 @@ class ManagerController extends Controller
     public function update_jenis_sampel(Request $request){
         $data_a = Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
         $status_a = $request->status_delete;
-        $data_a = Progres::where('status', $status_a)->delete();
+        $next_progres = Progres::first();
         foreach ($request->permohonan_id as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $request->permohonan_id[$index],
@@ -48,12 +49,33 @@ class ManagerController extends Controller
              ]);
          }
         
-         $progress = Progres::create([
-             "permohonan_id" => $request->permohonan_id[0],
-             "workflow_id" => $request->workflow_id,
-             "status" => $request->status
-         ]);
- 
+         if($next_progres->status !== 5){
+            Progres::where('status', $status_a)->delete();
+            Progres::create([
+                "permohonan_id" => $request->permohonan_id[0],
+                "workflow_id" => $request->workflow_id,
+                "status" => $request->status
+            ]);  
+
+            $dokumen = Dokumen::create([
+                'permohonan_id' => $request->permohonan_id[0],
+                'workflow_id' => $request->workflow_id,
+                'approval' => $request->approval
+            ]);
+        }else{
+            Progres::where('status',5)->delete();
+             $progress = Progres::create([
+                 "permohonan_id" => $request->permohonan_id[0],
+                 "workflow_id" => 7,
+                 "status" => 6,
+             ]);
+             
+             $dokumen = Dokumen::create([
+                'permohonan_id' => $request->permohonan_id[0],
+                'workflow_id' => 7,
+                'approval' => $request->approval
+            ]);
+        }
          return redirect('/manager');
     }
 }

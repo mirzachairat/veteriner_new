@@ -205,7 +205,6 @@
                                 </div><!--end card-header-->                                              
                                 <div class="card-body"> 
                                     <div class="analytic-dash-activity" data-simplebar>
-                                        @foreach ($data_progres as $fn)
                                         <div class="activity">
                                             <div class="activity-info">
                                                 <div class="icon-info-activity">
@@ -213,13 +212,25 @@
                                                 </div>
                                                 <div class="activity-info-text">
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="text-muted mb-0 font-13 w-75"><span>{{$fn->workflow->nama_aksi}} </span> 
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>Permohonan </span> 
                                                         </p>
                                                     </div>    
                                                 </div>
                                             </div>                                                                                                                                   
+                                            @foreach ($data_dok as $item)
+                                            <div class="activity-info">
+                                                <div class="icon-info-activity">
+                                                    <i class="las la-user-clock bg-soft-primary"></i>
+                                                </div>
+                                                <div class="activity-info-text">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>{{$item->workflow->nama_aksi}} </span> 
+                                                        </p>
+                                                    </div>    
+                                                </div>
+                                            </div>                                                                                                                                   
+                                            @endforeach
                                         </div><!--end activity-->
-                                        @endforeach
                                     </div><!--end analytics-dash-activity-->
                                 </div>  <!--end card-body-->                                     
                             </div><!--end card--> 

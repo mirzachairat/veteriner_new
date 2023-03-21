@@ -18,8 +18,8 @@
                                 <div class="col-sm-6">
                                     <select type="text" class="form-control" id="jenis_lab-0" name="jenis_lab">
                                         <option value selected disabled>=== PILIH JENIS ===</option>
-                                        <option value="Kesmavet">Kesmavet</option>
-                                        <option value="Veteriner">Veteriner</option>
+                                        <option value="Kesmavet">Keswan(kesehatan hewan)</option>
+                                        <option value="Veteriner">Kesmavet(Kesehatan Masyarakat Veteriner)</option>
                                     </select>
                                 </div>
                             </div>

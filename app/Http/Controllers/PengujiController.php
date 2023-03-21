@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Progres;
 use App\Models\Permohonan;
 use App\Models\Jenis_sampel;
+use App\Models\Dokumen;
 
 class PengujiController extends Controller
 {
@@ -20,6 +21,12 @@ class PengujiController extends Controller
         $data_detail = Permohonan::with('jenis_sampel')->where('id', $id)->get();
         $data_sample = Jenis_sampel::with('jenis_harga')->where('permohonan_id', $id)->get();
         return view('pages.penguji.form_penguji', compact(['data_detail','data_sample']));
+    }
+
+    //menampilkan tabel semua user yang telah di kirim untuk di cetak dokumen pdf    
+    public function view_allform(){
+        $data = Permohonan::with('jenis_sampel')->get();
+        return view('pages.penguji.detail_penguji', compact('data'));
     }
 
     public function update_jenis_sampel(Request $request){
@@ -45,7 +52,13 @@ class PengujiController extends Controller
              "workflow_id" => $request->workflow_id,
              "status" => $request->status
          ]);
- 
+         
+         $dokumen = Dokumen::create([
+            'permohonan_id' => $request->permohonan_id[0],
+            'workflow_id' => $request->workflow_id,
+            'approval' => $request->approval
+        ]);
+
          return redirect('/penguji');
     }
 }

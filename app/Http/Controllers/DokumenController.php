@@ -28,7 +28,7 @@ class DokumenController extends Controller
             'jenis_hewan' => $permohonan->jenis_hewan
         ];
         $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
-        return $pdf->download('Permohonan.pdf');
+        return $pdf->stream('Permohonan.pdf');
     }
     public function filepdf($id)
     {
@@ -59,29 +59,28 @@ class DokumenController extends Controller
                 // 'jenis_pengujian' => $jenis->jenis_pengujian,
                 // 'total_harga' => $jenis->total_harga,
             ];
-           
         //user pemohon    
         if($user == 1){
                 $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
-                return $pdf->download('Pemohon.pdf');
+                return $pdf->stream('Pemohon.pdf');
         }    
 
         //user penerima    
         if($user == 2){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
-            return $pdf->download('Penerima.pdf');
+            return $pdf->stream('Penerima.pdf');
             }
 
         //user manager    
         if($user == 3){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F3',$data_pass);
-            return $pdf->download('Kontrak Pengujian.pdf');
+            return $pdf->stream('Kontrak Pengujian.pdf');
         }
 
         //user penyelia
         if($user == 4){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F6',$data_pass);
-            return $pdf->download('Kesimpulan Diagnosa.pdf');
+            return $pdf->stream('Kesimpulan Diagnosa.pdf');
         }
     }
 
@@ -113,7 +112,7 @@ class DokumenController extends Controller
                 // 'total_harga' => $jenis->total_harga,
             ];
             $pdf = Pdf::loadView('pages.pdf_template.invoice',$data_pass);
-            return $pdf->download('Invoice.pdf');
+            return $pdf->stream('Invoice.pdf');
     }
     public function sertifikat($id){
         $user = Auth::user()->id;
@@ -121,7 +120,7 @@ class DokumenController extends Controller
         $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
         $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)
                                 ->with('jenis_harga')
-                                ->get();
+                                ->get();                        
         $data_pass = [
                 'nama' => $permohonan->nama,
                 'instansi' => $permohonan->instansi,
@@ -145,6 +144,6 @@ class DokumenController extends Controller
                 // 'total_harga' => $jenis->total_harga,
             ];
             $pdf = Pdf::loadView('pages.pdf_template.hasil_pengujian',$data_pass);
-            return $pdf->download('Sertifikat.pdf');
+            return $pdf->stream('Sertifikat.pdf');
     }
 }

@@ -12,6 +12,8 @@ use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\PenyeliaController;
 use App\Http\Controllers\PengujiController;
+use App\Http\Controllers\MapviewController;
+use App\Http\Controllers\BendaharaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,9 +65,10 @@ Route::middleware(['auth'])->group(function () {
     //Module Penguji
     Route::get('/penguji', [PengujiController::class, 'index']);
     Route::get('/form/penguji/{id}', [PengujiController::class, 'form_detail']);
-    Route::get('/view/penguji/{id}', [DashboardController::class, 'detail']);
+    Route::get('/cetak/penguji', [PengujiController::class, 'view_allform']);
     Route::post('/penguji/update', [PengujiController::class, 'update_jenis_sampel']);
-
+    Route::get('/view/penguji/{id}', [DashboardController::class, 'detail']);
+    
 
     // Getdata harga
     Route::get('/harga', [Jenis_hargaController::class, 'index'])->name('pageharga');
@@ -83,6 +86,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/download/invoice/{id}',[DokumenController::class, 'invoice']);
     Route::get('/download/sertifikat/{id}',[DokumenController::class, 'sertifikat']);
     Route::get('/dokumen/{form_f6}', 'DokumenController@index');
+    
+    //Dokumen Bendahara
+    Route::get('/bendahara', [BendaharaController::class , 'index']);
+
+    // Map route
+    Route::get('/mapview', [MapviewController::class, 'mapview']);
+    
+    //tambah user
+    Route::get('/user', [UserController::class, 'index']);
+    Route::get('/user', [UserController::class, 'view_user']);
+    Route::get('/user/tambah', [UserController::class, 'create_user']);
+    Route::get('/user/edit/{id}', [UserController::class, 'edituser']);
+    Route::get('/user/delete/{id}', [UserController::class, 'edituser']);
 
 
 });

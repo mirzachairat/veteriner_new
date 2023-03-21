@@ -29,6 +29,11 @@ class Jenis_hargaController extends Controller
         return redirect()->back();
     }
     
+
+    public function viewform(){
+        return view('pages.daftar_harga.form_daftar_harga');
+    }
+
     public function  vieweditform($id){
         $data_edit = Jenis_harga::where('id',$id)->get();  
         return view('pages.daftar_harga.editForm',compact('data_edit'));
@@ -42,7 +47,7 @@ class Jenis_hargaController extends Controller
             'tarif' => $request->tarif,
             'lama_pengujian' => $request->lama_pengujian
         ]);
-        return redirect()->route('pageharga');
+        return redirect()->back('harga');
     }
 
 

@@ -7,6 +7,7 @@ use App\Models\Permohonan;
 use App\Models\Jenis_sampel;
 use App\Models\Penerima;
 use App\Models\Progres;
+use App\Models\Dokumen;
 use App\Models\Jenis_harga;
 
 class PenerimaController extends Controller
@@ -14,7 +15,8 @@ class PenerimaController extends Controller
     //menampilkan tabel pemohon 
     public function index()
     {
-        $data = Progres::with('permohonan')->where('status',0)->get();
+        $data = Progres::with('permohonan')->with('workflow')->where('status',0)->get();
+        return $data;
         return view('pages.penerima.penerima', compact('data'));
     }
 
@@ -66,6 +68,12 @@ class PenerimaController extends Controller
              "workflow_id" => $request->workflow_id,
              "status" => $request->status
          ]);
+
+         $dokumen = Dokumen::create([
+            'permohonan_id' => $request->permohonan_id[0],
+            'workflow_id' => $request->workflow_id,
+            'approval' => $request->approval
+        ]);
  
          return redirect('/penerima');
      }

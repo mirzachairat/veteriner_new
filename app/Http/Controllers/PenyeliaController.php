@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Progres;
 use App\Models\Permohonan;
 use App\Models\Jenis_sampel;
+use App\Models\Dokumen;
 
 class PenyeliaController extends Controller
 {
     public function index(){
         //status 2 hanya bisa dilihat penyelia pada tabel progres
-        $data = Progres::with('permohonan')->where('status',2)->get();
+        $data = Progres::with('permohonan')->where('status',2)->orWhere('status',4)->get();
         return view('pages.penyelia.penyelia', compact('data'));
         // return $data;
     }
@@ -34,7 +35,7 @@ class PenyeliaController extends Controller
         $data_permohonan = Permohonan::where('id', $request->permohonan_id)->first();
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
         $status_a = $request->status_delete;
-        $data_a = Progres::where('status', $status_a)->delete();
+        $next_progres = Progres::first();
         foreach ($request->permohonan_id as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $request->permohonan_id[$index],
@@ -63,13 +64,33 @@ class PenyeliaController extends Controller
             'catatan' => $request->catatan
         ]);
 
+        if($next_progres->status !== 4){
+            Progres::where('status', $status_a)->delete();
+            Progres::create([
+                "permohonan_id" => $request->permohonan_id[0],
+                "workflow_id" => $request->workflow_id,
+                "status" => $request->status
+            ]);  
 
-         $progress = Progres::create([
-             "permohonan_id" => $request->permohonan_id[0],
-             "workflow_id" => $request->workflow_id,
-             "status" => $request->status
-         ]);
- 
+            $dokumen = Dokumen::create([
+                'permohonan_id' => $request->permohonan_id[0],
+                'workflow_id' => $request->workflow_id,
+                'approval' => $request->approval
+            ]);
+        }else{
+            Progres::where('status',4)->delete();
+             $progress = Progres::create([
+                 "permohonan_id" => $request->permohonan_id[0],
+                 "workflow_id" => 6,
+                 "status" => 5,
+             ]);
+             
+             $dokumen = Dokumen::create([
+                'permohonan_id' => $request->permohonan_id[0],
+                'workflow_id' => 6,
+                'approval' => $request->approval
+            ]);
+        }
          return redirect('/penyelia');
     }
 }
