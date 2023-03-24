@@ -32,9 +32,11 @@ class ManagerController extends Controller
     }
 
     public function update_jenis_sampel(Request $request){
-        $data_a = Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
+        $permohonan_id = $request->permohonan_id;
+        Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
         $status_a = $request->status_delete;
-        $next_progres = Progres::first();
+        $next_progres = Progres::where('permohonan_id', $permohonan_id)->first();
+    
         foreach ($request->permohonan_id as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $request->permohonan_id[$index],
@@ -48,9 +50,9 @@ class ManagerController extends Controller
                  'kriteria' => $request->kriteria[$index],
              ]);
          }
-        
+    
          if($next_progres->status !== 5){
-            Progres::where('status', $status_a)->delete();
+            Progres::where('status', $status_a)->where('permohonan_id',$permohonan_id)->delete();
             Progres::create([
                 "permohonan_id" => $request->permohonan_id[0],
                 "workflow_id" => $request->workflow_id,
@@ -63,7 +65,7 @@ class ManagerController extends Controller
                 'approval' => $request->approval
             ]);
         }else{
-            Progres::where('status',5)->delete();
+            Progres::where('status',5)->where('permohonan_id',$permohonan_id)->delete();
              $progress = Progres::create([
                  "permohonan_id" => $request->permohonan_id[0],
                  "workflow_id" => 7,

@@ -283,8 +283,8 @@
 
   <body
     style="
-      margin-left: 100px;
-      margin-right: 50px;
+      margin-left: 70px;
+      margin-right: 60px;
       margin-top: 48px;
       margin-bottom: 48px;
     "
@@ -427,7 +427,7 @@
     </div>
     <div class="tanda-tangan">
       <div>
-        <text style="float: right; margin-right: 300px"
+        <text style="margin-right: 300%"
           >Serang, .......................,20.....</text
         >
         <table style="width: 100%">
@@ -447,7 +447,7 @@
                 <span>.......................</span>
               </div>
             </td>
-            <td style="width: 50%">
+            <td>
               <div style="text-align: center">
                 <span>Penanggung Jawab Teknis</span><br />
                 <span>/Penyelia</span>
@@ -462,7 +462,7 @@
                 <span>.......................</span>
               </div>
             </td>
-            <td style="padding-right: 200px">
+            <td style="width: 10px">
               <div class="float-right" style="text-align: center">
                 <span>Penguji</span><br />
                 <br />

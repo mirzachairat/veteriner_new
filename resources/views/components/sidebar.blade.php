@@ -21,7 +21,7 @@
                         <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>PEMOHON</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/pengirim"><i data-feather="home" class="align-self-center menu-icon"></i>Tabel Permohonan</a></li>
-                            <li class="nav-item"><a class="nav-link" href="sales-index.html"><i class="ti-control-record"></i>Billing</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/view/billing"><i class="ti-control-record"></i>Billing</a></li> 
                         </ul>
                     </li>
                     @endif
@@ -64,13 +64,13 @@
                     @endif
                     
                     <hr class="hr-dashed hr-menu">
+                    @if(Auth::user()->jabatan_id == 6)
                     <li>
                         <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>BENDAHARA</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/bendahara"><i data-feather="home" class="align-self-center menu-icon"></i>Tabel Bendahara</a></li>
                         </ul>
                     </li>
-                    @if(Auth::user()->jabatan_id == 6)
                     <li>
                         <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>DAFTAR HARGA</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">

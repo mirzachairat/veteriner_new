@@ -30,9 +30,12 @@ class PengujiController extends Controller
     }
 
     public function update_jenis_sampel(Request $request){
-        Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
+        $permohonan_id = $request->permohonan_id;
         $status_a = $request->status_delete;
-        $data_a = Progres::where('status', $status_a)->delete();
+        $data_permohonan = Permohonan::where('id', $permohonan_id)->first();
+        Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
+        Progres::where('status', $status_a)->where('permohonan_id',$permohonan_id)->delete();
+
         foreach ($request->jenis_pengujian as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $request->permohonan_id[$index],

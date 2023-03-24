@@ -25,7 +25,10 @@ class PengirimController extends Controller
         }
 
         return view('pages.pengirim.pengirim', compact('data',));
-        // return $data;
+    }
+
+    public function billing(){
+        return view('pages.pengirim.billing');
     }
 
     public function form_permohonan()

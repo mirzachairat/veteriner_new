@@ -143,7 +143,3 @@
     </div><!--end col-->
 
 @endsection
-
-<script>
-
-</script>

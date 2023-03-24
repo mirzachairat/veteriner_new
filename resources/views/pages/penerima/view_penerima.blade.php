@@ -157,10 +157,15 @@
                                         <h2 class="m-0 align-self-center">FILE</h2>
                                         <div class="d-block ml-2 align-self-center">
                                             <h5 class="my-1">Upload File</h5>
-                                            <p class="mb-0 text-muted">Silahkan Upload file jika telah melakukan pembayaran dengan bukti pembayaran 
-                                            </p>
+                                            <p class="mb-0 text-muted">Upload sertifikat</p>
                                         </div>
                                     </div>
+                                        <form action="{{env('APP_URL')}}post/image">
+                                        <div class="card-body">
+                                            <input type="file" id="input-file-now" class="dropify" />                                                   
+                                        </div><!--end card-body-->
+                                        <button type="submit">Kirim</button>
+                                    </form>
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div> <!--end col--> 
@@ -180,7 +185,7 @@
                                         <div class="activity">
                                             <div class="activity-info">
                                                 <div class="icon-info-activity">
-                                                    <i class="las la-user-clock bg-soft-primary"></i>
+                                                <i class="las la-user-clock bg-soft-primary"></i>
                                                 </div>
                                                 <div class="activity-info-text">
                                                     <div class="d-flex justify-content-between align-items-center">

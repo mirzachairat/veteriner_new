@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/pengirim', [PengirimController::class, 'index']);
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
+    Route::get('/view/billing', [PengirimController::class, 'billing'])->name('billing');
     Route::get('/view/pengirim/{id}', [DashboardController::class, 'detail']);
 
     // Module Permohononan

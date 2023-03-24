@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Permohonan;
 use App\Models\Jenis_sampel;
+use App\Models\Jenis_harga;
 use App\Models\Dokumen;
 use App\Models\Progres;
 
@@ -32,17 +33,21 @@ class PermohonanController extends Controller
                 'total_harga' => $request->total_harga[$index],
             ]);
         }
+
         $progress = Progres::create([
             "permohonan_id" => $permohonan->id,
             "workflow_id" => 1,
             "status" => 0
         ]);
+
         $dokumen = Dokumen::create([
             'permohonan_id' => $permohonan->id,
             'workflow_id' => 1,
             'approval' => $request->approval
         ]);
 
-        return redirect()->back();
+        $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $permohonan->id)->get();
+        // return $data;
+        return view('pages.pengirim.billing', compact('data'));
     }
 }

@@ -60,7 +60,7 @@
                                                     <div class="form-group">
                                                         <label for="total_harga">Total Harga</label>
                                                         <input type="hidden" class="form-control input-total_harga" id="total_harga-0" name="total_harga[]">
-                                                        <input type="text" class="form-control input-total_harga" id="total_harga_formated-0" name="total_harga_formated[]">
+                                                        <input type="text" class="form-control input-total_harga" id="total_harga_formatted-0" name="total_harga_formatted[]">
                                                     </div>
                                                 </div> 
                                                 <input type="hidden" value = "0" id="status" name="status" >    
@@ -150,7 +150,7 @@
                     <div class="form-group">
                         <label for="total_harga-${key}">Total Harga</label>
                         <input type="hidden" class="form-control input-total_harga" id="total_harga-${key}" name="total_harga[]">
-                        <input type="text" class="form-control input-total_harga" id="total_harga_formated-${key}" name="total_harga_formated[]">
+                        <input type="text" class="form-control input-total_harga" id="total_harga_formatted-${key}" name="total_harga_formatted[]">
                     </div>
                 </div>
 
@@ -191,7 +191,7 @@
         
         // let sum_total = harga
         $(`#total_harga-${key}`).val(total)
-        $(`#total_harga_formated-${key}`).val(formatRupiah(total))
+        $(`#total_harga_formatted-${key}`).val(formatRupiah(total))
         
         //summary
         let sum_total = 0;

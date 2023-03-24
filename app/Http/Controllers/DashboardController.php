@@ -48,8 +48,6 @@ public function detail($id)
         //jabatan sebagai penyelia
         if($jabatan_id == 4 ){
             $data_dok = Dokumen::with('workflow')->where('permohonan_id', $id)->get();
-            // $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
-            // return $data_dok;
             $data_permohonan = Permohonan::with('user')->where('id', $id)->get();
             return view('pages.penyelia.view_penyelia',compact(['data_permohonan', 'data_dok']));
         }

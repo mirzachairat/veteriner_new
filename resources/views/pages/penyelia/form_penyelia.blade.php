@@ -99,7 +99,8 @@
                                                                 <option value="memenuhi">{{$sampel->kriteria}}</option>
                                                         </select>
                                                     </div>
-                                                </div> 
+                                                </div>
+                                                @if($st_status !== 2) 
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="nilai">Ha/Hi Al</label>
@@ -111,10 +112,11 @@
                                                         <label for="diagnosa">Diagnosa</label>
                                                         <input type="text" class="form-control input-diagnosa" id="diagnosa-0" name="diagnosa[]">
                                                     </div>
-                                                </div>
-
+                                                </div> 
+                                                @endif
                                                 <input type="hidden" value = "2" id="status_delete" name="status_delete" >                                            
                                                 <input type="hidden" value = "3" id="status" name="status" >                                            
+                                                <input type="hidden" value = "5" id="next_status" name="next_status" >                                            
                                                 <input type="hidden" value = "4" id="workflow_id" name="workflow_id" >                                            
                                             </div>
                                         </div>
@@ -124,6 +126,7 @@
                             </div><!--end col-->
                             <!-- END contoh UJI     -->
                             @endforeach
+                            @if($st_status !== 2) 
                             <div class="form-group mb-0">
                                 <label for="saran">Saran</label>
                                 <textarea class="form-control" id="saran" name="saran"rows="3"></textarea>
@@ -136,7 +139,10 @@
                                 <label for="catatan">Catatan</label>
                                 <textarea class="form-control" id="catatan" name="catatan" rows="3"></textarea>
                             </div>
-                            <button style="float:left" type="submit" class="btn btn-primary">Simpan</button>
+                            @endif
+                            <button style="float:left" type="submit" class="btn btn-primary">
+                                @if($st_status !== 2) Simpan @else Aproval @endif
+                            </button>
                         </form>
                     </div>
                 </div>                                                                      
