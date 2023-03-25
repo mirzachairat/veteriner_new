@@ -18,6 +18,7 @@ class PengirimController extends Controller
     {
         // $data = Permohonan::with('jenis_sampel')->with('user')->where('users_id', auth()->id())->get();
         $data = Permohonan::with('progres')->where('users_id', auth()->id())->get();
+        
         foreach($data as $item){
             $data_fs = [
                 'users_id' => $item->users_id,

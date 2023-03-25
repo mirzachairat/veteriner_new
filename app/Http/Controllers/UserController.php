@@ -58,7 +58,7 @@ class UserController extends Controller
             'email' => strtolower($request->email),
             'password' => bcrypt($request->password),
             'no_hp' => $request->no_hp,
-            'jabatan' => $request->jabatan,
+            'nama_jabatan' => $request->nama_jabatan,
             'type' => $request->type,
             'jabatan_id' => 1,
             'instansi' => $request->instansi,

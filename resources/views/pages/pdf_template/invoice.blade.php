@@ -224,6 +224,9 @@
     .table-header {
       padding: 0.1em;
     }
+    .table-header span {
+      line-height: 1.5em;
+    }
 
     .has-padding td {
       font-size: 12px;
@@ -274,9 +277,10 @@
     }
 
     .tanda_tangan {
-      margin-top: 20px;
+      margin-top: 10rem;
       width: 100%;
       vertical-align: middle;
+      font-size: 12px;
     }
     .td-kanan {
       float: right;
@@ -312,120 +316,161 @@
     .body-content {
       margin-top: 20px;
     }
+    .tanda_bukti{
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .first tr td{
+      border-style: none;
+      line-height: 1.5rem;
+    }
+
+    .body-content{
+      font-size: 12px;
+    }
   </style>
 
   <body
     style="
-      margin-left: 200px;
-      margin-right: 200px;
+      margin-left: 100px;
+      margin-right: 50px;
       margin-top: 48px;
       margin-bottom: 48px;
     "
   >
-
-  
       <div class="header">
-            <table class="table-header" style="width: 100%;">
-              <tr>
-                <td
-                  style="
-                    width: 10%;
-                    text-align: right;
-                    vertical-align: middle !important;
-                    border-style: hidden;
-                  "
-                >
-                  <img
-                    style="width: 50%; height: 11%"
-                    src="assets/images/banten.png"
-                    alt=""
-                  />
-                </td>
-                <td
-                  style="
-                    text-align: center;
-                    vertical-align: middle !important;
-                    width: 50%;
-                  "
-                >
-                  <span class="bold-text" style="font-size: 20px"
-                    >PEMERINTAH PROVINSI BANTEN</span
-                  ><br />
-                  <span class="bold-text" style="font-size: 28px"
-                    >DINAS PERTANIAN</span
-                  ><br />
-                  <span class="bold-text" style="font-size: 15px"
-                    >UPTD PELAYANAN DAN PENGUJIAN VETERINER</span
-                  ><br />
-                  <span class="bold-text" style="font-size: 10px"
-                    >Jl. Raya Cilegon KM.04 Drangong - Serang 42162 Telp. (0254)
-                    7913148 Fax. (0254) 7913148</span
-                  ><br />
-                </td>
-              </tr>
-            </table>
-            <div class="hr-line">
-              <hr class="hr-new1" />
-              <hr class="hr-new2" />
-            </div>
+        <table class="table-header" style="width: 100%;border-style:hidden">
+          <tr>
+            <td
+              style="
+                width: 10%;
+                text-align: right;
+                vertical-align: middle !important;
+                border-style: hidden;
+              "
+            >
+              <img
+                style="width: 90%; height: 8%"
+                src="assets/images/banten.png"
+                alt=""
+              />
+            </td>
+            <td
+              style="
+                text-align: center;
+                vertical-align: middle !important;
+                width: 50%;
+                line-hight: 100%;
+              "
+            >
+              <span class="bold-text" style="font-size: 20px"
+                >PEMERINTAH PROVINSI BANTEN</span
+              ><br />
+              <span class="bold-text" style="font-size: 28px"
+                >DINAS PERTANIAN</span
+              ><br />
+              <span class="bold-text" style="font-size: 15px"
+                >UPTD PELAYANAN DAN PENGUJIAN VETERINER</span
+              ><br />
+              <span class="bold-text" style="font-size: 10px"
+                >Jl. Raya Cilegon KM.04 Drangong - Serang 42162 Telp. (0254)
+                7913148 Fax. (0254) 7913148</span
+              ><br />
+            </td>
+          </tr>
+        </table>
+        <div class="hr-line">
+          <hr class="hr-new1" />
+          <hr class="hr-new2" />
+        </div>
       </div>    
 
-      <div class="conten_table">
-          <table style="border-style: hidden">
-            <span>a. Bendahara Penerima/Bendahara Penerimaan Pembantu : Dinas Pertanian Provinsi Banten </span><br>
-            <span>Telah menerima uang sebesar Rp.</span>
-            
+      <div class="content_table">
+          <div class="tanda_bukti">
+            <text style="font-weight: bold;text-decoration: underline">TANDA BUKTI PEMBAYARAN</text><br>
+            <span>No.Bukti :......................... </span>
+          </div>
+          <div class="body-content">
+            <table class="first" style="width: 100%; border-style:hidden">
+              <tr>
+                <td colspan="6">a. Bendahara Penerima/Bendahara Penerimaan Pembantu : Dinas Pertanian Provinsi Banten</td>
+              <td></td>
+              </tr>
+              <tr>  
+                <td colspan="5">Telah menerima uang sebesar {{formatRupiah($jumlah)}}</td>  
+              </tr>
+              <tr>  
+                 <td>b.(...................................................)</td>
+              </tr>
+
+              @foreach($user as $item)
+              <tr>  
+                <td style="width: 10%">c. dari:</td>
+                <td>Nama/Nama Perusahaan</td>
+                <td>:</td>
+                <td colspan="4">{{$item->instansi}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="width: 30%">Alamat</td>
+                <td>:</td>
+                <td colspan="4">{{$item->alamat}}</td>
+              </tr>
+              @endforeach
+              <br>
+              <br>
+              <tr>
+                <td>d. Sebagai pembayaran</td>
+                  @foreach ($jenis as $item)
+                  <td colspan="8">Biaya pengujian Sebanyak {{$item->jumlah_contoh}} dengan jenis uji {{$item->jenis_pengujian}} dan jenis sampel {{$item->jenis_sampel}}</td>
+                  @endforeach
+                <td></td>
+                <td></td>  
+              </tr>
+            </table>
+          </div>  
+          <table style="float:right;margin-top:2rem; text-align:center">
+            <tr>
+                <td style="width:300px">Kode Rekening</td>
+                <td style="width: 100px">Jumlah<br>(Rp)</td>
+            </tr>
+            <tr>
+              <td style="width: 300px"></td> 
+              <td style="width: 100px">{{formatRupiah($jumlah)}}</td>
+            </tr>
           </table>
       </div>
 
-      <div class="body-content">
-       
-        <table style="width: 100%">
-          <tr>
-            <td>1. Test</td>
-          </tr>
-        </table>
-        <br />
-        <text>Saran</text>
-        <table style="width: 100%">
-          <tr>
-            <td>1. Test</td>
-          </tr>
-        </table>
-      </div>
-
       <div class="tanda_tangan">
-        <table style="border-style: hidden">
+        <h6><span style="font-weight: bold">Tanggal di terima uang</span></h6>
+        <br><br>
+        <table style="border-style: hidden; width: 100%;">
           <tr>
-            <td style="width: 85%">
-              <span style="font-weight: bold">Kepala UPTD</span><br />
-              <span>Pelanggan</span>
-              <br />
-              <br />
-              <br />
-              <br />
-
-              <br /><br /><br /><br />
-
-              <span>.......................</span>
-            </td>
-            <td style="float: right; width: 100%">
-              <span style="font-weight: bold">Serang, .............</span><br />
-              <span>Penanggung Jawab Teknis</span><br />
-              <br />
-              <br />
-              <br />
-              <br />
-
-              <br /><br /><br /><br />
-
-              <span>.......................</span>
-              <span>NIP.</span>
-            </td>
+              <td style="text-align: center">
+                <span>Mengetahui,</span><br />
+                <span>Petugas/Bendahara Penerima Pembantu</span>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br /><br /><br /><br />
+                <span>.......................</span>
+              </td>
+              <td style="width:30%">
+                <span></span><br>
+                <span>Pembayaran/Penyetor</span><br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br /><br /><br /><br />
+                @foreach($user as $item )
+                <span>{{$item->nama}}</span>
+                @endforeach
+              </td>
           </tr>
         </table>
       </div> 
-    </div>
-  </table>
   </body>
 </html>

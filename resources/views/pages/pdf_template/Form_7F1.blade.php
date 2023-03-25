@@ -401,18 +401,20 @@
         <tr>
           <td style="width: 260px">Yang bertanda tangan di bawah ini</td>
         </tr>
+      @foreach($users as $item)
         <tr>
           <td>Nama</td>
-          <td>: {{$nama}}</td>
+          <td>: {{$item->nama}}</td>
         </tr>
         <tr>
           <td>Alamat</td>
-          <td>: {{$alamat}}</td>
+          <td>: {{$item->alamat}}</td>
         </tr>
         <tr>
           <td>Instansi/Perusahaan</td>
-          <td>: {{$instansi}}</td>
+          <td>: {{$item->instansi}}</td>
         </tr>
+        @endforeach 
         <tr>
           <td>Contoh Uji</td>
           <td>: {{$jenis_hewan}}</td>

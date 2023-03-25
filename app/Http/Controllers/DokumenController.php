@@ -18,21 +18,10 @@ use Illuminate\Support\Facades\Auth;
 
 class DokumenController extends Controller
 {
-    public function filepdf1($id)
-    {
-        $permohonan = Permohonan::with('user')->where('users_id',auth()->id())->where('id',$id)->first();
-        $data_pass = [
-            'nama' => $permohonan->nama,
-            'alamat' => $permohonan->alamat,
-            'instansi' => $permohonan->user->instansi,
-            'jenis_hewan' => $permohonan->jenis_hewan
-        ];
-        $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
-        return $pdf->stream('Permohonan.pdf');
-    }
-    public function filepdf($id)
-    {
+   
+    public function filepdf($id){
         $user = Auth::user()->id;
+        $jabatan_id = User::where('id',$user)->first('jabatan_id');
         $user_data = User::where('id',$user)->get();
         $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
         $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)->get();
@@ -50,7 +39,8 @@ class DokumenController extends Controller
                 'saran' => $permohonan->saran,
                 'kesimpulan' => $permohonan->kesimpulan,
                 'catatan' => $permohonan->catatan,
-                'jenis' => $jenis
+                'jenis' => $jenis,
+                'users' => $user_data
                 // 'jenis_sampel' => $jenis->jenis_sampel,
                 // 'jumlah_contoh' => $jenis->jumlah_contoh,
                 // 'bahan_pengawet' => $jenis->bahan_pengawet,
@@ -60,25 +50,25 @@ class DokumenController extends Controller
                 // 'total_harga' => $jenis->total_harga,
             ];
         //user pemohon    
-        if($user == 1){
+        if($jabatan_id = 1){
                 $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
                 return $pdf->stream('Pemohon.pdf');
         }    
 
         //user penerima    
-        if($user == 2){
+        if($jabatan_id = 2){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
             return $pdf->stream('Penerima.pdf');
             }
 
         //user manager    
-        if($user == 3){
+        if($jabatan_id = 3){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F3',$data_pass);
             return $pdf->stream('Kontrak Pengujian.pdf');
         }
 
         //user penyelia
-        if($user == 4){
+        if($jabatan_id = 4){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F6',$data_pass);
             return $pdf->stream('Kesimpulan Diagnosa.pdf');
         }
@@ -102,7 +92,8 @@ class DokumenController extends Controller
                 'saran' => $permohonan->saran,
                 'kesimpulan' => $permohonan->kesimpulan,
                 'catatan' => $permohonan->catatan,
-                'jenis' => $jenis
+                'jenis' => $jenis,
+                'user' => $user_data
                 // 'jenis_sampel' => $jenis->jenis_sampel,
                 // 'jumlah_contoh' => $jenis->jumlah_contoh,
                 // 'bahan_pengawet' => $jenis->bahan_pengawet,
@@ -110,7 +101,7 @@ class DokumenController extends Controller
                 // 'kriteria' => $jenis->kriteria, 
                 // 'jenis_pengujian' => $jenis->jenis_pengujian,
                 // 'total_harga' => $jenis->total_harga,
-            ];
+        ];
             $pdf = Pdf::loadView('pages.pdf_template.invoice',$data_pass);
             return $pdf->stream('Invoice.pdf');
     }

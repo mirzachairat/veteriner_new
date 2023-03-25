@@ -26,7 +26,8 @@ public function detail($id)
             $data_dok = Dokumen::with('workflow')->where('permohonan_id', $id)->get();
             $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
             $data_progres =  Progres::where('permohonan_id', $id)->with('workflow')->get();
-            return view('pages.pengirim.view_pengirim',compact(['data_permohonan', 'data_dok', 'data_progres']));
+    
+            return view('pages.pengirim.view_pengirim',compact(['data_permohonan','data_dok','data_progres']));
         }
 
         // jabatan sebagai penerima

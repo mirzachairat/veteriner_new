@@ -47,7 +47,6 @@ class PermohonanController extends Controller
         ]);
 
         $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $permohonan->id)->get();
-        // return $data;
         return view('pages.pengirim.billing', compact('data'));
     }
 }

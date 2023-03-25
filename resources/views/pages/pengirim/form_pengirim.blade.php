@@ -51,16 +51,15 @@
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="harga_satuan">Harga Satuan</label>
-                                                        <input type="hidden" class="form-control input-harga_satuan" id="harga_satuan-0" name="harga_satuan[]">
-                                                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan_formatted-0" name="harga_satuan_formatted[]">
+                                                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-0" name="harga_satuan[]">
                                                     </div>
                                                 </div>
     
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="total_harga">Total Harga</label>
-                                                        <input type="hidden" class="form-control input-total_harga" id="total_harga-0" name="total_harga[]">
-                                                        <input type="text" class="form-control input-total_harga" id="total_harga_formatted-0" name="total_harga_formatted[]">
+                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" name="total_harga[]">
+                                        
                                                     </div>
                                                 </div> 
                                                 <input type="hidden" value = "0" id="status" name="status" >    
@@ -71,8 +70,8 @@
                                         <div class="form-group row">
                                             <label for="jumlah_seluruhya" class="col-sm-6 col-form-label text-right">Jumlah Seluruhnya</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control"  type="hidden" id="jumlah_seluruhnya" name="jumlah_seluruhnya">
-                                                <input class="form-control"  type="text"  id="jumlah_seluruhnya_formatted" name="jumlah_seluruhnya_formatted">
+                                                <input class="form-control"  type="text" id="jumlah_seluruhnya" name="jumlah_seluruhnya">
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -141,16 +140,14 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="harga_satuan-${key}">Harga Satuan</label>
-                        <input type="hidden" class="form-control input-harga_satuan" id="harga_satuan-${key}" name="harga_satuan[]">
-                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan_formatted-${key}" name="harga_satuan_formatted[]">
+                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-${key}" name="harga_satuan[]">
                     </div>
                 </div>
 
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="total_harga-${key}">Total Harga</label>
-                        <input type="hidden" class="form-control input-total_harga" id="total_harga-${key}" name="total_harga[]">
-                        <input type="text" class="form-control input-total_harga" id="total_harga_formatted-${key}" name="total_harga_formatted[]">
+                        <input type="text" class="form-control input-total_harga" id="total_harga-${key}" name="total_harga[]">
                     </div>
                 </div>
 
@@ -178,10 +175,11 @@
 
     function totalHarga(key){
         const jumlah = $(`#jumlah_contoh-${key}`).val();
-        const harga = $(`#harga_satuan-${key}`).val()
+        const harga = $(`#harga_satuan-${key}`).val();
         
         //format rupiah  
-        $(`#harga_satuan_formatted-${key}`).val(formatRupiah(harga))
+        $(`#harga_satuan-${key}`).val(harga);
+        // $(`#harga_satuan_formatted-${key}`).val(harga));
         
         let total = parseFloat(jumlah * harga);
         
@@ -190,8 +188,8 @@
         }
         
         // let sum_total = harga
-        $(`#total_harga-${key}`).val(total)
-        $(`#total_harga_formatted-${key}`).val(formatRupiah(total))
+        $(`#total_harga-${key}`).val(total);
+        // $(`#total_harga_formatted-${key}`).val(total));
         
         //summary
         let sum_total = 0;
@@ -200,7 +198,7 @@
         });
 
         $('#jumlah_seluruhnya').val(sum_total);
-        $('#jumlah_seluruhnya_formatted').val(formatRupiah(sum_total));
+        // $(`#jumlah_seluruhnya_formatted-${key}`).val(formatRupiah(sum_total));
     }
 
     function getPrice(key){
@@ -216,7 +214,7 @@
             success: function(data)
             {
                 $(`#harga_satuan-${key}`).val(data.tarif);
-                $(`#harga_satuan_formatted-${key}`).val(formatRupiah(data.tarif));
+                $(`#harga_satuan_formatted-${key}`).val(data.tarif);
             } 
         });
     }

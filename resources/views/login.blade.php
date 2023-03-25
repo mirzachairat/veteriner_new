@@ -125,7 +125,7 @@
                                                 <div class="form-group mb-2">
                                                     <label for="jabatan">Jabatan</label>                                            
                                                     <div class="input-group">                                 
-                                                        <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="isi jabatan">
+                                                        <input type="text" class="form-control" name="nama_jabatan" id="nama_jabatan" placeholder="isi jabatan">
                                                     </div>                               
                                                 </div><!--end form-group-->  
 
