@@ -35,15 +35,12 @@
 
     $(function(){
         $.ajax({
-            url: "/view",
-
+            url: "/mapview/titik",
             type: 'GET',
-
             success: function(data) {
                 $.each(data, function( key, value ) {
-
                     L.marker([value.latitude, value.longitude]).addTo(map)
-                        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                        .bindPopup('[value.nama<br> Easily customizable.]')
                         .openPopup();
                 })
             },

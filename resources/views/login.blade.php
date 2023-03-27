@@ -21,6 +21,8 @@
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin="">
         </script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{asset('assets/images/banten.ico')}}">
@@ -153,12 +155,12 @@
                                                 </div><!--end form-group-->
                                                 <div class="form-group mb-2">                                          
                                                     <div class="input-group">                                   
-                                                        <input type="hidden" class="form-control" name="latitude" id="latitude">
+                                                        <input type="text" class="form-control" name="latitude" id="latitude">
                                                     </div>
                                                 </div><!--end form-group-->
                                                 <div class="form-group mb-2">
                                                     <div class="input-group">                                   
-                                                        <input type="hidden" class="form-control" name="longitude" id="longitude">
+                                                        <input type="text" class="form-control" name="longitude" id="longitude">
                                                     </div>
                                                 </div><!--end form-group-->
                     
@@ -193,35 +195,73 @@
         <script src="{{asset('js/feather.min.js')}}"></script>
         <script src="{{asset('js/simplebar.min.js')}}"></script>
 
-    <script>
-    function map(){
-        var map = L.map('mapid').setView([{{ config('leafletsetup.map_center_latitude') }},
-            {{ config('leafletsetup.map_center_longitude') }}],
-            {{ config('leafletsetup.zoom_level') }});
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            var pin1 = new google.maps.Marker({
-                position: ledbury,
-                map: map,
-                zIndex: 1,
-                optimized: false
-                });
-                bounds.extend(pin1.getPosition());
-                map.fitBounds(bounds);
+        <script>
+            let map = L.map('mapid').setView([{{ config('leafletsetup.map_center_latitude') }},
+                {{ config('leafletsetup.map_center_longitude') }}],
+                {{ config('leafletsetup.zoom_level') }});
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                
+           $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            map.invalidateSize();
+            });
+           
         map.on('click', function(e){
+            if (marker) {
+                map.removeLayer(marker)
+            }
+            
+            if (circle) {
+                map.removeLayer(circle)
+            }
             var marker = new L.marker(e.latlng).addTo(map);
             var data = {
-                    lat: e.latlng.lat,
-                    lng: e.latlng.lng
-                }
+                lat: e.latlng.lat,
+                lng: e.latlng.lng
+            }
             var lat = data.lat;
             var lng = data.lng;    
             $('#latitude').val(data.lat),
             $('#longitude').val(data.lng)
-        })    
-    }
-    </script>
+        });
+        L.Control.geocoder().addTo(map);  
+                
+        if (!navigator.geolocation) {
+            console.log("Your browser doesn't support geolocation feature!");
+        } else {
+            navigator.geolocation.getCurrentPosition(getPosition);
+        }
+                
+        var marker, circle, lat, long, accuracy;
+        
+        function getPosition(position) {
+            lat = position.coords.latitude
+            long = position.coords.longitude
+            accuracy = position.coords.accuracy
+            
+            if (marker) {
+                map.removeLayer(marker)
+            }
+            
+            if (circle) {
+                map.removeLayer(circle)
+            }
+
+            marker = L.marker([lat, long])
+            circle = L.circle([lat, long], { radius: accuracy })
+
+            var featureGroup = L.featureGroup([marker, circle]).addTo(map)
+
+            map.fitBounds(featureGroup.getBounds())
+           
+            $('#latitude').val(lat),
+            $('#longitude').val(long),
+            console.log("Your coordinate is: Lat: " + lat + " Long: " + long + " Accuracy: " + accuracy)
+        
+        }
+         
+        </script>
     </body>
 
 </html>

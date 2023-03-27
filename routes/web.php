@@ -97,6 +97,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Map route
     Route::get('/mapview', [MapviewController::class, 'mapview']);
+    Route::get('/mapview/titik', [MapviewController::class, 'json_titik']);
+    
     
     //tambah user
     Route::get('/user', [UserController::class, 'index']);

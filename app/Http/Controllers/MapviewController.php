@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Permohonan;
+use App\Models\User;
 
 class MapviewController extends Controller
 {
     public function mapview(){
-        $result = Permohonan::get();
-        $data = json_decode($result);
-        return view('pages.maps.mapview', compact('data'));
+        return view('pages.maps.mapview');
+    }
+    public function json_titik(){
+        $result = User::get();
+        return json_decode($result);
     }
 }
