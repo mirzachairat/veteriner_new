@@ -34,11 +34,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     
+ 
+    //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index']);
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
     Route::get('/view/billing', [PengirimController::class, 'billing'])->name('billing');
     Route::get('/view/pengirim/{id}', [DashboardController::class, 'detail']);
-
+    Route::post('/upload/invoice/{id}', [PengirimController::class, 'invoice_upload']);
     // Module Permohononan
     Route::post('/permohonan', [PermohonanController::class, 'tambah']);
 
@@ -75,8 +77,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/harga', [Jenis_hargaController::class, 'index'])->name('pageharga');
     Route::get('/daftar_harga/select', [Jenis_hargaController::class, 'getHarga']);
     Route::post('/tambah/harga', [Jenis_hargaController::class, 'tambahharga']);
+
     //panggil from ketika ingin menambahkan data jenis harga   
     Route::get('/view/form/', [Jenis_hargaController::class, 'viewform']);
+
     //panggil from ketika ingin edit form
     Route::get('/view/form/{id}', [Jenis_hargaController::class, 'vieweditform']);
     Route::get('/harga/delete/{id}', [Jenis_hargaController::class, 'deleteharga']);
@@ -99,7 +103,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user', [UserController::class, 'view_user']);
     Route::get('/user/tambah', [UserController::class, 'create_user']);
     Route::get('/user/edit/{id}', [UserController::class, 'edituser']);
-    Route::get('/user/delete/{id}', [UserController::class, 'edituser']);
-
-
+    Route::get('/user/delete/{id}', [UserController::class, 'edituser']); 
 });

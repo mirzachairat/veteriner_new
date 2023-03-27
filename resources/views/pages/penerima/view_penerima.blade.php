@@ -160,7 +160,7 @@
                                             <p class="mb-0 text-muted">Upload sertifikat</p>
                                         </div>
                                     </div>
-                                        <form action="{{env('APP_URL')}}post/image">
+                                        <form action="{{env('APP_URL')}}/filedokumen/create" method="POST" enctype="multipart/form-data">
                                         <div class="card-body">
                                             <input type="file" id="input-file-now" class="dropify" />                                                   
                                         </div><!--end card-body-->

@@ -310,7 +310,7 @@
       margin-left: 50px;
       margin-right: 50px;
       margin-top: 28px;
-      margin-bottom: 48px;
+      margin-bottom: 10px;
     "
   >
     <div class="content">
@@ -329,7 +329,7 @@
           >
             <img
               style="width: 90px"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Coat_of_arms_of_Banten.png/1200px-Coat_of_arms_of_Banten.png"
+              src="assets/images/banten.png"
               alt=""
             />
           </td>
@@ -431,24 +431,24 @@
               <tr>
                 <td rowspan="4" style="font-size: 18px; vertical-align: top">I.</td>
                 <td>Nama</td>
-                <td>:</td>
-                <td>{{$nama}}</td>
+                <td>: {{$nama}}</td>
+                
               </tr>
+              @foreach ($users as $item)
               <tr>
                 <td>Jabatan</td>
-                <td>:</td>
-                <td></td>
+                <td>: {{$item->user->nama_jabatan}}</td>
               </tr>
               <tr>
                 <td>Perusahaan</td>
-                <td>:</td>
-                <td>{{$instansi}}</td>
+                <td>: {{$item->user->instansi}}</td>
               </tr>
               <tr>
                 <td>Alamat</td>
-                <td>: ...................................................</td>
+                <td>: {{$item->user->alamat}}</td>
               </tr>
               <tr>
+              @endforeach
                 <td></td>
                 <td colspan="2">
                   <span
@@ -470,8 +470,7 @@
               </tr>
               <tr>
                 <td>Jabatan</td>
-                <td>:</td>
-                <td></td>
+                <td>: Manager</td>
               </tr>
               <tr>
                 <td>Instansi</td>
@@ -521,7 +520,7 @@
               <td>{{$key+1}}</td>
               <td></td>
               <td>{{$item->jenis_sampel}}</td>
-              <td>{{$item->jenis_pengujian}}</td>
+              <td>{{$item->jenis_harga->jenis_pengujian}}</td>
               <td>{{ formatRupiah($item->total_harga) }}</td>
               <td></td>
             </tr>

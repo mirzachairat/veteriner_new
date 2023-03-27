@@ -21,17 +21,21 @@ class DokumenController extends Controller
    
     public function filepdf($id){
         $user = Auth::user()->id;
-        $jabatan_id = User::where('id',$user)->first('jabatan_id');
-        $user_data = User::where('id',$user)->get();
+
+        //parameter sebagai view pdf berdasarkan type jabatan approval
+        $pengguna = User::where('id',$user)->first('jabatan_id'); 
+        
+        //data user pemohon berdasarkan id pemohon
+        $user_pemohon = Permohonan::with('user')->where('id',$id)->get();
+      
+        //menyajikan data jenis sampel berdasarkan id permohonan
         $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
-        $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)->get();
+        $jenis = Jenis_sampel::with('jenis_harga')->where('permohonan_id', $permohonan->id)->get();
         $dokumen = Dokumen::get('id');
         $data_pass = [
                 'nama' => $permohonan->nama,
-                'instansi' => $permohonan->instansi,
                 'jenis_hewan' => $permohonan->jenis_hewan,
                 'alamat' => $permohonan->alamat,
-                'instansi' => $permohonan->instansi,
                 'no_epi' => $permohonan->no_epi,
                 'tgl_terima' => $permohonan->tgl_terima,
                 'tgl_diserahkan_mt' => $permohonan->tgl_diserahkan_mt,
@@ -40,35 +44,29 @@ class DokumenController extends Controller
                 'kesimpulan' => $permohonan->kesimpulan,
                 'catatan' => $permohonan->catatan,
                 'jenis' => $jenis,
-                'users' => $user_data
-                // 'jenis_sampel' => $jenis->jenis_sampel,
-                // 'jumlah_contoh' => $jenis->jumlah_contoh,
-                // 'bahan_pengawet' => $jenis->bahan_pengawet,
-                // 'kondisi' => $jenis->kondisi,
-                // 'kriteria' => $jenis->kriteria, 
-                // 'jenis_pengujian' => $jenis->jenis_pengujian,
-                // 'total_harga' => $jenis->total_harga,
+                'users' => $user_pemohon
             ];
-        //user pemohon    
-        if($jabatan_id = 1){
+        
+        //berdasarkan type jabatan user    
+        if($pengguna->jabatan_id == 1){
                 $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
                 return $pdf->stream('Pemohon.pdf');
         }    
 
         //user penerima    
-        if($jabatan_id = 2){
+        if($pengguna->jabatan_id == 2){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
             return $pdf->stream('Penerima.pdf');
             }
 
         //user manager    
-        if($jabatan_id = 3){
+        if($pengguna->jabatan_id == 3){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F3',$data_pass);
             return $pdf->stream('Kontrak Pengujian.pdf');
         }
 
         //user penyelia
-        if($jabatan_id = 4){
+        if($pengguna->jabatan_id == 4){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F6',$data_pass);
             return $pdf->stream('Kesimpulan Diagnosa.pdf');
         }

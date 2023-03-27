@@ -326,6 +326,7 @@
     border-style: none;
 }
 .td_pj{
+    margin-top: 80px;
     float: right;
     padding-top: 20px;
 }
@@ -351,6 +352,7 @@
 .tanggal_surat tr td{
     font-size: 14px;
 }
+
 .ceklist_tabel tr td{
     font-size: 13px;
 }
@@ -361,7 +363,7 @@
 margin-left: 40px;
 margin-right: 90px;
 margin-top: 10px;
-margin-bottom: 48px; 
+margin-bottom: 10px; 
 ">
     <div class="content">
         <div class="header">
@@ -380,7 +382,7 @@ margin-bottom: 48px;
                 >
                   <img
                     style="width: 90px"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Coat_of_arms_of_Banten.png/1200px-Coat_of_arms_of_Banten.png"
+                    src="assets/images/banten.png"
                     alt=""
                   />
                 </td>
@@ -556,8 +558,8 @@ margin-bottom: 48px;
                         <br />
                         
                         <br />
-                    
-                        <span>.......................</span>
+                        
+                        <span>{{$nama}}</span>
                 </td>
             </tr>
         </table>
@@ -570,41 +572,43 @@ margin-bottom: 48px;
             <div class="column">
                 <table style="font-size:x-small;width:80%;">
                     <tr>
-                        <td style="width:30%">1.Tanggal Penerima</td>
+                        <td colspan="1">1.Tanggal Penerima</td>
+                        <td>:{{$tgl_terima}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">2.Pengiriman Sampel </td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">3.Jenis Sampel </td>
+                        <td>:{{$jenis_hewan}}</td>
+                    </tr>
+                    @foreach($jenis as $item)
+                    <tr>
+                        <td colspan="1">4.Jumlah Sampel </td>
+                        <td>:{{$item->jumlah_contoh}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">5. Metode Uji </td>
+                        <td>:{{$item->jenis_harga->jenis_pengujian}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">6. Biaya Uji </td>
+                        <td>:{{$jumlah}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">7. Laboratorium </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">2.Pengiriman Sampel </td>
-                        <td>:.....</td>
+                        <td colspan="1">8. No. Epid/Contoh Uji </td>
+                        <td>:{{$no_epi}}</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">3.Jenis Sampel </td>
-                        <td>:.....</td>
+                        <td colspan="1">9. Lama Pengujian </td>
+                        <td>:{{$item->jenis_harga->lama_pengujian}}</td>
                     </tr>
-                    <tr>
-                        <td style="width:30%">4.Jumlah Sampel </td>
-                        <td>:.....</td>
-                    </tr>
-                    <tr>
-                        <td style="width:30%">5. Metode Uji </td>
-                        <td>:.....</td>
-                    </tr>
-                    <tr>
-                        <td style="width:30%">6. Biaya Uji </td>
-                        <td>:.....</td>
-                    </tr>
-                    <tr>
-                        <td style="width:30%">7. Laboratorium </td>
-                        <td>:.....</td>
-                    </tr>
-                    <tr>
-                        <td style="width:30%">8. No. Epid/Contoh Uji </td>
-                        <td>:.....</td>
-                    </tr>
-                    <tr>
-                        <td style="width:30%">8. Lama Pengujian </td>
-                        <td>:.....</td>
-                    </tr>
+                    @endforeach
                 </table>
             </div>
             <div class="column">
@@ -700,19 +704,20 @@ margin-bottom: 48px;
                 </table>
             </div>
         </div>
-        
-        <table class="ceklist_tabel" style=" width: 40%; margin-top:149px;">
-            <tr>
-                <td>Dilanjutkan</td>
-                <td>Disubkontrak</td>
-                <td>Tidak Dapat Dilakukan Pengujian</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>      
-        </table>
+        <div class="row" style="margin-top:140px">
+            <table class="ceklist_tabel" style=" width: 40%;">
+                <tr>
+                    <td>Dilanjutkan</td>
+                    <td>Disubkontrak</td>
+                    <td>Tidak Dapat Dilakukan Pengujian</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>      
+            </table>
+        </div>
         <text>Catatan : Bubuhkan tanda </text>
         <div class="td_pj" >
                 <table style="border-style: hidden">

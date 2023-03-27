@@ -11,6 +11,7 @@ class Dokumen extends Model
     use HasFactory;
     protected $table = 'dokumen';
     protected $guarded = [];
+    
     public function jabatan()
     {
         return $this->belongsTo(Jabatan::class);
@@ -19,4 +20,5 @@ class Dokumen extends Model
     {
         return $this->belongsTo(Workflow::class, 'id');
     }
+   
 }

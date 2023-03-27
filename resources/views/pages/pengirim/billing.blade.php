@@ -9,7 +9,7 @@
                     <div class="col">
                         <h4 class="page-title">Invoice</h4>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">Dastone</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Love-Banten</a></li>
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Apps</a></li>
                             <li class="breadcrumb-item active">Invoice</li>
                         </ol>
@@ -40,21 +40,22 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
+                            @foreach($users as $item)
                             <div class="">
-                                <h6 class="mb-0"><b>Nomor Epi :</b></h6>
-                                <h6 class="mb-0"><b>Jenis Sampel :</b></h6>
-                                <h6 class="mb-0"><b>Jumlah Sampel :</b></h6>
+                                <h6 class="mb-0"><b>Nomor Epi :{{$item->no_epi}}</b></h6>
+                                <h6 class="mb-0"><b>Jenis Sampel :{{$item->jenis_hewan}}</b></h6>
                             </div>
+                            @endforeach
                         </div><!--end col--> 
                         <div class="col-md-3">                                            
                             <div class="float-left">
                                 <address class="font-13">
                                     <strong class="font-14">Billed To :</strong><br>
-                                    @foreach($data as $item)
-                                    {{$item->permohonan->nama}}<br>
+                                    @foreach($users as $item)
+                                    {{$item->nama}}<br>
+                                    alamat: {{$item->user->alamat}}<br>
+                                    <abbr title="Phone">P:</abbr> {{$item->user->no_hp}}
                                     @endforeach
-                                    alamat: ...................<br>
-                                    <abbr title="Phone">P:</abbr> (123) 456-7890
                                 </address>
                             </div>
                         </div><!--end col--> 
@@ -75,7 +76,7 @@
                                     <tbody>
                                         @foreach($data as $item)
                                         <tr>
-                                            <td></td>
+                                            <td>{{$item->jenis_sampel}}</td>
                                             <td>{{$item->jumlah_contoh}}</td>
                                             <td>{{formatRupiah($item->harga_satuan)}}</td>
                                             <td>{{formatRupiah($item->total_harga)}}</td>

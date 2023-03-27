@@ -187,6 +187,13 @@
                                             <h5 class="my-1">Upload File</h5>
                                             <p class="mb-0 text-muted">Silahkan Upload file jika telah melakukan pembayaran dengan bukti pembayaran 
                                             </p>
+                                            @foreach($data_permohonan as $dt)
+                                            <form action="{{env('APP_URL')}}/upload/invoice/{{$dt->id}}" method="POST" enctype="multipart/form-data">
+                                               @csrf
+                                                <input type="file" name="image" id="image-0">
+                                                <button class="btn btn-primary btn-small" type="submit">Kirim</button>
+                                            </form>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div><!--end card-body-->

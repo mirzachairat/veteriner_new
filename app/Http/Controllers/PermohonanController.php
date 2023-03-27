@@ -8,6 +8,7 @@ use App\Models\Jenis_sampel;
 use App\Models\Jenis_harga;
 use App\Models\Dokumen;
 use App\Models\Progres;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +48,7 @@ class PermohonanController extends Controller
         ]);
 
         $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $permohonan->id)->get();
-        return view('pages.pengirim.billing', compact('data'));
+        $users = Permohonan::with('user')->where('id', $permohonan->id)->get();
+        return view('pages.pengirim.billing', compact('data','users'));
     }
 }

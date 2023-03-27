@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Dokumen;
 use App\Models\Progres;
 use App\Models\Workflow;
+use App\Models\Invoice;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -30,6 +31,21 @@ class PengirimController extends Controller
 
     public function billing(){
         return view('pages.pengirim.billing');
+    }
+
+    public function invoice_upload(Request $request, $id){
+        $validasi_data = $request->validate([
+            'file' => 'image|file|max:1024' 
+        ]);
+        
+        if($request->file('image')){
+                $validasi_data['file'] = $request->file('image')->store('post-images');
+        }
+
+        $validasi_data['permohonan_id'] = $id;
+        Invoice::create($validasi_data);
+        
+        return redirect()->back();
     }
 
     public function form_permohonan()
