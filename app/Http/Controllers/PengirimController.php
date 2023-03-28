@@ -10,6 +10,7 @@ use App\Models\Dokumen;
 use App\Models\Progres;
 use App\Models\Workflow;
 use App\Models\Invoice;
+use App\Models\Filedokumen;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -33,7 +34,7 @@ class PengirimController extends Controller
         return view('pages.pengirim.billing');
     }
 
-    public function invoice_upload(Request $request, $id){
+    public function file_upload(Request $request, $id){
         $validasi_data = $request->validate([
             'file' => 'image|file|max:1024' 
         ]);
@@ -43,7 +44,10 @@ class PengirimController extends Controller
         }
 
         $validasi_data['permohonan_id'] = $id;
-        Invoice::create($validasi_data);
+        //1 invoice 
+        $validasi_data['kode_file'] = 1;
+       
+        Filedokumen::create($validasi_data);
         
         return redirect()->back();
     }

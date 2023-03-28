@@ -40,8 +40,8 @@
             success: function(data) {
                 $.each(data, function( key, value ) {
                     L.marker([value.latitude, value.longitude]).addTo(map)
-                        .bindPopup('[value.nama<br> Easily customizable.]')
-                        .openPopup();
+                    .bindPopup()
+                    .openPopup()
                 })
             },
             error: function(data) {

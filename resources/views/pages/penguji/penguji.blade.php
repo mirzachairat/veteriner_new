@@ -29,7 +29,7 @@
                                 <td><span class="badge badge-soft-success">Approved</span></td>
                                 <td class="text-right">
                                     <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/penguji/{{$item->permohonan->id}}" >Lihat</a>
-                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/penguji/{{$item->id}}" >Detail</a>
+                                    {{-- <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/penguji/{{$item->id}}" >Detail</a> --}}
                                 </td>
                             </tr>
                             @endforeach

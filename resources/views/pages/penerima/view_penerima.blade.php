@@ -160,12 +160,15 @@
                                             <p class="mb-0 text-muted">Upload sertifikat</p>
                                         </div>
                                     </div>
-                                        <form action="{{env('APP_URL')}}/filedokumen/create" method="POST" enctype="multipart/form-data">
-                                        <div class="card-body">
-                                            <input type="file" id="input-file-now" class="dropify" />                                                   
-                                        </div><!--end card-body-->
-                                        <button type="submit">Kirim</button>
-                                    </form>
+                                    @foreach($data_permohonan as $dt)
+                                        <form action="{{env('APP_URL')}}/sertifikat/{{$dt->id}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="card-body">
+                                                 <input type="file" id="image-0" class="image" name="image"/>                                                   
+                                                 <button class="btn btn-primary" type="submit">Kirim</button>
+                                             </div><!--end card-body-->
+                                         </form>
+                                    @endforeach
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div> <!--end col--> 

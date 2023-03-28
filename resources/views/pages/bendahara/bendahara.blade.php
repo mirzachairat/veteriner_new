@@ -25,7 +25,8 @@
                                 <td>{{$item->permohonan->jenis_hewan}}</td>
                                 <td><span class="badge badge-soft-success">Approved</span></td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/bendahara/{{$item->permohonan->id}}" >Lihat</a>
+                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/bendahara/{{$item->permohonan->id}}" >Detail</a>
+                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/show/invoice/{{$item->permohonan->id}}" >Invoice</a>
                                 </td>
                             </tr>
                             @endforeach

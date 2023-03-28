@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInvoiceTable extends Migration
+class CreateFiledokumenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateInvoiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('invoice', function (Blueprint $table) {
+        Schema::create('filedokumen', function (Blueprint $table) {
             $table->id();
-            $table->string('permohonan_id');
-            $table->string('file');
+            $table->foreignId('permohonan_id');
+            $table->integer('kode_file');
+            $table->string('file_link');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateInvoiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoice');
+        Schema::dropIfExists('filedokumen');
     }
 }

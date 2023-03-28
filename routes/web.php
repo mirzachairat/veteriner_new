@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
     Route::get('/view/billing', [PengirimController::class, 'billing'])->name('billing');
     Route::get('/view/pengirim/{id}', [DashboardController::class, 'detail']);
-    Route::post('/upload/invoice/{id}', [PengirimController::class, 'invoice_upload']);
+    Route::post('/upload/filedokumen/{id}', [PengirimController::class, 'file_upload']);
     // Module Permohononan
     Route::post('/permohonan', [PermohonanController::class, 'tambah']);
 
@@ -50,8 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cetak/penerima', [PenerimaController::class, 'view_allform']);
     Route::post('/penerima/update', [PenerimaController::class, 'update_jenis_sampel']);
     Route::get('/view/penerima/{id}', [DashboardController::class, 'detail']);
-
-    //Mudulw Manager
+    Route::post('/sertifikat/{id}',[PenerimaController::class, 'upload_sertifikat']);
+    //Mudulw Managerx
     Route::get('/manager', [ManagerController::class, 'index']);
     Route::get('/form/manager/{id}', [ManagerController::class, 'form_detail']);
     Route::get('/cetak/manager', [ManagerController::class, 'view_allform']);
@@ -90,11 +90,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/download/form/{id}',[DokumenController::class, 'filepdf']);
     Route::get('/download/invoice/{id}',[DokumenController::class, 'invoice']);
     Route::get('/download/sertifikat/{id}',[DokumenController::class, 'sertifikat']);
-    Route::get('/dokumen/{form_f6}', 'DokumenController@index');
+    // Route::get('/dokumen/{form_f6}', 'DokumenController@index');
     
     //Dokumen Bendahara
     Route::get('/bendahara', [BendaharaController::class , 'index']);
-
+    Route::get('/form/bendahara/{id}', [BendaharaController::class , 'form_detail']);
+    Route::get('/show/invoice/{id}', [BendaharaController::class , 'download']);
+    
+    
+    
+    
     // Map route
     Route::get('/mapview', [MapviewController::class, 'mapview']);
     Route::get('/mapview/titik', [MapviewController::class, 'json_titik']);

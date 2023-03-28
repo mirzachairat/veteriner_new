@@ -79,15 +79,15 @@ class PenyeliaController extends Controller
              }
             
              Permohonan::where('id',$request->permohonan_id)->update([
-                'users_id' => $data_permohonan->users_id,
-                'no_epi' => $data_permohonan->no_epi,
-                'tgl_terima' => $data_permohonan->tgl_terima,
-                'tgl_diserahkan_mt' => $data_permohonan->tgl_diserahkan_mt,
-                'jumlah' => $data_permohonan->jumlah_serluruhnya,
-                'jenis_hewan' => $data_permohonan->jenis_hewan,
+                // 'users_id' => $data_permohonan->users_id,
+                // 'no_epi' => $data_permohonan->no_epi,
+                // 'tgl_terima' => $data_permohonan->tgl_terima,
+                // 'tgl_diserahkan_mt' => $data_permohonan->tgl_diserahkan_mt,
+                // 'jumlah' => $data_permohonan->jumlah_seluruhnya,
+                // 'jenis_hewan' => $data_permohonan->jenis_hewan,
                 'kesimpulan' => $request->kesimpulan,
                 'saran' => $request->saran,
-                'catatan' => $request->catatan
+                'catatan' => $request->catatans
             ]);
 
             Progres::where('permohonan_id',$permohonan_id)->delete();

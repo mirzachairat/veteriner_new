@@ -3,10 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">INPUT PERMOHONAN PENERIMA</h4>
-                <p class="text-muted mb-0">Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each
-                    textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code class="highlighter-rouge">type</code>.
-                </p>
+                <h4 class="card-title">Approval Penyelia</h4>
             </div><!--end card-header-->
             <div class="card-body">  
                 <div class="row">
@@ -122,6 +119,15 @@
                                         </div>
                                     </div><!--end card-body-->
                                     @endforeach
+                                    <div style="float: right">
+                                        <div class="form-group row">
+                                            <label for="jumlah_seluruhya" class="col-sm-8 col-form-label text-right" >Jumlah Seluruhnya</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="hidden" id="jumlah_seluruhnya" value="{{$item->jumlah}}" name="jumlah_seluruhnya" style="background-color: rgb(243, 236, 236)">
+                                                <input class="form-control" type="text" id="jumlah_seluruhnya_formatted" value="{{formatRupiah($item->jumlah)}}" name="jumlah_seluruhnya_formatted" style="background-color: rgb(243, 236, 236) " disabled>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div><!--end card-->
                             </div><!--end col-->
                             <!-- END contoh UJI     -->
