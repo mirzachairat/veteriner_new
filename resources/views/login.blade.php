@@ -155,12 +155,12 @@
                                                 </div><!--end form-group-->
                                                 <div class="form-group mb-2">                                          
                                                     <div class="input-group">                                   
-                                                        <input type="text" class="form-control" name="latitude" id="latitude">
+                                                        <input type="hidden" class="form-control" name="latitude" id="latitude">
                                                     </div>
                                                 </div><!--end form-group-->
                                                 <div class="form-group mb-2">
                                                     <div class="input-group">                                   
-                                                        <input type="text" class="form-control" name="longitude" id="longitude">
+                                                        <input type="hidden" class="form-control" name="longitude" id="longitude">
                                                     </div>
                                                 </div><!--end form-group-->
                     
