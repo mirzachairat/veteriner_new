@@ -34,11 +34,22 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $dt = $request->session()->regenerate();
-            $data_user = Auth::user()->jabatan_id;
-            $data_type = User::with('jabatan')->where('jabatan_id',$data_user)->first();
-            $link = $data_type->jabatan->type;
-            // return $data_type->jabatan->type;
-                return redirect(RouteServiceProvider::HOME.`/{{$link}}`);
+            if (auth()->user()->jabatan_id == '1') {
+                return redirect()->route('pengirim');
+            }
+            if (auth()->user()->jabatan_id == '2') {
+                return redirect()->route('penerima');
+            }
+            if (auth()->user()->jabatan_id == '3') {
+                return redirect()->route('manager');
+            }
+            if (auth()->user()->jabatan_id == '4') {
+                return redirect()->route('penyelia');
+            }
+            if (auth()->user()->jabatan_id == '5') {
+                return redirect()->route('penguji');
+            }
+            return redirect(RouteServiceProvider::HOME);
         }
 
         return back()->withErrors([

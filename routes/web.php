@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
     
  
     //Module Route Pengirim
-    Route::get('/pengirim', [PengirimController::class, 'index']);
+    Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
     Route::get('/view/billing', [PengirimController::class, 'billing'])->name('billing');
     Route::get('/view/pengirim/{id}', [DashboardController::class, 'detail']);
@@ -52,21 +52,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/view/penerima/{id}', [DashboardController::class, 'detail']);
     Route::post('/sertifikat/{id}',[PenerimaController::class, 'upload_sertifikat']);
     //Mudulw Managerx
-    Route::get('/manager', [ManagerController::class, 'index']);
+    Route::get('/manager', [ManagerController::class, 'index'])->name('manager');
     Route::get('/form/manager/{id}', [ManagerController::class, 'form_detail']);
     Route::get('/cetak/manager', [ManagerController::class, 'view_allform']);
     Route::post('/manager/update', [ManagerController::class, 'update_jenis_sampel']);
     Route::get('/view/manager/{id}', [DashboardController::class, 'detail']);
 
     //Module Penyelia
-    Route::get('/penyelia', [PenyeliaController::class, 'index']);
+    Route::get('/penyelia', [PenyeliaController::class, 'index'])->name('penyelia');
     Route::get('/form/penyelia/{id}', [PenyeliaController::class, 'form_detail']);
     Route::get('/cetak/penyelia', [PenyeliaController::class, 'view_allform']);
     Route::post('/penyelia/update', [PenyeliaController::class, 'update_jenis_sampel']);
     Route::get('/view/penyelia/{id}', [DashboardController::class, 'detail']);
     
     //Module Penguji
-    Route::get('/penguji', [PengujiController::class, 'index']);
+    Route::get('/penguji', [PengujiController::class, 'index'])->name('penguji');
     Route::get('/form/penguji/{id}', [PengujiController::class, 'form_detail']);
     Route::get('/cetak/penguji', [PengujiController::class, 'view_allform']);
     Route::post('/penguji/update', [PengujiController::class, 'update_jenis_sampel']);
