@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PermohonanController extends Controller
 {
+
     public function tambah(Request $request)
     {
         $validated = $request->validate([

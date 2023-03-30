@@ -35,7 +35,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="jenis_pengujian-0">Jenis Pengujian</label>
-                                                        <select type="text" class="form-control" id="jenis_pengujian-0" name="jenis_pengujian[]" onchange="getPrice(0)" value="">
+                                                        <select type="text" class="form-control" id="jenis_pengujian-0" name="jenis_pengujian[]" onchange="getPrice(0)">
                                                             <option value selected disabled>=== PILIH JENIS PENGUJIAN ===</option>
                                                             @foreach($data_harga as $data)                                  
                                                                 <option value="{{$data->id}}">{{$data->jenis_pengujian}}</option>
@@ -47,21 +47,21 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="jumlah_contoh">Jumlah Contoh Uji</label>
-                                                        <input type="text" onkeyup="totalHarga(0)" class="form-control input-jumlah_contoh" id="jumlah_contoh-0" name="jumlah_contoh[]" value="">
+                                                        <input type="text" onkeyup="totalHarga(0)" class="form-control input-jumlah_contoh" id="jumlah_contoh-0" name="jumlah_contoh[]">
                                                     </div>
                                                 </div>
     
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="harga_satuan">Harga Satuan</label>
-                                                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-0" name="harga_satuan[]" value="" disabled>
+                                                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-0" name="harga_satuan[]" readonly="readonly">
                                                     </div>
                                                 </div>
     
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="total_harga">Total Harga</label>
-                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" name="total_harga[]" value="" disabled>
+                                                        <input type="text" class="form-control input-total_harga" id="total_harga-0" name="total_harga[]" readonly="readonly">
                                         
                                                     </div>
                                                 </div> 
@@ -73,7 +73,7 @@
                                         <div class="form-group row">
                                             <label for="jumlah_seluruhya" class="col-sm-6 col-form-label text-right">Jumlah Seluruhnya</label>
                                             <div class="col-sm-4">
-                                                <input class="form-control"  type="text" id="jumlah_seluruhnya" name="jumlah_seluruhnya" disabled>
+                                                <input class="form-control"  type="text" id="jumlah_seluruhnya" name="jumlah_seluruhnya" readonly="readonly">
                 
                                             </div>
                                         </div>
@@ -87,7 +87,7 @@
                                 </div><!--end card-->
                             </div><!--end col-->
                             <!-- END contoh UJI     -->
-                            <button style="float:right; margin-right:30px;" type="button" class="btn btn-danger btn-lg" onclick="submitForm()"">Simpan</button>
+                            <button style="float:right; margin-right:30px;" type="submit" class="btn btn-danger btn-lg">Simpan</button>
                         </form>
                     </div>
                 </div>                                                                      
@@ -99,17 +99,6 @@
 
 @section('script')
 <script type="text/javascript">
-    function submitForm() {
-        // Get the first form with the name
-        // Usually the form name is not repeated
-        // but duplicate names are possible in HTML
-        // Therefore to work around the issue, enforce the correct index
-        var frm = document.getElementsByName('form-parsley')[0];
-        frm.submit(); // Submit the form
-        frm.reset();  // Reset all form data
-        return false; // Prevent page refresh
-        }
-
     function formatRupiah(angka, prefix = 'Rp. '){
         var	number_string = angka.toString(),
         sisa 	= number_string.length % 3,
@@ -154,14 +143,14 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="harga_satuan-${key}">Harga Satuan</label>
-                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-${key}" name="harga_satuan[]">
+                        <input type="text" class="form-control input-harga_satuan" id="harga_satuan-${key}" name="harga_satuan[]" readonly="readonly">
                     </div>
                 </div>
 
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="total_harga-${key}">Total Harga</label>
-                        <input type="text" class="form-control input-total_harga" id="total_harga-${key}" name="total_harga[]">
+                        <input type="text" class="form-control input-total_harga" id="total_harga-${key}" name="total_harga[]" readonly="readonly">
                     </div>
                 </div>
 
@@ -228,7 +217,6 @@
             success: function(data)
             {
                 $(`#harga_satuan-${key}`).val(data.tarif);
-                $(`#harga_satuan_formatted-${key}`).val(data.tarif);
             } 
         });
     }
