@@ -9,13 +9,11 @@
     <link rel="shortcut icon" href="{{asset('assets/images/banten.ico')}}">
     <!-- App css -->
     <!-- DataTables -->
-    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/metisMenu.min.css')}}"rel="stylesheet" type="text/css" />
-    <link href="{{asset('js/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/app.min.css')}}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
     @yield('page_css')
 </head>
 <body>
@@ -34,7 +32,6 @@
         <!-- jQuery  -->
         <script src="{{asset('js/jquery.min.js')}}"></script>
         <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-        <script src="cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
         <script src="{{asset('js/metismenu.min.js')}}"></script>
         <script src="{{asset('js/waves.js')}}"></script>
         <script src="{{asset('js/feather.min.js')}}"></script>

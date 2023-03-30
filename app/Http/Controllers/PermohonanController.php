@@ -16,7 +16,11 @@ class PermohonanController extends Controller
 {
     public function tambah(Request $request)
     {
-        
+        $validated = $request->validate([
+            'jenis_sampel' => 'required',
+            'jenis_hewan' => 'required'
+        ]);
+    
         $permohonan = Permohonan::create([
             'users_id' => Auth::user()->id,
             'nama' => Auth::user()->nama,
