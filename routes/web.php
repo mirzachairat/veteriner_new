@@ -14,6 +14,7 @@ use App\Http\Controllers\PenyeliaController;
 use App\Http\Controllers\PengujiController;
 use App\Http\Controllers\MapviewController;
 use App\Http\Controllers\BendaharaController;
+use App\Http\Controllers\TagihanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    
- 
+
+
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
@@ -44,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
     // Module Permohononan
     Route::post('/permohonan', [PermohonanController::class, 'tambah']);
 
-    //Module Penerima 
+    //Module Penerima
     Route::get('/penerima', [PenerimaController::class, 'index'])->name('penerima');
     Route::get('/form/penerima/{id}', [PenerimaController::class, 'form_detail']);
     Route::get('/cetak/penerima', [PenerimaController::class, 'view_allform']);
@@ -64,51 +65,57 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cetak/penyelia', [PenyeliaController::class, 'view_allform']);
     Route::post('/penyelia/update', [PenyeliaController::class, 'update_jenis_sampel']);
     Route::get('/view/penyelia/{id}', [DashboardController::class, 'detail']);
-    
+
     //Module Penguji
     Route::get('/penguji', [PengujiController::class, 'index'])->name('penguji');
     Route::get('/form/penguji/{id}', [PengujiController::class, 'form_detail']);
     Route::get('/cetak/penguji', [PengujiController::class, 'view_allform']);
     Route::post('/penguji/update', [PengujiController::class, 'update_jenis_sampel']);
     Route::get('/view/penguji/{id}', [DashboardController::class, 'detail']);
-    
+
 
     // Getdata harga
     Route::get('/harga', [Jenis_hargaController::class, 'index'])->name('pageharga');
     Route::get('/daftar_harga/select', [Jenis_hargaController::class, 'getHarga']);
     Route::post('/tambah/harga', [Jenis_hargaController::class, 'tambahharga']);
 
-    //panggil from ketika ingin menambahkan data jenis harga   
+    //panggil from ketika ingin menambahkan data jenis harga
     Route::get('/view/form/', [Jenis_hargaController::class, 'viewform']);
 
     //panggil from ketika ingin edit form
     Route::get('/view/form/{id}', [Jenis_hargaController::class, 'vieweditform']);
     Route::get('/harga/delete/{id}', [Jenis_hargaController::class, 'deleteharga']);
     Route::post('/harga/update', [Jenis_hargaController::class, 'updateharga']);
-    
+
     //Dokumen route
     Route::get('/download/form/{id}',[DokumenController::class, 'filepdf']);
     Route::get('/download/invoice/{id}',[DokumenController::class, 'invoice']);
     Route::get('/download/sertifikat/{id}',[DokumenController::class, 'sertifikat']);
     // Route::get('/dokumen/{form_f6}', 'DokumenController@index');
-    
+
     //Dokumen Bendahara
     Route::get('/bendahara', [BendaharaController::class , 'index']);
     Route::get('/form/bendahara/{id}', [BendaharaController::class , 'form_detail']);
     Route::get('/show/invoice/{id}', [BendaharaController::class , 'download']);
-    
-    
-    
-    
+
+
+
+
     // Map route
     Route::get('/mapview', [MapviewController::class, 'mapview']);
     Route::get('/mapview/titik', [MapviewController::class, 'json_titik']);
-    
-    
+
+    // tagihan
+    Route::prefix('tagihan')->group(function () {
+        Route::get('/tagihanlist', [TagihanController::class, 'index']);
+        Route::get('/bayar', [TagihanController::class, 'store']);
+    });
+
+
     //tambah user
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user', [UserController::class, 'view_user']);
     Route::get('/user/tambah', [UserController::class, 'create_user']);
     Route::get('/user/edit/{id}', [UserController::class, 'edituser']);
-    Route::get('/user/delete/{id}', [UserController::class, 'edituser']); 
+    Route::get('/user/delete/{id}', [UserController::class, 'edituser']);
 });
