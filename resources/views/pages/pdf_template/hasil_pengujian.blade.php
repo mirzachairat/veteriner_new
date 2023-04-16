@@ -373,7 +373,7 @@
           <table style="border-style: hidden">
             <tr>
               <td>No</td>
-              <td>: 524.36/56</td>
+              <td >: 524.36/56</td>
             </tr>
             <tr>
               <td>Lampiran</td>
