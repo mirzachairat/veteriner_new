@@ -100,7 +100,7 @@
                                                 @if($st_status !== 2) 
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
-                                                        <label for="nilai">Hasil Uji</label>
+                                                        <label for="nilai">Ha/Hi Al</label>
                                                         <input type="text" class="form-control input-nilai" id="nilai-0" name="nilai[]">
                                                     </div>
                                                 </div>
