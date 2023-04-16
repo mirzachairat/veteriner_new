@@ -40,7 +40,7 @@ class PengirimController extends Controller
         ]);
         
         if($request->file('image')){
-                $validasi_data['file'] = $request->file('image')->store('post-images');
+                $validasi_data['file_link'] = $request->file('image')->store('post-images');
         }
 
         $validasi_data['permohonan_id'] = $id;
