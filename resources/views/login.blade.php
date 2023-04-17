@@ -48,7 +48,7 @@
                                         <a href="index.html" class="logo logo-admin">
                                             <img src="assets/images/banten.ico" height="50" alt="logo" class="auth-logo">
                                         </a>
-                                        <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">LOVE-BANTEN APPS</h4>   
+                                        <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">Layanan Online Veteriner <br> Dinas Pertanian Provinsi Banten <br>(LOVE-BANTEN)</h4>   
                                         <p class="text-muted  mb-0">Sign in to continue.</p>  
                                     </div>
                                 </div>
