@@ -26,16 +26,14 @@ use App\Http\Controllers\TagihanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', [DashboardController::class, 'index'])->name('landing');
 Route::get('/login', [UserController::class, 'index']);
 Route::get('/register', [UserController::class, 'create_user']);
 Route::post('/login', [UserController::class, 'authenticate'])->name('login');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
-
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
