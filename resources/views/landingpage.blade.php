@@ -77,35 +77,11 @@
                                 <ul class="menu">
                                     <li class="active">
                                         <a href="#!">home</a>
-                                        <ul>
-                                            <li class="active"><a href="index.html">home 1</a></li>
-                                            <li><a href="index2.html">home 2</a></li>
-                                        </ul>
                                     </li>
                                     <li><a href="about.html">about</a></li>
-                                    <li>
-                                        <a href="#!">pages</a>
-                                        <ul>
-                                            <li><a href="about.html">about</a></li>
-                                            <li><a href="service.html">service</a></li>
-                                            <li><a href="service-detail.html">service details</a></li>
-                                            <li><a href="team.html">team</a></li>
-                                            <li><a href="team-detail.html">team details</a></li>
-                                            <li><a href="pricing.html">pricing</a></li>
-                                            <li><a href="project-detail.html">project details</a></li>
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-detail.html">blog details</a></li>
-                                            <li><a href="contact.html">contact</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="#!">pages</a></li>
                                     <li><a href="pricing.html">pricing</a></li>
-                                    <li>
-                                        <a href="#!">blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-detail.html">blog details</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="#!">blog</a></li>
                                     <li><a href="contact.html">contact</a></li>
                                 </ul>
                             </div>
@@ -139,7 +115,7 @@
                                     <p class="wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad </p>
                                     <ul class="d-flex wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
                                         <li>
-                                            <a href="#" type="button" style="width:200px" class="btn btn-outline-light btn-lg">Login</a>
+                                            <a href="http://uptdppv.site/login" type="button" style="width:200px" class="btn btn-outline-light btn-lg">Login</a>
                                         </li>
                                         <li></li>
                                     </ul>
@@ -204,7 +180,7 @@
         <div class="overlay">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="item item1 text-center wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1s">
                             <div class="icon">
                                 <i class="flaticon-cloud"></i>
@@ -213,7 +189,7 @@
                             <h2 class="odometer odometer-auto-theme" data-count="9652">0000</h2>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="item item2 text-center wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
                             <div class="icon">
                                 <i class="flaticon-pointed-star"></i>
@@ -222,22 +198,13 @@
                             <h2 class="odometer odometer-auto-theme" data-count="4789">0000</h2>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="item item3 text-center wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
                             <div class="icon">
                                 <i class="flaticon-customer-service"></i>
                             </div>
                             <h4>customers</h4>
                             <h2 class="odometer odometer-auto-theme" data-count="960">000</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="item item4 text-center wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
-                            <div class="icon">
-                                <i class="flaticon-briefing"></i>
-                            </div>
-                            <h4>projects</h4>
-                            <h2 class="odometer odometer-auto-theme" data-count="6400">0000</h2>
                         </div>
                     </div>
                 </div>
@@ -259,7 +226,7 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="content wow fadeInRight" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <h3>Amazing Consulting Provider Agency to Our Best </h3>
+                                <h3>Daftar Harga Kes</h3>
                                 <p>We work with the public sector to build thriving communities. And we ork with regulators and financial institutions to build trust and integrity in ets uis aliqua sunt nisi consectetur anim.</p>
                                 <ul>
                                     <li class="d-flex">
