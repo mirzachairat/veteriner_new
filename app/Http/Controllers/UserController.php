@@ -49,6 +49,9 @@ class UserController extends Controller
             if (auth()->user()->jabatan_id == '5') {
                 return redirect()->route('penguji');
             }
+            if (auth()->user()->jabatan_id == '6') {
+                return redirect()->route('bendahara');
+            }
             return redirect(RouteServiceProvider::HOME);
         }
 

@@ -440,17 +440,17 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="content">
                             <div class="title">
-                                <h5>Get in Touch</h5>
+                                <h5>Alamat</h5>
                             </div>
-                            <p class="desc">Lorem ipsum dolor sit am co adipisicing elit, sed do eiusmod tempor</p>
+                            <p class="desc">UPTD Pelayanan Dan Pengujian Veteriner</p>
                             <ul class="address">
                                 <li class="d-flex align-items-center">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <p>24/A New California</p>
+                                    <p style="font-size:12px">Jl. Syech Nawawi Al-Bantani <br>Kawasan Pusat Pemerintahan Provinsi Banten (KP3B) <br> Kec. Curug, Kota Serang, Provinsi Banten.</p>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="fas fa-phone-alt"></i>
-                                    <p>+1 800 123 4567</p>
+                                    <p>(0254) 7913148</p>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="far fa-envelope"></i>
@@ -459,21 +459,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6">
-                        <div class="content">
-                            <div class="title">
-                                <h5>quick links</h5>
-                            </div>
-                            <ul class="navigation">
-                                <li><a href="index.html">home</a></li>
-                                <li><a href="service.html">service</a></li>
-                                <li><a href="team.html">our team</a></li>
-                                <li><a href="#portfolio" class="scroll-down">project</a></li>
-                                <li><a href="service-detail.html">android</a></li>
-                                <li><a href="service-detail.html">development</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                
                     <div class="col-lg-3 col-md-6">
                         <div class="content">
                             <div class="title">
@@ -481,11 +467,9 @@
                             </div>
                             <ul class="follow">
                                 <li><a href="#!">facebook</a></li>
-                                <li><a href="#!">twitter</a></li>
                                 <li><a href="#!">google+</a></li>
                                 <li><a href="#!">youtube</a></li>
                                 <li><a href="#!">instagram</a></li>
-                                <li><a href="#!">dribbble</a></li>
                             </ul>
                         </div>
                     </div>
@@ -520,15 +504,7 @@
                         <div class="bg">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
-                                    <p>Copyright &copy; 2021 Al Right Reserved</p>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <ul class="d-flex justify-content-end">
-                                        <li><a href="index.html">home</a></li>
-                                        <li><a href="about.html">about</a></li>
-                                        <li><a href="service.html">service</a></li>
-                                        <li><a href="contact.html">contact</a></li>
-                                    </ul>
+                                    <p>Copyright &copy; 2022 UPTD Pelayanan Dan Pengujian Veteriner Banten</p>
                                 </div>
                             </div>
                         </div>

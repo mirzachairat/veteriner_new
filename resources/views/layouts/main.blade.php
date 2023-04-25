@@ -19,12 +19,14 @@
 <body>
        @include('components.sidebar')
         
-        <div class="page-wrapper">
-           @include('components.navbar')
+        <div class="page-wrapper" >
+           
+            @include('components.navbar')
 
             <!-- Page Content-->
             @yield('content')
             <!-- end page content -->
+
         </div>
         <!-- end page-wrapper -->
 

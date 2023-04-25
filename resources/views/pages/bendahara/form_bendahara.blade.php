@@ -52,9 +52,9 @@
                                 <address class="font-13">
                                     <strong class="font-14">Billed To :</strong><br>
                                     @foreach($users as $item)
-                                    {{$item->nama}}<br>
-                                    alamat: {{$item->user->alamat}}<br>
-                                    <abbr title="Phone">P:</abbr> {{$item->user->no_hp}}
+                                        {{$item->nama}}<br>
+                                        alamat: {{$item->user->alamat}}<br>
+                                        <abbr title="Phone">P:</abbr> {{$item->user->no_hp}}
                                     @endforeach
                                 </address>
                             </div>
@@ -103,8 +103,7 @@
                             <h5 class="mt-4">Terms And Condition :</h5>
                             <ul class="pl-3">
                                 <li><small class="font-12">Lakukan pembayaran terlebih dahulu untuk mendapatkan sertifikat </small></li>
-                                <li><small class="font-12">Upload bukti pembayaran di kolom detail </small></li>
-                                <li><small class="font-12">sertifikat dapat di download di halaman detail permohonan</small ></li>
+                                <li><small class="font-12">sertifikat dapat di download di halaman detail permohonan setelah pembayaran dilakukan</small ></li>
                             </ul>
                         </div> <!--end col-->                                       
                         <div class="col-lg-6 align-self-end">
@@ -123,8 +122,8 @@
                         <div class="col-lg-12 col-xl-4">
                             <div class="float-right d-print-none">
                                 <a href="javascript:window.print()" class="btn btn-soft-info btn-sm">Print</a>
-                                <a href="#" class="btn btn-soft-primary btn-sm">Submit</a>
                                 <a href="#" class="btn btn-soft-danger btn-sm">Cancel</a>
+                                <a href="javascript:history.back()" class="btn btn-soft-primary btn-sm">Back</a>
                             </div>
                         </div><!--end col-->
                     </div><!--end row-->
@@ -134,7 +133,7 @@
     </div><!--end row-->
     <div class="card">
         @foreach($files as $item)
-        <img src="{{$item}}" alt="">
+            <img src="{{$item}}" alt="">
         @endforeach
     </div>
 </div><!-- container -->

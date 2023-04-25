@@ -52,6 +52,7 @@ public function detail($id)
             $data_permohonan = Permohonan::with('user')->where('id', $id)->get();
             return view('pages.penyelia.view_penyelia',compact(['data_permohonan', 'data_dok']));
         }
+
         //jabatan sebagai penguji
         if($jabatan_id == 5 ){
             $data_dok = Dokumen::with('workflow')->where('permohonan_id', $id)->get();
@@ -59,6 +60,15 @@ public function detail($id)
             // return $data_dok;
             $data_permohonan = Permohonan::with('user')->where('id', $id)->get();
             return view('pages.penguji.view_penguji',compact(['data_permohonan', 'data_dok']));
+        }
+
+        //jabatan sebagai bendahara
+        if($jabatan_id == 6 ){
+            $data_dok = Dokumen::with('workflow')->where('permohonan_id', $id)->get();
+            // $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
+            // return $data_dok;
+            $data_permohonan = Permohonan::with('user')->where('id', $id)->get();
+            return view('pages.bendahara.view_bendahara',compact(['data_permohonan', 'data_dok']));
         }
 
         return view('dashboard', compact(['data_permohonan', 'data_dok']));

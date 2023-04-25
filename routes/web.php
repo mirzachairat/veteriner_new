@@ -34,12 +34,15 @@ Route::post('/login', [UserController::class, 'authenticate'])->name('login');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
+
+
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
     Route::get('/view/billing', [PengirimController::class, 'billing'])->name('billing');
     Route::get('/view/pengirim/{id}', [DashboardController::class, 'detail']);
     Route::post('/upload/filedokumen/{id}', [PengirimController::class, 'file_upload']);
+
     // Module Permohononan
     Route::post('/permohonan', [PermohonanController::class, 'tambah']);
 
@@ -50,7 +53,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/penerima/update', [PenerimaController::class, 'update_jenis_sampel']);
     Route::get('/view/penerima/{id}', [DashboardController::class, 'detail']);
     Route::post('/sertifikat/{id}',[PenerimaController::class, 'upload_sertifikat']);
-    //Mudulw Managerx
+
+    //Mudule Manager
     Route::get('/manager', [ManagerController::class, 'index'])->name('manager');
     Route::get('/form/manager/{id}', [ManagerController::class, 'form_detail']);
     Route::get('/cetak/manager', [ManagerController::class, 'view_allform']);
@@ -92,12 +96,9 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/dokumen/{form_f6}', 'DokumenController@index');
 
     //Dokumen Bendahara
-    Route::get('/bendahara', [BendaharaController::class , 'index']);
+    Route::get('/bendahara', [BendaharaController::class , 'index'])->name('bendahara');
     Route::get('/form/bendahara/{id}', [BendaharaController::class , 'form_detail']);
     Route::get('/show/invoice/{id}', [BendaharaController::class , 'download']);
-
-
-
 
     // Map route
     Route::get('/mapview', [MapviewController::class, 'mapview']);
@@ -108,7 +109,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tagihanlist', [TagihanController::class, 'index']);
         Route::get('/bayar', [TagihanController::class, 'store']);
     });
-
 
     //tambah user
     Route::get('/user', [UserController::class, 'index']);

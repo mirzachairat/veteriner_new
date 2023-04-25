@@ -143,7 +143,7 @@
                                             </div>
                                             @foreach($data_permohonan as $item)
                                             <div class="align-self-center">
-                                                <a href="{{env('APP_URL')}}/download/form/{{$item->id}}" class="btn btn-sm btn-soft-primary">Download File <i class="las la-external-link-alt font-15"></i></a>  
+                                                <a href="{{env('APP_URL')}}/download/form/{{$item->id}}" class="btn btn-sm btn-soft-primary" target="_blank">Download File <i class="las la-external-link-alt font-15"></i></a>  
                                             </div>       
                                             @endforeach                               
                                         </li>
