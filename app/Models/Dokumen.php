@@ -18,7 +18,7 @@ class Dokumen extends Model
     }
     public function workflow()
     {
-        return $this->belongsTo(Workflow::class, 'id');
+        return $this->belongsTo(Workflow::class);
     }
    
 }
