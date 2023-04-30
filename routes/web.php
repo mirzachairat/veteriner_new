@@ -79,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     // Getdata harga
     Route::get('/harga', [Jenis_hargaController::class, 'index'])->name('pageharga');
     Route::get('/daftar_harga/select', [Jenis_hargaController::class, 'getHarga']);
+    Route::get('/jenis_pelayanan/select', [Jenis_hargaController::class, 'getJenisPengujian']);
     Route::post('/tambah/harga', [Jenis_hargaController::class, 'tambahharga']);
 
     //panggil from ketika ingin menambahkan data jenis harga

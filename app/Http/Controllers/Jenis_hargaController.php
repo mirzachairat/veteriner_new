@@ -57,5 +57,15 @@ class Jenis_hargaController extends Controller
         $data =  Jenis_harga::find($id);
         return response($data);
     }
-    
+
+    // cari jenis pengujian berdasarkan jenis pelayanan laboratorium
+    public function getJenisPengujian(Request $request){
+        $data=[];
+        $id_lab = $request->id_lab;
+        $data =  Jenis_harga::where('jenis_lab', $id_lab)->get();
+        foreach($data as $item){
+            $data .= "<option value='$item->id $cek'>$item->jenis_pengujian</option>";
+        }
+        echo $data;
+    }
 }

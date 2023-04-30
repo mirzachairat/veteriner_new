@@ -21,6 +21,7 @@
                                             <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Jenis Lab</th>
                                                 <th>Jenis Pengujian</th>
                                                 <th>Satuan</th>
                                                 <th>Tarif</th>
@@ -32,6 +33,7 @@
                                         @foreach($data as $key => $item)
                                             <tr>
                                                 <td>{{$key+1}}</td>
+                                                <td>{{$item->jenis_lab}}</td>
                                                 <td>{{$item->jenis_pengujian}}</td>
                                                 <td>{{$item->satuan}}</td>
                                                 <td>{{formatRupiah($item->tarif)}}</td>
