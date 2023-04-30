@@ -36,4 +36,7 @@ class TagihanController extends Controller
         //     'payment_link' => $response->invoice_url
         // ]);
     }
+    public function callback_pay(){
+        
+    }
 }
