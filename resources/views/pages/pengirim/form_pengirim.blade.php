@@ -32,13 +32,13 @@
                                     <div class="card-body">
                                         <div class="jenis_uji">
                                             <div class="row" data-index="0">
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="jenis_lab-0">Jenis Pelayanan</label>
                                                         <select type="text" class="form-control" id="jenis_lab-0" name="jenis_lab[]" onchange="getJenisUji(0)">
-                                                            <option value selected disabled>=== PILIH JENIS PELAYANAN ===</option>
-                                                                <option value="kesmavet">Kesmavet</option>
-                                                                <option value="veteriner">Veteriner</option>
+                                                                <option value selected disabled>=== PILIH JENIS PELAYANAN ===</option>
+                                                                <option value="keswan">Keswan(Kesehatan Hewan)</option>
+                                                                <option value="kesmavet">Kesmavet(Kesehatan Masyarakat Veteriner)</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -46,7 +46,7 @@
                                                     <div class="form-group">
                                                         <label for="jenis_pengujian-0">Jenis Pengujian</label>
                                                         <select type="text" class="form-control" id="jenis_pengujian-0" name="jenis_pengujian[]" onchange="getPrice(0)">
-                                                             
+                                                            <option value selected disabled>=== PILIH JENIS PENGUJIAN ===</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -128,13 +128,13 @@
         let key = uuidv4();
         $(".jenis_uji").append(
             `<div class="row row-sample-${key} align-items-center">
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="form-group">
                     <label for="jenis_lab-${key}">Jenis Pelayanan</label>
                         <select type="text" class="form-control" id="jenis_lab-${key}" name="jenis_lab[]" onchange="getJenisUji('${key}')">
                             <option value selected disabled>=== PILIH JENIS PELAYANAN ===</option>
-                                <option value="kesmavet">Kesmavet</option>
-                                <option value="veteriner">Veteriner</option>
+                            <option value="keswan">Keswan(Kesehatan Hewan)</option>
+                            <option value="kesmavet">Kesmavet(Kesehatan Masyarakat Veteriner)</option>
                         </select>
                     </div>
                 </div>
@@ -143,9 +143,6 @@
                     <label for="jenis_pengujian-${key}">Jenis Pengujian</label>
                         <select type="text" class="form-control" id="jenis_pengujian-${key}" name="jenis_pengujian[]" onchange="getPrice('${key}')">
                             <option value selected disabled>=== PILIH JENIS PENGUJIAN ===</option>
-                            @foreach($data_harga as $data)
-                                <option value="{{$data->id}}">{{$data->jenis_pengujian}}</option>
-                            @endforeach
                         </select>
                     </div>
                 </div>
