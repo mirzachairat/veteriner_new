@@ -7,6 +7,7 @@ use App\Models\Permohonan;
 use App\Models\Jenis_harga;
 use Illuminate\Support\Facades\Session;
 use App\Models\Dokumen;
+use App\Models\Jenis_sampel;
 use App\Models\Progres;
 use App\Models\Workflow;
 use App\Models\Invoice;
@@ -30,8 +31,10 @@ class PengirimController extends Controller
         return view('pages.pengirim.pengirim', compact('data',));
     }
 
-    public function billing(){
-        return view('pages.pengirim.billing');
+    public function billing($id){
+        $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $id)->get();
+        $users = Permohonan::with('user')->where('id', $id)->get();
+        return view('pages.pengirim.billing', compact('data','users'));
     }
 
     public function file_upload(Request $request, $id){

@@ -33,6 +33,7 @@
                                                 <td><span class="badge badge-soft-success">Approved</span></td>
                                                 <td>
                                                     <a href="{{env('APP_URL')}}/view/pengirim/{{$items->id}}" class="btn btn-primary btm-sm">Lihat</a>
+                                                    <a href="{{env('APP_URL')}}/view/billing/{{$items->id}}" class="btn btn-warning btm-sm">View Billing</a>
                                                 </td>
                                             </tr>
                                             @endforeach

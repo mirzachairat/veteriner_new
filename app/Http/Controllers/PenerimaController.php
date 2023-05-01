@@ -76,7 +76,7 @@ class PenerimaController extends Controller
         ]);
  
          return redirect('/penerima');
-     }
+    }
 
      public function view_dokument($id){
         $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
@@ -84,7 +84,7 @@ class PenerimaController extends Controller
         return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok']));
      }
 
-    public function upload_sertifikat(Request $request, $id){
+     public function upload_sertifikat(Request $request, $id){
         $validasi_data = $request->validate([
             'file' => 'image|file|max:1024' 
         ]);

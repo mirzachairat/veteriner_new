@@ -122,9 +122,8 @@
                         </div><!--end col-->
                         <div class="col-lg-12 col-xl-4">
                             <div class="float-right d-print-none">
-                                <a href="javascript:window.print()" class="btn btn-soft-info btn-sm">Print</a>
                                 <a href="{{env('APP_URL')}}/tagihan/bayar" class="btn btn-soft-primary btn-sm">Bayar Sekarang</a>
-                                <a href="#" class="btn btn-soft-danger btn-sm">Cancel</a>
+                                <a href="{{env('APP_URL')}}/pengirim" class="btn btn-soft-danger btn-sm">Back</a>
                             </div>
                         </div><!--end col-->
                     </div><!--end row-->

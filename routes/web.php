@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
-    Route::get('/view/billing', [PengirimController::class, 'billing'])->name('billing');
+    Route::get('/view/billing/{id}', [PengirimController::class, 'billing'])->name('billing');
     Route::get('/view/pengirim/{id}', [DashboardController::class, 'detail']);
     Route::post('/upload/filedokumen/{id}', [PengirimController::class, 'file_upload']);
 
