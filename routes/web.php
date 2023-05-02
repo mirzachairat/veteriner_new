@@ -108,7 +108,7 @@ Route::middleware(['auth'])->group(function () {
     // tagihan
     Route::prefix('tagihan')->group(function () {
         Route::get('/tagihanlist', [TagihanController::class, 'index']);
-        Route::get('/bayar', [TagihanController::class, 'store']);
+        Route::get('/bayar/{id}', [TagihanController::class, 'store']);
     });
 
     //tambah user
