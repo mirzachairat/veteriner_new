@@ -15,6 +15,7 @@ use App\Http\Controllers\PengujiController;
 use App\Http\Controllers\MapviewController;
 use App\Http\Controllers\BendaharaController;
 use App\Http\Controllers\TagihanController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +31,11 @@ use App\Http\Controllers\TagihanController;
 Route::get('/', [DashboardController::class, 'index'])->name('landing');
 Route::get('/login', [UserController::class, 'index']);
 Route::get('/register', [UserController::class, 'create_user']);
-Route::post('/login', [UserController::class, 'authenticate'])->name('login');
+
+Route::post('/login', [AuthController::class, 'loginAction'])->name('login');
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/logout', [LogoutController::class, 'logout']);
-
-
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);
