@@ -39,9 +39,17 @@ class TagihanController extends Controller
             'payment_status' => $response->status,
             'payment_link' => $response->invoice_url
         ]);
+
+        return redirect()->to($response->invoice_url);
     }
 
-    public function callback_pay(){
-        
+    public function callback_pay(Request $request){
+        $data = request()->all();
+        $status = $data['status'];
+        $external_id = $data['external_id'];
+        Tagihan::where('doc_no', $external_id)->update([
+            'payment_status' => $status
+        ]);
+        return response()->json($data);
     }
 }

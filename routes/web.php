@@ -109,6 +109,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('tagihan')->group(function () {
         Route::get('/tagihanlist', [TagihanController::class, 'index']);
         Route::get('/bayar/{id}', [TagihanController::class, 'store']);
+        Route::post('/callback', [TagihanController::class, 'callback_pay']);
     });
 
     //tambah user
