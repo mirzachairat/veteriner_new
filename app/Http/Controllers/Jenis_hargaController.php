@@ -26,7 +26,7 @@ class Jenis_hargaController extends Controller
     
     public function deleteharga($id){
         Jenis_harga::where('id',$id)->delete();
-        return redirect()->back();
+        return redirect()->route('pageharga');
     }
     
 
@@ -47,7 +47,7 @@ class Jenis_hargaController extends Controller
             'tarif' => $request->tarif,
             'lama_pengujian' => $request->lama_pengujian
         ]);
-        return redirect()->back('harga');
+        return redirect()->route('pageharga');
     }
 
 

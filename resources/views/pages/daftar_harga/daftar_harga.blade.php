@@ -11,9 +11,6 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Tabel Daftar Harga</h4>
-                                    <p class="text-muted mb-0">Add <code>.table-bordered</code> for
-                                        borders on all sides of the table and cells.
-                                    </p>
                                 </div><!--end card-header-->
                                 <div class="card-body">
                                     <div class="table-responsive">
