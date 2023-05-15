@@ -7,6 +7,7 @@ use App\Models\Permohonan;
 use App\Models\Dokumen;
 use App\Models\Progres;
 use App\Models\Workflow;
+use App\Models\Filedokumen;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -26,8 +27,8 @@ public function detail($id)
             $data_dok = Dokumen::with('workflow')->where('permohonan_id', $id)->get();
             $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
             $data_progres =  Progres::where('permohonan_id', $id)->with('workflow')->get();
-    
-            return view('pages.pengirim.view_pengirim',compact(['data_permohonan','data_dok','data_progres']));
+            $data_sertifikat = Filedokumen::where('permohonan_id', $id)->get();
+            return view('pages.pengirim.view_pengirim',compact(['data_permohonan','data_dok','data_progres','data_sertifikat']));
         }
 
         // jabatan sebagai penerima

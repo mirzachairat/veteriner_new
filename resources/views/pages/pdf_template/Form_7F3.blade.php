@@ -497,7 +497,7 @@
             </table>
           <br />
           <p>
-            Dengan ini kedua belah pihak sepakat melakukan kontrak pengujian.
+            Dengan ini kedua belah pihak sepakat melakukan kontrak pengujian
             PIHAK PERTAMA menyerahkan pekerjaan pengujian kepada PIHAK KEDUA,
             PIHAK KEDUA menerima pekerjaan pengujian dari PIHAK PERTAMA sebagai
             berikut:

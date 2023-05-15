@@ -162,14 +162,14 @@
                                                         </div>                                                        
                                                     </div>
                                                     {{-- sertifikat  --}}
-                                                    @foreach($data_progres as $item)
-                                                        @if($item->status != 6)
+                                                    @foreach($data_sertifikat as $item)
+                                                        @if($item->file_link == "")
                                                             <div class="file-box" style="display:none">
                                                            @else
                                                            <div class="file-box"> 
                                                         @endif        
-                                                                @foreach($data_permohonan as $dt)
-                                                                    <a href="{{env('APP_URL')}}/download/sertifikat/{{$dt->id}}" target="_blank" class="download-icon-link">
+                                                                @foreach($data_sertifikat as $dt)
+                                                                    <a href="{{env('APP_URL')}}/storage/{{$item->file_link}}" target="_blank" class="download-icon-link">
                                                                         <i class="dripicons-download file-download-icon"></i>
                                                                     </a>
                                                                 @endforeach

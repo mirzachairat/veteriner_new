@@ -81,8 +81,11 @@ class PenerimaController extends Controller
      public function view_dokument($id){
         $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
         $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
+        
         return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok']));
      }
+
+     //Serfitikat diupload manual berdasarkan permohonan_id
 
      public function upload_sertifikat(Request $request, $id){
         $validasi_data = $request->validate([
@@ -90,7 +93,7 @@ class PenerimaController extends Controller
         ]);
          
         if($request->file('image')){
-                $validasi_data['file'] = $request->file('image')->store('post-images');
+                $validasi_data['file_link'] = $request->file('image')->store('post-images');
         }
 
         $validasi_data['permohonan_id'] = $id;
