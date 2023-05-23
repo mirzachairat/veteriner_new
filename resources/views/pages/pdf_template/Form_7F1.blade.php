@@ -401,18 +401,18 @@
         <tr>
           <td style="width: 260px">Yang bertanda tangan di bawah ini</td>
         </tr>
-      @foreach($users as $item)
+        @foreach($users as $item)
         <tr>
           <td>Nama</td>
-          <td>: {{$item->nama}}</td>
+          <td>: {{$item->user->nama}}</td>
         </tr>
         <tr>
           <td>Alamat</td>
-          <td>: {{$item->alamat}}</td>
+          <td>: {{$item->user->alamat}}</td>
         </tr>
         <tr>
           <td>Instansi/Perusahaan</td>
-          <td>: {{$item->instansi}}</td>
+          <td>: {{$item->user->instansi}}</td>
         </tr>
         @endforeach 
         <tr>
