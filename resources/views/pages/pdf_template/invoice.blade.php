@@ -409,7 +409,7 @@
                 <td style="width: 10%">c. dari:</td>
                 <td>Nama/Nama Perusahaan</td>
                 <td>:</td>
-                <td colspan="4">{{$item->instansi}}</td>
+                <td colspan="4">{{$item->nama}} / {{$item->instansi}}</td>
               </tr>
               <tr>
                 <td></td>
