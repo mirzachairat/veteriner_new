@@ -81,7 +81,6 @@ class PenerimaController extends Controller
      public function view_dokument($id){
         $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
         $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
-        
         return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok']));
      }
 

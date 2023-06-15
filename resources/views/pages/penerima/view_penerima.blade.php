@@ -35,9 +35,9 @@
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
                     <div class="row">
-                        <div class="col-lg-9">
+                        <div class="col-lg-12">
                             <div class="row justify-content-center">
-                                <div class="col-md-6 col-lg-3">
+                                <div class="col-md-6 col-lg-4">
                                     <div class="card report-card">
                                         <div class="card-body">
                                             <div class="row d-flex justify-content-center">
@@ -54,13 +54,23 @@
                                         </div><!--end card-body--> 
                                     </div><!--end card--> 
                                 </div> <!--end col--> 
-                                <div class="col-md-6 col-lg-3">
+                                <div class="col-md-6 col-lg-4">
                                     <div class="card report-card">
                                         <div class="card-body">
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
-                                                    <p class="text-dark mb-0 font-weight-semibold">Status Pembayaran</p>
-                                                    <h3 class="m-0">Belum Bayar</h3>
+                                                    <p class="text-dark mb-0 font-weight-semibold">Status Invoice</p>
+                                                    @foreach($data_progres as $item_pr)
+                                                    @if($item_pr->status == 0 )
+                                                        <h1>
+                                                            <span class="badge badge-soft-danger">Silahkan Lakukan Pembayaran</span>
+                                                        </h1>
+                                                    @else
+                                                        <h1>
+                                                            <span class="badge badge-soft-danger">Lunas</span>
+                                                        </h1>
+                                                    @endif
+                                                    @endforeach
                                                 </div>
                                                 <div class="col-auto align-self-center">
                                                     <div class="report-main-icon bg-light-alt">
@@ -71,13 +81,23 @@
                                         </div><!--end card-body--> 
                                     </div><!--end card--> 
                                 </div> <!--end col--> 
-                                <div class="col-md-6 col-lg-3">
+                                <div class="col-md-6 col-lg-4">
                                     <div class="card report-card">
                                         <div class="card-body">
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
                                                     <p class="text-dark mb-0 font-weight-semibold">Status Sampel</p>
-                                                    <h3 class="m-0">0</h3>
+                                                    @foreach($data_progres as $item_pr)
+                                                        @if($item_pr->status == 0 )
+                                                        <h1>
+                                                            <span class="badge badge-soft-danger">Belum Kirim Sampel</span>
+                                                        </h1>
+                                                        @else
+                                                        <h1>
+                                                            <span class="badge badge-soft-danger">Sudah Kirim Sampel</span>
+                                                        </h1>
+                                                        @endif   
+                                                    @endforeach
                                                 </div>
                                                 <div class="col-auto align-self-center">
                                                     <div class="report-main-icon bg-light-alt">
@@ -87,25 +107,8 @@
                                             </div>
                                         </div><!--end card-body--> 
                                     </div><!--end card--> 
-                                </div> <!--end col--> 
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="card report-card">
-                                        <div class="card-body">
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col">  
-                                                    <p class="text-dark mb-0 font-weight-semibold">Total Epi</p>                                         
-                                                    <h3 class="m-0">0</h3>
-                                                </div>
-                                                <div class="col-auto align-self-center">
-                                                    <div class="report-main-icon bg-light-alt">
-                                                        <i data-feather="briefcase" class="align-self-center text-muted icon-sm"></i>  
-                                                    </div>
-                                                </div> 
-                                            </div>
-                                        </div><!--end card-body--> 
-                                    </div><!--end card--> 
-                                </div> <!--end col-->                               
-                            </div><!--end row--> 
+                                </div> <!--end col-->                           
+                            </div><!--end row-->
                         </div><!--end col-->
                     </div><!--end row-->
 

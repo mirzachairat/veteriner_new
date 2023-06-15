@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 
-@section('page_css')
+@push('page_css')
   <!-- Load Leaflet from CDN -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
@@ -11,7 +11,7 @@
 <style>
     #mapid { min-height: 500px; }
     </style>
-@endsection
+@endpush
 
 @section('content')    
 <div class="card">
@@ -19,7 +19,7 @@
 </div>
 @endsection
 
-@section('script')
+@push('script')
 <!-- Make sure you put this AFTER Leaflet's CSS -->
  <!-- Load Esri Leaflet from CDN -->
  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
@@ -50,4 +50,4 @@
         });
     })
 </script>
-@endsection
+@endpush

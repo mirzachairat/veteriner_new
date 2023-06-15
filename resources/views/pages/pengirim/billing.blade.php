@@ -65,13 +65,15 @@
                         </div><!--end col--> 
                         <div class="col-md-3">                                            
                             <div class="float-left">
-                                @if($pembayaran = '')
-                                <h1>Lakukan Pembayaran</h1>
-                                @else
-                                    <div id="watermark">
-                                        <img src="{{asset('/images/stamp_lunas.png')}}" alt="">  
-                                    </div>
-                                @endif
+                                @foreach ($data_tagihan as $item_tag)
+                                    @if($item->tag == 0)
+                                        <h1 style="color:red">Segera Lakukan Pembayaran</h1>
+                                    @else
+                                        <div id="watermark">
+                                            <img src="{{asset('/images/stamp_lunas.png')}}" alt="">  
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div><!--end col--> 
                     </div><!--end row-->
