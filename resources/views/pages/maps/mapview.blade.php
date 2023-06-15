@@ -1,6 +1,5 @@
 @extends('layouts.main')
 
-
 @push('page_css')
   <!-- Load Leaflet from CDN -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
