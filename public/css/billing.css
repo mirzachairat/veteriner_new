@@ -1,0 +1,8 @@
+#watermark {
+    opacity: 0.5
+}
+
+#watermark img {
+    width: 200px;
+    height: auto;
+}

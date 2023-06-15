@@ -59,8 +59,8 @@
                                         <div class="card-body">
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
-                                                    <p class="text-dark mb-0 font-weight-semibold">Status Pending</p>
-                                                    <h3 class="m-0">0</h3>
+                                                    <p class="text-dark mb-0 font-weight-semibold">Status Pembayaran</p>
+                                                    <h3 class="m-0">Belum Bayar</h3>
                                                 </div>
                                                 <div class="col-auto align-self-center">
                                                     <div class="report-main-icon bg-light-alt">
@@ -76,7 +76,7 @@
                                         <div class="card-body">
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
-                                                    <p class="text-dark mb-0 font-weight-semibold">Total Ditolak</p>
+                                                    <p class="text-dark mb-0 font-weight-semibold">Status Sampel</p>
                                                     <h3 class="m-0">0</h3>
                                                 </div>
                                                 <div class="col-auto align-self-center">
@@ -139,7 +139,7 @@
                                             <div class="media">
                                                 <img src="/assets/images/small/rgb.svg" height="30" class="mr-3 align-self-center rounded" alt="...">
                                                 <div class="media-body align-self-center"> 
-                                                    <h6 class="m-0">Formulir 7F2</h6>                                                             
+                                                    <h6 class="m-0">Formulir 7F3</h6>                                                             
                                                 </div><!--end media body-->
                                             </div>
                                             @foreach($data_permohonan as $fs) 

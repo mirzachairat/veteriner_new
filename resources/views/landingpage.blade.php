@@ -292,145 +292,6 @@
     </section>
     <!-- end about area -->
 
-    <!-- start mobile area -->
-    <section class="home1 mobile">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="bg wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <div class="image">
-                                    <img src="assets/images/home1/mobile.png" alt="Mobile">
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="content">
-                                    <h3>Get Mobile App Only Here</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-                                    <ul class="d-flex">
-                                        <li>
-                                            <a href="#!">
-                                                <img src="assets/images/home1/banner/applestore.png" alt="Apple Store">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#!">
-                                                <img src="assets/images/home1/banner/playstore.png" alt="Play Store">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end mobile area -->
-
-    <!-- start video area -->
-    <section class="home1 video" data-img="assets/images/home1/video-bg.jpg">
-        <div class="overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="content text-center">
-                            <a class="vid-icon venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=LCmsrVOXzZc">
-                                <i class="fas fa-play"></i>
-                            </a>
-                            <p>working video</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end video area -->
-    
-    <!-- start blog area -->
-    <section class="home1 blog p-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
-                    <div class="section-title wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
-                        <h2>latest news</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod te incididunt ut labore et dolore magna aliqua. Ut enim ad minim to eismud </p>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-blog wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
-                                <div class="image">
-                                    <a href="blog-detail.html">
-                                        <img src="assets/images/home1/blog/blog1.jpg" alt="Blog">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    
-                                    <a href="blog-detail.html">
-                                        <h6>Great ISO Service we have ever seen in history</h6>
-                                    </a>
-                                    <ul class="d-flex align-item-center">
-                                        <li><a href="#!"><i class="fas fa-user"></i>endith smith</a></li>
-                                        <li><a href="#!"><i class="fas fa-comment"></i>may 21, 21</a></li>
-                                    </ul>
-                                    <p>We help ambitious businesses like yours generate more profits </p>
-                                    <a href="blog-detail.html" class="read-more">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-blog wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
-                                <div class="image">
-                                    <a href="blog-detail.html">
-                                        <img src="assets/images/home1/blog/blog2.jpg" alt="Blog">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    
-                                    <a href="blog-detail.html">
-                                        <h6>Modern Innovation and Best Talent work together</h6>
-                                    </a>
-                                    <ul class="d-flex align-item-center">
-                                        <li><a href="#!"><i class="fas fa-user"></i>Jhon smith</a></li>
-                                        <li><a href="#!"><i class="fas fa-comment"></i>may 21, 21</a></li>
-                                    </ul>
-                                    <p>We help ambitious businesses like yours generate more profits </p>
-                                    <a href="blog-detail.html" class="read-more">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-blog wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
-                                <div class="image">
-                                    <a href="blog-detail.html">
-                                        <img src="assets/images/home1/blog/blog3.jpg" alt="Blog">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    
-                                    <a href="blog-detail.html">
-                                        <h6>All the Services are Best and Packages Liked by all</h6>
-                                    </a>
-                                    <ul class="d-flex align-item-center">
-                                        <li><a href="#!"><i class="fas fa-user"></i>Abul mike</a></li>
-                                        <li><a href="#!"><i class="fas fa-comment"></i>may 21, 21</a></li>
-                                    </ul>
-                                    <p>We help ambitious businesses like yours generate more profits </p>
-                                    <a href="blog-detail.html" class="read-more">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end blog area -->
-
     <!-- start footer area -->
     <footer class="footer" data-img="assets/images/footer-bg.jpg">
         <!-- start footer-top area -->
@@ -454,7 +315,7 @@
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="far fa-envelope"></i>
-                                    <p>demo@example.com</p>
+                                    <p>keswan.kesmavet@gmail.com</p>
                                 </li>
                             </ul>
                         </div>
@@ -466,28 +327,16 @@
                                 <h5>follow us</h5>
                             </div>
                             <ul class="follow">
-                                <li><a href="#!">facebook</a></li>
-                                <li><a href="#!">google+</a></li>
-                                <li><a href="#!">youtube</a></li>
-                                <li><a href="#!">instagram</a></li>
+                                <li><a href="https://web.facebook.com/profile.php?id=100071320265167">facebook</a></li>
+                                <li><a href="https://www.instagram.com/uptd.ppv.banten/">instagram</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="content">
-                            <div class="title">
-                                <h5>subscribe</h5>
-                            </div>
-                            <p>Lorem ipsum dolor si  consectetur adipisicing elit, sed eiusmotempor incididunt ut labore et</p>
-                            <div class="form-area">
-                                <input type="email" placeholder="your email" class="inputs">
-                                <button><i class="fab fa-telegram-plane"></i></button>
-                            </div>
                             <ul class="d-flex social">
-                                <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://web.facebook.com/profile.php?id=100071320265167"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/uptd.ppv.banten/"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

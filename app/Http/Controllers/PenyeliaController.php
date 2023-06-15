@@ -73,6 +73,8 @@ class PenyeliaController extends Controller
                     'bahan_pengawet' => $request->bahan_pengawet[$index],
                      'kondisi' => $request->kondisi[$index],
                      'kriteria' => $request->kriteria[$index],
+                     'tgl_uji' => $request->tgl_uji[$index],
+                     'tgl_selesaiuji' => $request->tgl_selesaiuji[$index],
                      'nilai' => $request->nilai[$index],
                      'diagnosa' => $request->diagnosa[$index],
                  ]);

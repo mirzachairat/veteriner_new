@@ -12,3 +12,4 @@ class Workflow extends Model
     protected $table = 'workflow';
     protected $guarded = [];
 }
+

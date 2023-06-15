@@ -1,4 +1,7 @@
 @extends('layouts.main')
+@push('page_css')
+    <link href="{{ asset('css/billing.css') }}" rel="stylesheet">
+@endpush
 @section('content')    
 <div class="container-fluid">
     <!-- Page-Title -->
@@ -32,6 +35,7 @@
     <div class="row">
         <div class="col-lg-10 mx-auto">
             <div class="card">
+                
                 <div class="card-body invoice-head"> 
                     <div class="row">
                         <h1>Billing</h1> 
@@ -57,6 +61,17 @@
                                             <abbr title="Phone">P:</abbr> {{$item->user->no_hp}}
                                         @endforeach
                                 </address>
+                            </div>
+                        </div><!--end col--> 
+                        <div class="col-md-3">                                            
+                            <div class="float-left">
+                                @if($pembayaran = '')
+                                <h1>Lakukan Pembayaran</h1>
+                                @else
+                                    <div id="watermark">
+                                        <img src="{{asset('/images/stamp_lunas.png')}}" alt="">  
+                                    </div>
+                                @endif
                             </div>
                         </div><!--end col--> 
                     </div><!--end row-->
@@ -106,6 +121,7 @@
                                 <li><small class="font-12">Upload bukti pembayaran di kolom detail </small></li>
                                 <li><small class="font-12">sertifikat dapat di download di halaman detail permohonan</small ></li>
                             </ul>
+                           
                         </div> <!--end col-->                                       
                         <div class="col-lg-6 align-self-end">
                             <div class="float-right" style="width: 30%;">

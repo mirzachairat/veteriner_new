@@ -98,6 +98,21 @@
                                                     </div>
                                                 </div>
                                                 @if($st_status !== 2) 
+                                                
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="tgl_uji">Tanggal Uji</label>
+                                                        <input type="date" class="form-control input-nilai" id="tgl_uji-0" name="tgl_uji[]">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="tgl_selesaiuji">Tanggal Selesai Uji</label>
+                                                        <input type="date" class="form-control input-nilai" id="tgl_selesaiuji-0" name="tgl_selesaiuji[]">
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="nilai">Hasil Uji</label>

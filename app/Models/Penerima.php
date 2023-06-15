@@ -9,7 +9,5 @@ class Penerima extends Model
 {
     use HasFactory;
     protected $table = 'penerima';
-    protected $guarded = [];
-
-    
+    protected $guarded = [];    
 }

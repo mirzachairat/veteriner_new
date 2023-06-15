@@ -3,10 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">INPUT PERMOHONAN PENERIMA</h4>
-                <p class="text-muted mb-0">Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each
-                    textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code class="highlighter-rouge">type</code>.
-                </p>
+                <h4 class="card-title">APPROVAL MANAGER</h4>
             </div><!--end card-header-->
             <div class="card-body">  
                 <div class="row">

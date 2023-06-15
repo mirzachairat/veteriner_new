@@ -53,17 +53,17 @@ class DokumenController extends Controller
                 return $pdf->stream('Pemohon.pdf');
         }    
 
-        //user penerima    
-        if($pengguna->jabatan_id == 2){
-            $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
-            return $pdf->stream('Penerima.pdf');
-            }
-
         //user manager    
-        if($pengguna->jabatan_id == 3){
+        if($pengguna->jabatan_id == 2){
             $pdf = Pdf::loadView('pages.pdf_template.Form_7F3',$data_pass);
             return $pdf->stream('Kontrak Pengujian.pdf');
         }
+
+         //user penerima    
+         if($pengguna->jabatan_id == 3){
+            $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
+            return $pdf->stream('Penerima.pdf');
+            }
 
         //user penyelia
         if($pengguna->jabatan_id == 4){

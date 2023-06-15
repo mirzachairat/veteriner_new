@@ -14,7 +14,7 @@
     <link href="{{asset('css/metisMenu.min.css')}}"rel="stylesheet" type="text/css" />
     <link href="{{asset('plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/app.min.css')}}" rel="stylesheet" type="text/css" />
-    @yield('page_css')
+    @stack('page_css')
 </head>
 <body>
        @include('components.sidebar')
@@ -45,6 +45,5 @@
         <!-- App js -->
         <script src="{{asset('js/app.js')}}"></script>
         @yield('script')
-        
     </body>
 </html>

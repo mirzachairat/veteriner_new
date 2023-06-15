@@ -19,21 +19,25 @@ class PengirimController extends Controller
 {
     public function index()
     {
+        $id=[];
+        $data=[];
+        $data_work=[];
         // $data = Permohonan::with('jenis_sampel')->with('user')->where('users_id', auth()->id())->get();
-        $data = Permohonan::with('progres')->where('users_id', auth()->id())->get();
-        
-        foreach($data as $item){
-            $data_fs = [
-                'users_id' => $item->users_id,
-            ];
-        }
-
-        return view('pages.pengirim.pengirim', compact('data',));
+        if($data != ''){
+           $data = Permohonan::where('users_id', auth()->id())->get();
+           foreach($data as $item_data){
+               $id = $item_data->id;
+           }
+           $data_work = Progres::with('workflow')->where('permohonan_id',$id)->get();
+           return view('pages.pengirim.pengirim', compact('data','data_work'));
+        }else{
+           return view('pages.pengirim.pengirim', compact('data', 'data_work'));
+       }
     }
 
     public function billing($id){
         $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $id)->get();
-        $users = Permohonan::with('user')->where('id', $id)->get();
+        $users = Permohonan::with('user')->with('progres')->where('id', $id)->get();
         return view('pages.pengirim.billing', compact('data','users'));
     }
 

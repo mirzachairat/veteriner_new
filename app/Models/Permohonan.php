@@ -29,10 +29,12 @@ class Permohonan extends Model
     {
         return $this->hasMany(Penerima::class);
     }
+   
     public function progres()
     {
-        return $this->hasMany(Progres::class);   
+        return $this->belongsTo(Progres::class);   
     }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id');

@@ -138,7 +138,7 @@
                                             <div class="media">
                                                 <img src="/assets/images/small/rgb.svg" height="30" class="mr-3 align-self-center rounded" alt="...">
                                                 <div class="media-body align-self-center"> 
-                                                    <h6 class="m-0">Formulir 7F3</h6>                                                             
+                                                    <h6 class="m-0">Formulir 7F2</h6>                                                             
                                                 </div><!--end media body-->
                                             </div>
                                             @foreach($data_permohonan as $item)
