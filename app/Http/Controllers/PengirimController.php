@@ -39,7 +39,7 @@ class PengirimController extends Controller
     public function billing($id){
         $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $id)->get();
         $users = Permohonan::with('user')->with('progres')->where('id', $id)->get();
-        $data_tagihan = Tagihan::where('permohonan_id', '$id')->get();
+        $data_tagihan = Tagihan::where('permohonan_id',$id)->get();
         return view('pages.pengirim.billing', compact(['data','users','data_tagihan']));
     }
 
