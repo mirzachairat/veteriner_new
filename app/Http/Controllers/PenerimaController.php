@@ -38,9 +38,11 @@ class PenerimaController extends Controller
         $permohonan_id = $request->permohonan_id;
         
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
+
+        $status_update = $request->status_delete;
         
-        $status_a = $request->status_delete;
-        Progres::where('status', $status_a)->where('permohonan_id',$permohonan_id)->delete();
+        Progres::where('status', $status_update)->where('permohonan_id',$permohonan_id)->delete();
+            
             foreach ($request->permohonan_id as $index => $item) {
                 $data_jenis = Jenis_sampel::create([
                     'permohonan_id' => $request->permohonan_id[$index],
@@ -63,17 +65,32 @@ class PenerimaController extends Controller
                 ]);
             }
         
-         $progress = Progres::create([
+
+            $data_filedokumen = Filedokumen::where('permohonan_id',$permohonan_id)->get();
+            foreach($data_filedokumen as $item_dok){
+                Filedokumen::where('permohonan_id',$item_dok->permohonan_id)->update([
+                    'id' => $item_dok->id,
+                    'permohonan_id' => $item_dok->permohonan_id,
+                    'kode_file' => 1,
+                    'status' => 2,
+                    'file_link' => $item_dok->file_link
+                ]);
+            }
+
+
+         Progres::create([
              "permohonan_id" => $request->permohonan_id[0],
              "workflow_id" => $request->workflow_id,
              "status" => $request->status
          ]);
 
-         $dokumen = Dokumen::create([
+         Dokumen::create([
             'permohonan_id' => $request->permohonan_id[0],
             'workflow_id' => $request->workflow_id,
             'approval' => $request->approval
         ]);
+
+
  
          return redirect('/penerima');
     }

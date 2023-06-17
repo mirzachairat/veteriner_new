@@ -17,6 +17,7 @@ class CreateFiledokumenTable extends Migration
             $table->id();
             $table->foreignId('permohonan_id');
             $table->integer('kode_file');
+            $table->string('status');
             $table->string('file_link');
             $table->timestamps();
         });

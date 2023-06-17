@@ -131,7 +131,7 @@
                             </div><!--end col-->
                             <!-- END contoh UJI     -->
                             @endforeach
-                            <button style="float:left" type="submit" class="btn btn-primary">Simpan</button>
+                            <button style="float:left" type="submit" class="btn btn-primary">Kirim</button>
                         </form>
                     </div>
                 </div>                                                                      

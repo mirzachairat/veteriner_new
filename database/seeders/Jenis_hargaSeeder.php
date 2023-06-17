@@ -35,5 +35,26 @@ class Jenis_hargaSeeder extends Seeder
             'tarif' => 60000,
             'lama_pengujian' => "2-3"
         ]);
+        $Jenis_harga = Jenis_harga::create([
+            'jenis_lab' => 'keswan',
+            'jenis_pengujian' => "FAT Rabies",
+            'satuan' => "per sampel",
+            'tarif' => 150000,
+            'lama_pengujian' => "2-3"
+        ]);
+        $Jenis_harga = Jenis_harga::create([
+            'jenis_lab' => 'keswan',
+            'jenis_pengujian' => "Elisa Rabies",
+            'satuan' => "per sampel",
+            'tarif' => 150000,
+            'lama_pengujian' => "2-3"
+        ]);
+        $Jenis_harga = Jenis_harga::create([
+            'jenis_lab' => 'keswan',
+            'jenis_pengujian' => "Uji Sedimentasi",
+            'satuan' => "per sampel",
+            'tarif' => 30000,
+            'lama_pengujian' => "2-3"
+        ]);
     }
 }

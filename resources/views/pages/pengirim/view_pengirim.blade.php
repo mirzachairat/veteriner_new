@@ -58,17 +58,24 @@
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
                                                     <p class="text-dark mb-0 font-weight-semibold">Status Invoice</p>
-                                                    @foreach($data_progres as $item_pr)
-                                                    @if($item_pr->status == 0 )
+                                                    @if(count($file_dokumen) < 1)
                                                         <h1>
-                                                            <span class="badge badge-soft-danger">Silahkan Lakukan Pembayaran</span>
+                                                            <span class="badge badge-soft-warning">Segera Lakukan Pembayaran</span>
                                                         </h1>
-                                                    @else
-                                                        <h1>
-                                                            <span class="badge badge-soft-danger">Lunas</span>
-                                                        </h1>
-                                                    @endif
-                                                    @endforeach
+                                                        @else    
+                                                            @foreach($file_dokumen as $dk)
+                                                            
+                                                                @if($dk->kode_file == 1 && $dk->status == 1)
+                                                                    <h1>
+                                                                        <span class="badge badge-soft-danger">Proses Pengecekan</span>
+                                                                    </h1>
+                                                                @else
+                                                                    <h1>
+                                                                        <span class="badge badge-soft-danger">Lunas</span>
+                                                                    </h1>
+                                                            @endif
+                                                            @endforeach
+                                                     @endif   
                                                 </div>
                                                 <div class="col-auto align-self-center">
                                                     <div class="report-main-icon bg-light-alt">
@@ -165,23 +172,25 @@
                                                         </div>                                                        
                                                     </div>
                                                     {{-- sertifikat  --}}
-                                                    @foreach($data_sertifikat as $item)
-                                                        @if($item->file_link == "")
+                                                    @foreach($file_dokumen as $item)
+                                                        {{-- kode file 1 adalah filedokumen invoice --}}
+                                                        {{-- kode file 2 adalah filedokumen sertifikat --}}
+                                                        @if($item->kode_file == 1 )
                                                             <div class="file-box" style="display:none">
                                                            @else
                                                            <div class="file-box"> 
                                                         @endif        
-                                                                @foreach($data_sertifikat as $dt)
-                                                                    <a href="{{env('APP_URL')}}/storage/{{$item->file_link}}" target="_blank" class="download-icon-link">
-                                                                        <i class="dripicons-download file-download-icon"></i>
-                                                                    </a>
-                                                                @endforeach
-                                                                <div class="text-center">
-                                                                    <i class="lar la-file-alt text-primary"></i>
-                                                                    <h6 class="text-truncate">Sertifikat</h6>
-                                                                    <small class="text-muted">06 March 2019 / 5MB</small>
-                                                                </div>                                                        
-                                                            </div>
+                                                               
+                                                        <a href="{{env('APP_URL')}}/storage/{{$item->file_link}}" target="_blank" class="download-icon-link">
+                                                            <i class="dripicons-download file-download-icon"></i>
+                                                        </a>
+                                                               
+                                                        <div class="text-center">
+                                                            <i class="lar la-file-alt text-primary"></i>
+                                                            <h6 class="text-truncate">Sertifikat</h6>
+                                                            <small class="text-muted">06 March 2019 / 5MB</small>
+                                                        </div>                                                        
+                                                    </div>
                                                     @endforeach
                                                 </div>
                                             </div><!--end tab-pane-->       

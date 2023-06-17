@@ -55,6 +55,7 @@ class PengirimController extends Controller
         $validasi_data['permohonan_id'] = $id;
         //1 invoice 
         $validasi_data['kode_file'] = 1;
+        $validasi_data['status'] = 1;
        
         Filedokumen::create($validasi_data);
         
