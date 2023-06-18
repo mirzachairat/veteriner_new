@@ -103,9 +103,10 @@ class DokumenController extends Controller
             $pdf = Pdf::loadView('pages.pdf_template.invoice',$data_pass);
             return $pdf->stream('Invoice.pdf');
     }
+
     public function sertifikat($id){
-        $user = Auth::user()->id;
-        $user_data = User::where('id',$user)->get();
+        // $user = Auth::user()->id;
+        // $user_data = User::where('id',$user)->get();
         $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
         $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)
                                 ->with('jenis_harga')

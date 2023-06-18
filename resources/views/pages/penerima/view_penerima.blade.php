@@ -60,17 +60,24 @@
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
                                                     <p class="text-dark mb-0 font-weight-semibold">Status Invoice</p>
-                                                    @foreach($data_progres as $item_pr)
-                                                    @if($item_pr->status == 0 )
-                                                        <h1>
-                                                            <span class="badge badge-soft-danger">Silahkan Lakukan Pembayaran</span>
-                                                        </h1>
-                                                    @else
-                                                        <h1>
-                                                            <span class="badge badge-soft-danger">Lunas</span>
-                                                        </h1>
-                                                    @endif
-                                                    @endforeach
+                                                    @if(count($file_dokumen) < 1)
+                                                    <h1>
+                                                        <span class="badge badge-soft-warning">Menunggu Pembayaran</span>
+                                                    </h1>
+                                                    @else    
+                                                        @foreach($file_dokumen as $dk)
+                                                        
+                                                            @if($dk->kode_file == 1 && $dk->status == 1)
+                                                                <h1>
+                                                                    <span class="badge badge-soft-danger">Proses Pengecekan</span>
+                                                                </h1>
+                                                            @else
+                                                                <h1>
+                                                                    <span class="badge badge-soft-danger">Lunas</span>
+                                                                </h1>
+                                                        @endif
+                                                        @endforeach
+                                                     @endif   
                                                 </div>
                                                 <div class="col-auto align-self-center">
                                                     <div class="report-main-icon bg-light-alt">
@@ -150,6 +157,27 @@
                                                 <a href="{{env('APP_URL')}}/download/form/{{$fs->id}}" class="btn btn-sm btn-soft-primary" target="_blank">Download File<i class="las la-external-link-alt font-15"></i></a>  
                                             </div>       
                                             @endforeach                                       
+                                        </li>
+                                        <li class="list-group-item align-items-center d-flex justify-content-between pt-0">
+                                            <div class="media">
+                                                <img src="/assets/images/small/rgb.svg" height="30" class="mr-3 align-self-center rounded" alt="...">
+                                                <div class="media-body align-self-center"> 
+                                                    <h6 class="m-0">Sertifikat</h6>                                                             
+                                                </div><!--end media body-->
+                                            </div>
+                                                @foreach($data_progres as $item_pr)
+                                                    @if($item_pr->status == 6 )
+                                                        <div class="download" style="visibility: vissible">
+                                                    @else
+                                                        <div class="download" style="visibility: hidden">    
+                                                    @endif   
+                                                            @foreach($data_permohonan as $fs) 
+                                                            <div class="align-self-center">
+                                                                <a href="{{env('APP_URL')}}/download/sertifikat/{{$fs->id}}" class="btn btn-sm btn-soft-primary" target="_blank">Download File<i class="las la-external-link-alt font-15"></i></a>  
+                                                            </div>       
+                                                            @endforeach      
+                                                        </div>
+                                                @endforeach                                       
                                         </li>
                                     </ul>                                
                                 </div><!--end card-body--> 

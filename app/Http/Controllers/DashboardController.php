@@ -36,7 +36,8 @@ public function detail($id)
             $data_dok = Dokumen::with('workflow')->where('permohonan_id', $id)->get();
             $data_permohonan = Permohonan::with('user')->with('jenis_sampel')->where('id', $id)->get();
             $data_progres =  Progres::where('permohonan_id', $id)->with('workflow')->get();
-            return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok','data_progres']));
+            $file_dokumen = Filedokumen::where('permohonan_id',$id)->get();
+            return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok','data_progres','file_dokumen']));
         }
 
         // jabatan sebagai manager
