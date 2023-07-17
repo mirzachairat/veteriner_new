@@ -221,14 +221,14 @@
                     <div class="row align-items-center">
                         <div class="col-lg-5">
                             <div class="image text-center wow fadeInLeft" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <img src="assets/images/home1/about/img1.png" alt="About">
+                                <img src="assets/images/price_kesmavet.jpeg" alt="About">
                             </div>
                         </div>
                         <div class="col-lg-7">
                             <div class="content wow fadeInRight" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <h3>Daftar Harga Kesmavet</h3>
-                                <p>We work with the public sector to build thriving communities. And we ork with regulators and financial institutions to build trust and integrity in ets uis aliqua sunt nisi consectetur anim.</p>
-                                <ul>
+                                <h3>Daftar Harga Layanan Kesmavet</h3>
+                                <p>Kesehatan Masyarakat Veteriner (Kesmavet) adalah bagian dari bidang ilmu kesehatan masyarakat yang menitikberatkan pada penerapan ilmu kedokteran hewan untuk melindungi dan meningkatkan kesejahteraan fisik, mental, dan sosial manusia.  Di Indonesia, Kesehatan Masyarakat Veteriner (Kesmavet) didefinisikan sebagai “Segala urusan yang berhubungan dengan hewan dan produk hewan, yang secara langsung atau tidak langsung mempengaruhi kesehatan manusia” (PP 95/2012).Kesmavet merupakan bagian penting dari aktivitas masyarakat karena merupakan rantai penghubung antara bidang pertanian dalam hal ini kesehatan hewan dengan kesehatan masyarakat berkaitan dengan pengobatan, pengendalian dan pencegahan penyakit yang ditularkan melalui hewan (zoonosis) serta penyakit yang ditularkan melalui pangan (foodborne diseases), dalam hal ini pangan yang berasal dari hewan.</p>
+                                {{-- <ul>
                                     <li class="d-flex">
                                         <div class="icon">
                                             <i class="flaticon-ribbon"></i>
@@ -247,7 +247,7 @@
                                             <p>Medixer Care will be administered through plan-based omizable   incorporate partnership between family.</p>
                                         </div>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     </div>
@@ -256,9 +256,9 @@
                     <div class="row align-items-center">
                         <div class="col-lg-7 order-1 order-lg-0">
                             <div class="content wow fadeInLeft" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <h3>Optimize Your Business Data as You Want, Easily!</h3>
-                                <p>We work with the public sector to build thriving communities. And we ork with regulators and financial institutions to build trust and integrity in ets uis aliqua sunt nisi consectetur anim.</p>
-                                <ul>
+                                <h3>Daftar Harga Layanan Keswan</h3>
+                                <p>Pelayanan Kesehatan Hewan (pengawasan, pengobatan dan pencatatan penyakit hewan) dilaksanakan di setiap Kecamatan. Target sasaran pelayanan kesehatan hewan adalah ternak masyarakat, kelompok ternak, kemitraan dan hewan kesayangan. Jenis kegiatan yang di laksanakan yaitu memberikan pelaksanaan pelayanan kesehatan hewan kepada hewan dalam rangka pencegahan, observasi, diagnosis, pengobatan, perawatan, pemulihan kesehatan dan rehabilitasi. Metode yang diterapkan yaitu pelayanan aktif, semi aktif dan pelayanan pasif pada masyarakat. Pelayanan Pasif adalah pelayanan yang dilakukan dimana pemilik hewan membawa hewan ke Dinas Peternakan, UPTD Peternakan dan PUSKESWAN. Pelayanan semi aktif adalah pelayanan yang dilakukan oleh Petugas dengan cara mendatangi lokasi setelah mendapatkan laporan dari pemilik hewan. Pelayanan aktif adalah pelayanan yang dilakukan oleh Petugas di tempat Pelayanan Kesehatan Hewan atau kelompok ternak pada lokasi tertentu.</p>
+                                {{-- <ul>
                                     <li class="d-flex">
                                         <div class="icon">
                                             <i class="flaticon-mobile-app-developing"></i>
@@ -277,12 +277,12 @@
                                             <p>Medixer Care will be administered through plan-based omizable   incorporate partnership between family.</p>
                                         </div>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="col-lg-5 order-0 order-lg-1">
                             <div class="image text-center wow fadeInRight" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <img src="assets/images/home1/about/img2.png" alt="About">
+                                <img src="assets/images/price_keswan.png" alt="About">
                             </div>
                         </div>
                     </div>
