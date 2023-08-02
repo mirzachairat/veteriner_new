@@ -78,11 +78,11 @@
                                     <li class="active">
                                         <a href="#!">home</a>
                                     </li>
-                                    <li><a href="about.html">about</a></li>
+                                    {{-- <li><a href="about.html">about</a></li>
                                     <li><a href="#!">pages</a></li>
                                     <li><a href="pricing.html">pricing</a></li>
                                     <li><a href="#!">blog</a></li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href="contact.html">contact</a></li> --}}
                                 </ul>
                             </div>
                             <div class="right-part">
