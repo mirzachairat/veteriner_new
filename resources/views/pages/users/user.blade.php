@@ -20,30 +20,35 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Default Datatable</h4>
-                                <p class="text-muted mb-0">DataTables has most features enabled by
-                                    default, so all you need to do to use it with your own tables is to call
-                                    the construction function: <code>$().DataTable();</code>.
-                                </p>
+                                <h4 class="card-title">Tabel User</h4>
                             </div><!--end card-header-->
                             <div class="card-body">
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
-                                        <th>Nama</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>ID</th>
+                                        <th>NAMA</th>
+                                        <th>NO HP</th>
+                                        <th>INSTANSI/PERUSAHAAN</th>
+                                        <th>JABATAN</th>
+                                        <th>ALAMAT</th>
+                                        <th>EMAIL</th>
+                                        <th>TYPE JABATAN</th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
-                                    <tr>
-            
-                                    </tr>
-                                   
+                                        @foreach($data as $item)
+                                        <tr>
+                                            <td>{{$item->id}}</td>
+                                            <td>{{$item->nama}}</td>
+                                            <td>{{$item->no_hp}}</td>
+                                            <td>{{$item->instansi}}</td>
+                                            <td>{{$item->nama_jabatan}}</td>
+                                            <td>{{$item->alamat}}</td>
+                                            <td>{{$item->email}}</td>
+                                            <td>{{$item->type}}</td>
+                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 

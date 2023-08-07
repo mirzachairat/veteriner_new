@@ -111,7 +111,7 @@
                             <div class="col-lg-7 order-1 order-lg-0">
                                 <div class="text-area">
                                     <h1 class="wow fadeInUp" style="font-size:24px" data-wow-delay="0.2s" data-wow-duration="1s">PELAYANAN DAN PENGUJIAN VETERINER</h1>
-                                    <h1 class="wow fadeInUp" style="font-size:65px" data-wow-delay="0.4s" data-wow-duration="1s">DINAS PERTANIAN PROVINSI BANTEN</h1>
+                                    <h1 class="wow fadeInUp" style="font-size:55px" data-wow-delay="0.4s" data-wow-duration="1s">DINAS PERTANIAN PROVINSI BANTEN</h1>
                                     <p class="wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad </p>
                                     <ul class="d-flex wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
                                         <li>

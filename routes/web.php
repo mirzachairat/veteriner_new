@@ -114,7 +114,7 @@ Route::middleware(['auth'])->group(function () {
 
     //tambah user
     Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user', [UserController::class, 'view_user']);
+    Route::get('/user/view', [UserController::class, 'view_user']);
     Route::get('/user/tambah', [UserController::class, 'create_user']);
     Route::get('/user/edit/{id}', [UserController::class, 'edituser']);
     Route::get('/user/delete/{id}', [UserController::class, 'edituser']);

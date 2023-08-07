@@ -20,9 +20,7 @@ class UserController extends Controller
 
     public function view_user(){
         $data = User::get();
-        return view('pages.users.user')->with([
-            'data' => $data
-        ]);
+        return view('pages.users.user',compact('data'));
     }
     
     public function create_user(Request $request)
