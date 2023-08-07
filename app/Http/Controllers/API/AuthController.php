@@ -34,7 +34,8 @@ class AuthController extends Controller
             $success['token'] = $user->createToken('accessToken')->accessToken;
         
             return response()->json([
-                'token' => $success,
+                // 'token' => $success,
+                'status' => 200,
                 'message' => 'Selamat anda berhasil login',
             ]);
         } else {
