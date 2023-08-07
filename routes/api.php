@@ -19,7 +19,13 @@ use App\Http\Controllers\API\JadwalController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::group([
 
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/jadwal/store', [JadwalController::class, 'tambahjadwal']);
-Route::get('view/titik', [TitikController::class, 'titikmap']);
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+],function($router){
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/jadwal/store', [JadwalController::class, 'tambahjadwal']);
+    Route::get('view/titik', [TitikController::class, 'titikmap']);
+});

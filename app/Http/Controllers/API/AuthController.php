@@ -17,6 +17,9 @@ class AuthController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
+
+
+
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -27,23 +30,18 @@ class AuthController extends Controller
         if ($validator->fails()) return sendError('Validation Error.', $validator->errors(), 422);
 
         $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            $user             = Auth::user();
-            $success['name']  = $user->name;
-            $success['token'] = $user->createToken('accessToken')->accessToken;
-        
+        if (! $token = auth()->attempt($credentials)) {
             return response()->json([
-                // 'token' => $success,
-                'status' => 200,
-                'message' => 'Selamat anda berhasil login',
-            ]);
-        } else {
-            return response()->json([
-                'message' => 'User atau password salah.',
-                'status' => 404
-            ]);
+                'success' => false,
+                'error' => 'Unauthorized',
+            ], 401);
         }
+
+        return $this->respondWithToken([
+            'token' => $token,
+            'success' => true,
+            'message' => 'Berhasil Login'
+        ]);
     }
 
     /**
@@ -78,5 +76,24 @@ class AuthController extends Controller
             }
 
             return sendResponse($success, $message);
+        }
+
+        /**
+         * Refresh a token.
+         *
+         * @return \Illuminate\Http\JsonResponse
+         */
+        public function refresh()
+        {
+            return $this->respondWithToken(auth()->refresh());
+        }
+
+        protected function respondWithToken($token)
+        {
+            return response()->json([
+                'access_token' => $token,
+                'token_type' => 'bearer',
+                'expires_in' => auth()->factory()->getTTL() * 60
+            ]);
         }
 }
