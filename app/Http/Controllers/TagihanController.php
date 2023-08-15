@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use App\Models\Permohonan;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Jenis_sampel;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TagihanController extends Controller
 {

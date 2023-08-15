@@ -115,6 +115,8 @@ class PenerimaController extends Controller
         $validasi_data['permohonan_id'] = $id;
         //2 sertifikat 
         $validasi_data['kode_file'] = 2;
+        $validasi_data['status'] = 2;
+        
         Filedokumen::create($validasi_data);
         
         return redirect()->back();
