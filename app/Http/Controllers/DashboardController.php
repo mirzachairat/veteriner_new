@@ -7,6 +7,7 @@ use App\Models\Permohonan;
 use App\Models\Dokumen;
 use App\Models\Progres;
 use App\Models\Workflow;
+use App\Models\Tagihan;
 use App\Models\Filedokumen;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +29,8 @@ public function detail($id)
             $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
             $data_progres =  Progres::where('permohonan_id', $id)->with('workflow')->get();
             $file_dokumen = Filedokumen::where('permohonan_id',$id)->get();
-            return view('pages.pengirim.view_pengirim',compact(['data_permohonan','data_dok','data_progres','file_dokumen']));
+            $data_tagihan = Tagihan::where('permohonan_id' , $id)->get();
+            return view('pages.pengirim.view_pengirim',compact(['data_permohonan','data_dok','data_progres','file_dokumen','data_tagihan']));
         }
 
         // jabatan sebagai penerima
@@ -36,8 +38,8 @@ public function detail($id)
             $data_dok = Dokumen::with('workflow')->where('permohonan_id', $id)->get();
             $data_permohonan = Permohonan::with('user')->with('jenis_sampel')->where('id', $id)->get();
             $data_progres =  Progres::where('permohonan_id', $id)->with('workflow')->get();
-            $file_dokumen = Filedokumen::where('permohonan_id',$id)->get();
-            return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok','data_progres','file_dokumen']));
+            $data_tagihan = Tagihan::where('permohonan_id' , $id)->get();
+            return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok','data_progres','data_tagihan']));
         }
 
         // jabatan sebagai manager

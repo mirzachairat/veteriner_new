@@ -131,7 +131,10 @@
                             </div><!--end col-->
                             <!-- END contoh UJI     -->
                             @endforeach
-                            <button style="float:left" type="submit" class="btn btn-primary">Kirim</button>
+                            <div style="float: left;">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
+                                <a class="btn btn-success" href="javascript:history.back()"> Back </a>
+                            </div>
                         </form>
                     </div>
                 </div>                                                                      

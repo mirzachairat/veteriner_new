@@ -11,7 +11,7 @@
 
     <div class="images" style="margin-top:50px; margin-buttom:50px; margin-left:50px">
         @foreach($data_file as $item)
-             <img src="{{asset('storage/'. $item->file_link)}}" alt="" style="width: 50%; height: 50%;">
+             <img src="{{asset('storage/'. $item->payment_link)}}" alt="" style="width: 50%; height: 50%;">
         @endforeach
     </div>
     <div class="tombol" style="margin-top:10px; padding:50px">

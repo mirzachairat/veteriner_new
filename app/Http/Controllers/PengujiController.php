@@ -25,7 +25,7 @@ class PengujiController extends Controller
 
     //menampilkan tabel semua user yang telah di kirim untuk di cetak dokumen pdf    
     public function view_allform(){
-        $data = Permohonan::with('jenis_sampel')->get();
+        $data = Progres::with('permohonan')->where('status',4)->get();
         return view('pages.penguji.detail_penguji', compact('data'));
     }
 

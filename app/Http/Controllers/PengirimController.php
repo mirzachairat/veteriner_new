@@ -22,18 +22,20 @@ class PengirimController extends Controller
     {
         $id=[];
         $data=[];
-        $data_work=[];
-        // $data = Permohonan::with('jenis_sampel')->with('user')->where('users_id', auth()->id())->get();
-        if($data != ''){
-           $data = Permohonan::where('users_id', auth()->id())->get();
-           foreach($data as $item_data){
-               $id = $item_data->id;
-           }
-           $data_work = Progres::with('workflow')->where('permohonan_id',$id)->get();
-           return view('pages.pengirim.pengirim', compact('data','data_work'));
-        }else{
-           return view('pages.pengirim.pengirim', compact('data', 'data_work'));
-       }
+        
+        $data = Permohonan::with('jenis_sampel')->with('user')->where('users_id', auth()->id())->get();
+        return view('pages.pengirim.pengirim', compact('data'));
+    //     if($data != ''){
+    //        $data = Permohonan::where('users_id', auth()->id())->get();
+    //        foreach($data as $item_data){
+    //            $id = $item_data->id;
+    //        }
+    //        $data_work = Progres::with('workflow')->where('permohonan_id',$id)->get();
+    //        return view('pages.pengirim.pengirim', compact('data','data_work'));
+    //     }else{
+    //        return view('pages.pengirim.pengirim', compact('data', 'data_work'));
+    //    }
+        
     }
 
     public function billing($id){
@@ -49,15 +51,18 @@ class PengirimController extends Controller
         ]);
         
         if($request->file('image')){
-                $validasi_data['file_link'] = $request->file('image')->store('post-images');
+                $validasi_data['payment_link'] = $request->file('image')->store('post-images');
         }
 
         $validasi_data['permohonan_id'] = $id;
+
         //1 invoice 
-        $validasi_data['kode_file'] = 1;
-        $validasi_data['status'] = 1;
-       
-        Filedokumen::create($validasi_data);
+        Tagihan::where('permohonan_id', $id)->update([
+            'payment_link' => $request->file('image')->store('post-images'),
+            'payment_status' => 1,
+            'amount' => 1,
+            'doc_no' => 1
+        ]);
         
         return redirect()->back();
     }

@@ -65,8 +65,8 @@
                         </div><!--end col--> 
                         <div class="col-md-3">                                            
                             <div class="float-left">
-                                @foreach ($data_tagihan as $item_tag)
-                                    @if($item->tag == 0)
+                                @foreach ($data_tagihan as $item)
+                                    @if($item->payment_status == null) 
                                         <h1 style="color:red">Segera Lakukan Pembayaran</h1>
                                     @else
                                         <div id="watermark">
@@ -140,7 +140,13 @@
                         </div><!--end col-->
                         <div class="col-lg-12 col-xl-4">
                             <div class="float-right d-print-none">
-                                <a href="{{env('APP_URL')}}/tagihan/bayar/{{$item->permohonan->id}}" class="btn btn-soft-primary btn-sm">Bayar Sekarang</a>
+                                    @foreach($data_tagihan as $item_bayar)
+                                        @if($item_bayar->payment_status == 1)
+                                                <a style="display: none" href="{{env('APP_URL')}}/tagihan/bayar/{{$item->permohonan->id}}" class="btn btn-soft-primary btn-sm">Bayar Sekarang</a>
+                                            @else
+                                                <a href="{{env('APP_URL')}}/tagihan/bayar/{{$item->permohonan->id}}" class="btn btn-soft-primary btn-sm">Bayar Sekarang</a>
+                                        @endif
+                                    @endforeach
                                 <a href="{{env('APP_URL')}}/pengirim" class="btn btn-soft-danger btn-sm">Back</a>
                             </div>
                         </div><!--end col-->

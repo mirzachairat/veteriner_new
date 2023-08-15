@@ -60,24 +60,17 @@
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
                                                     <p class="text-dark mb-0 font-weight-semibold">Status Invoice</p>
-                                                    @if(count($file_dokumen) < 1)
-                                                    <h1>
-                                                        <span class="badge badge-soft-warning">Menunggu Pembayaran</span>
-                                                    </h1>
-                                                    @else    
-                                                        @foreach($file_dokumen as $dk)
-                                                        
-                                                            @if($dk->kode_file == 1 && $dk->status == 1)
-                                                                <h1>
-                                                                    <span class="badge badge-soft-danger">Proses Pengecekan</span>
-                                                                </h1>
-                                                            @else
-                                                                <h1>
-                                                                    <span class="badge badge-soft-danger">Lunas</span>
-                                                                </h1>
-                                                        @endif
-                                                        @endforeach
-                                                     @endif   
+                                                            @foreach($data_tagihan as $dt) 
+                                                                @if($dt->payment_status == 1 )
+                                                                    <h1>
+                                                                        <span class="badge badge-soft-danger">Lunas</span>
+                                                                    </h1>
+                                                                    @else
+                                                                    <h1>
+                                                                        <span class="badge badge-soft-danger">Proses Pengecekan</span>
+                                                                    </h1>
+                                                                @endif
+                                                            @endforeach    
                                                 </div>
                                                 <div class="col-auto align-self-center">
                                                     <div class="report-main-icon bg-light-alt">

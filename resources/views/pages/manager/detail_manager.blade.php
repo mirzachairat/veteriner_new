@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Tabel Penerima</h4>
+                <h4 class="card-title">Tabel List Dokumen</h4>
             </div><!--end card-header-->
             <div class="card-body">
                 <div class="table-responsive">
@@ -20,12 +20,12 @@
                         <tbody>
                             @foreach($data as $item)
                             <tr>
-                                <td>{{$item->id}}</td>
-                                <td>{{$item->nama}}</td>
-                                <td>{{$item->jenis_hewan}}</td>
+                                <td>{{$item->permohonan->id}}</td>
+                                <td>{{$item->permohonan->nama}}</td>
+                                <td>{{$item->permohonan->jenis_hewan}}</td>
                                 <td><span class="badge badge-soft-success">Approved</span></td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/manager/{{$item->id}}" >Detail</a>
+                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/manager/{{$item->permohonan->id}}" >Detail</a>
                                 </td>
                             </tr>
                             @endforeach

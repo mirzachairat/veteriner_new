@@ -19,7 +19,7 @@ class ManagerController extends Controller
 
     //menampilkan tabel semua user yang telah di approval untuk di cetak dokumen pdf
     public function view_allform(){
-        $data = Permohonan::with('jenis_sampel')->get();
+        $data = Progres::with('permohonan')->where('status', '>=', 2)->get();
         return view('pages.manager.detail_manager', compact('data'));
     }
 
@@ -31,6 +31,7 @@ class ManagerController extends Controller
         return view('pages.manager.form_manager', compact(['data_detail','data_sample']));
     }
 
+    
     public function update_jenis_sampel(Request $request){
         $permohonan_id = $request->permohonan_id;
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();

@@ -25,14 +25,4 @@ class BendaharaController extends Controller
         
         return view('pages.bendahara.form_bendahara', compact(['data','users','files']));
     }   
-
-    public function download($id)
-    {
-        $data_file =  Filedokumen::where('permohonan_id',$id)->get();
-        // return $data_file;
-        $data_pass = [
-            'data_file' => $data_file
-        ];
-        return view('pages.pdf_template.view_invoice', compact('data_file'));
-    }
 }

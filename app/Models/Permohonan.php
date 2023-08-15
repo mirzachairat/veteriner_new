@@ -32,7 +32,7 @@ class Permohonan extends Model
    
     public function progres()
     {
-        return $this->belongsTo(Progres::class);   
+        return $this->hasMany(Progres::class);   
     }
 
     public function user()

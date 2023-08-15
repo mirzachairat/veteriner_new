@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Tabel Penerima</h4>
+                <h4 class="card-title">Tabel Daftar Permohonan</h4>
                
             </div><!--end card-header-->
             <div class="card-body">
@@ -26,9 +26,9 @@
                                 <td>{{$item->permohonan->jenis_hewan}}</td>
                                 <td><span class="badge badge-soft-success">{{$item->workflow->nama_aksi}}</span></td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/penerima/{{$item->permohonan->id}}" >Detail</a>
+                                    <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/form/penerima/{{$item->permohonan->id}}" >Kirim</a>
                                     {{-- <a class="btn btn-primary" href="{{ env( 'APP_URL' )}}/view/penerima/{{$item->permohonan->id}}" >Detail</a> --}}
-                                    <a class="btn btn-success" href="">Invoice</a>
+                                    <a class="btn btn-success" href="{{ env( 'APP_URL' )}}/show/invoice/{{$item->permohonan->id}}">Invoice</a>
                                 </td>
                             </tr>
                             @endforeach

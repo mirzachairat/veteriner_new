@@ -30,7 +30,7 @@
                                                 <td>{{$items->id}}</td>
                                                 <td>{{$items->nama}}</td>
                                                 <td>{{$items->jenis_hewan}}</td>
-                                                <td>Aproval</td>
+                                                <td></td>
                                                 <td>
                                                     <a href="{{env('APP_URL')}}/view/pengirim/{{$items->id}}" class="btn btn-primary btm-sm">Lihat</a>
                                                     <a href="{{env('APP_URL')}}/view/billing/{{$items->id}}" class="btn btn-warning btm-sm">View Billing</a>

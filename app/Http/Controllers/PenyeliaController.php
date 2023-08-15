@@ -30,7 +30,7 @@ class PenyeliaController extends Controller
 
      //menampilkan tabel semua user yang telah di approval untuk di cetak dokumen pdf
      public function view_allform(){
-        $data = Permohonan::with('jenis_sampel')->get();
+        $data = Progres::with('permohonan')->where('status', 3)->orWhere('status',5)->get();
         return view('pages.penyelia.detail_penyelia', compact('data'));
     }
 
@@ -89,7 +89,7 @@ class PenyeliaController extends Controller
                 // 'jenis_hewan' => $data_permohonan->jenis_hewan,
                 'kesimpulan' => $request->kesimpulan,
                 'saran' => $request->saran,
-                'catatan' => $request->catatans
+                'catatan' => $request->catatan
             ]);
 
             Progres::where('permohonan_id',$permohonan_id)->delete();

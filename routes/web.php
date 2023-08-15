@@ -53,6 +53,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/penerima/update', [PenerimaController::class, 'update_jenis_sampel']);
     Route::get('/view/penerima/{id}', [DashboardController::class, 'detail']);
     Route::post('/sertifikat/{id}',[PenerimaController::class, 'upload_sertifikat']);
+    Route::post('/view/invoice/{id}',[PenerimaController::class, 'upload_sertifikat']);
+
 
     //Mudule Manager
     Route::get('/manager', [ManagerController::class, 'index'])->name('manager');
@@ -92,14 +94,16 @@ Route::middleware(['auth'])->group(function () {
 
     //Dokumen route
     Route::get('/download/form/{id}',[DokumenController::class, 'filepdf']);
-    Route::get('/download/invoice/{id}',[DokumenController::class, 'invoice']);
     Route::get('/download/sertifikat/{id}',[DokumenController::class, 'sertifikat']);
     // Route::get('/dokumen/{form_f6}', 'DokumenController@index');
+    
+    //Invoice Tagihan Route
+    Route::get('/download/invoice/{id}',[TagihanController::class, 'invoice']);
+    Route::get('/show/invoice/{id}',[TagihanController::class, 'cek_invoice']);
 
     //Dokumen Bendahara
     Route::get('/bendahara', [BendaharaController::class , 'index'])->name('bendahara');
     Route::get('/form/bendahara/{id}', [BendaharaController::class , 'form_detail']);
-    Route::get('/show/invoice/{id}', [BendaharaController::class , 'download']);
 
     // Map route
     Route::get('/mapview', [MapviewController::class, 'mapview']);

@@ -53,6 +53,13 @@ class PermohonanController extends Controller
             'approval' => $request->approval
         ]);
 
+        $tagihan = Tagihan::create([
+            'permohonan_id' => $permohonan->id,
+            'payment_status' => '',
+            'doc_no' => '',
+            'ammount' => ''
+        ]);
+
         $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $permohonan->id)->get();
         $users = Permohonan::with('user')->where('id', $permohonan->id)->get();
         $data_tagihan = Tagihan::where('permohonan_id',$permohonan->id)->get();

@@ -58,24 +58,17 @@
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col">
                                                     <p class="text-dark mb-0 font-weight-semibold">Status Invoice</p>
-                                                    @if(count($file_dokumen) < 1)
-                                                        <h1>
-                                                            <span class="badge badge-soft-warning">Segera Lakukan Pembayaran</span>
-                                                        </h1>
-                                                        @else    
-                                                            @foreach($file_dokumen as $dk)
-                                                            
-                                                                @if($dk->kode_file == 1 && $dk->status == 1)
-                                                                    <h1>
-                                                                        <span class="badge badge-soft-danger">Proses Pengecekan</span>
-                                                                    </h1>
+                                                            @foreach($data_tagihan as $dt) 
+                                                            @if($dt->payment_status == 1 )
+                                                                <h1>
+                                                                    <span class="badge badge-soft-danger">Lunas</span>
+                                                                </h1>
                                                                 @else
-                                                                    <h1>
-                                                                        <span class="badge badge-soft-danger">Lunas</span>
-                                                                    </h1>
+                                                                <h1>
+                                                                    <span class="badge badge-soft-danger">Proses Pengecekan</span>
+                                                                </h1>
                                                             @endif
-                                                            @endforeach
-                                                     @endif   
+                                                        @endforeach    
                                                 </div>
                                                 <div class="col-auto align-self-center">
                                                     <div class="report-main-icon bg-light-alt">
@@ -206,11 +199,11 @@
                                             <p class="mb-0 text-muted">Silahkan Upload file jika telah melakukan pembayaran dengan bukti pembayaran 
                                             </p>
                                             @foreach($data_permohonan as $dt)
-                                            <form action="{{env('APP_URL')}}/upload/filedokumen/{{$dt->id}}" method="POST" enctype="multipart/form-data">
-                                               @csrf
-                                                <input type="file" name="image" id="image-0">
-                                                <button class="btn btn-primary btn-small" type="submit">Kirim</button>
-                                            </form>
+                                                <form action="{{env('APP_URL')}}/upload/filedokumen/{{$dt->id}}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                        <input type="file" name="image" id="image-0">
+                                                        <button class="btn btn-primary btn-small" type="submit">Kirim</button>
+                                                </form>
                                             @endforeach
                                         </div>
                                     </div>

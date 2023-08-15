@@ -52,4 +52,43 @@ class TagihanController extends Controller
         ]);
         return response()->json($data);
     }
+    
+
+    public function invoice($id){
+        $user = Auth::user()->id;
+        $user_data = User::where('id',$user)->get();
+        $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
+        $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)->get();
+        $data_pass = [
+                'nama' => $permohonan->nama,
+                'instansi' => $permohonan->instansi,
+                'jenis_hewan' => $permohonan->jenis_hewan,
+                'alamat' => $permohonan->alamat,
+                'instansi' => $permohonan->instansi,
+                'no_epi' => $permohonan->no_epi,
+                'tgl_terima' => $permohonan->tgl_terima,
+                'tgl_diserahkan_mt' => $permohonan->tgl_diserahkan_mt,
+                'jumlah' => $permohonan->jumlah,
+                'saran' => $permohonan->saran,
+                'kesimpulan' => $permohonan->kesimpulan,
+                'catatan' => $permohonan->catatan,
+                'jenis' => $jenis,
+                'user' => $user_data
+                // 'jenis_sampel' => $jenis->jenis_sampel,
+                // 'jumlah_contoh' => $jenis->jumlah_contoh,
+                // 'bahan_pengawet' => $jenis->bahan_pengawet,
+                // 'kondisi' => $jenis->kondisi,
+                // 'kriteria' => $jenis->kriteria, 
+                // 'jenis_pengujian' => $jenis->jenis_pengujian,
+                // 'total_harga' => $jenis->total_harga,
+        ];
+            $pdf = Pdf::loadView('pages.pdf_template.invoice',$data_pass);
+            return $pdf->stream('Invoice.pdf');
+    }
+
+    //penerima / bendahara memvalidasi invoice yg dikirim upload file dari pemohon atau pengirim sampel
+    public function cek_invoice($id){
+        $data_file =  Tagihan::where('permohonan_id',$id)->get();
+        return view('pages.pdf_template.view_invoice', compact('data_file'));    
+    }
 }
