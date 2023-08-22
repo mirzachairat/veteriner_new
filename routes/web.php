@@ -38,6 +38,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::group([
     'middleware' => 'web',
+    'prefix' => 'web'
 ],function($router){
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');

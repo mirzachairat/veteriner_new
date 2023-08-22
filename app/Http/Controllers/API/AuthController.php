@@ -28,7 +28,6 @@ class AuthController extends Controller
             'email'    => 'required|email',
             'password' => 'required'
         ]);
-
         if ($validator->fails()) return sendError('Validation Error.', $validator->errors(), 422);
 
         $credentials = $request->only('email', 'password');
@@ -43,7 +42,7 @@ class AuthController extends Controller
             'token' => $token,
             'success' => true,
             'message' => 'Berhasil Login',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            // 'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 
