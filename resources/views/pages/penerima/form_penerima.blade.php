@@ -13,7 +13,7 @@
                             <div class="form-group row">
                                 <label for="tgl_terima" class="col-sm-2 col-form-label text-right">Tanggal Diterima</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" type="date" name="tgl_terima" id="tgl_terima[]">
+                                    <input class="date" type="date" data-date-format="DD/MMM/YYYY"  name="tgl_terima" id="tgl_terima[]">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -141,5 +141,15 @@
             </div><!--end card-body-->
         </div><!--end card-->
     </div><!--end col-->
-
+    <script>
+    
+        $(".date").on("change", function() {
+        this.setAttribute(
+            "data-date",
+            moment(this.value, "DD-MM-YYYY")
+            .format( this.getAttribute("data-date-format") )
+        )
+        }).trigger("change")
+    
+    </script>
 @endsection

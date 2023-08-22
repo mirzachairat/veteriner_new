@@ -10,6 +10,8 @@ use App\Models\Progres;
 use App\Models\Dokumen;
 use App\Models\Jenis_harga;
 use App\Models\Filedokumen;
+use Carbon\Carbon;
+
 
 class PenerimaController extends Controller
 {
@@ -40,9 +42,10 @@ class PenerimaController extends Controller
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
 
         $status_update = $request->status_delete;
+  
         
         Progres::where('status', $status_update)->where('permohonan_id',$permohonan_id)->delete();
-            
+    
             foreach ($request->permohonan_id as $index => $item) {
                 $data_jenis = Jenis_sampel::create([
                     'permohonan_id' => $request->permohonan_id[$index],

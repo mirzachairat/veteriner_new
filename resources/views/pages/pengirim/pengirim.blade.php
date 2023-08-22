@@ -30,12 +30,19 @@
                                                 <td>{{$items->id}}</td>
                                                 <td>{{$items->nama}}</td>
                                                 <td>{{$items->jenis_hewan}}</td>
-                                                <td></td>
+                                                @foreach($items->progres as $prg)
+                                                
+                                                    @if($prg->status == 6)
+                                                        <td><span class="badge badge-soft-success">Selesai</span></td>
+                                                        @else
+                                                        <td><span class="badge badge-soft-success">Menunggu</span></td>
+                                                    @endif
+                                                @endforeach
                                                 <td>
                                                     <a href="{{env('APP_URL')}}/view/pengirim/{{$items->id}}" class="btn btn-primary btm-sm">Lihat</a>
                                                     <a href="{{env('APP_URL')}}/view/billing/{{$items->id}}" class="btn btn-warning btm-sm">View Billing</a>
                                                 </td>
-                                                @endforeach
+                                             @endforeach
                                                 
                                             </tr>
                                             </tbody>

@@ -18,7 +18,9 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
 
-
+    public function __construct() {
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+    }
 
     public function login(Request $request)
     {
@@ -40,7 +42,8 @@ class AuthController extends Controller
         return $this->respondWithToken([
             'token' => $token,
             'success' => true,
-            'message' => 'Berhasil Login'
+            'message' => 'Berhasil Login',
+            'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 

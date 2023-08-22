@@ -78,7 +78,8 @@ class DokumenController extends Controller
         $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
         $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)
                                 ->with('jenis_harga')
-                                ->get();                        
+                                ->get();
+                                                                      
         $data_pass = [
                 'nama' => $permohonan->nama,
                 'instansi' => $permohonan->instansi,
@@ -93,6 +94,7 @@ class DokumenController extends Controller
                 'kesimpulan' => $permohonan->kesimpulan,
                 'catatan' => $permohonan->catatan,
                 'jenis' => $jenis
+
                 // 'jenis_sampel' => $jenis->jenis_sampel,
                 // 'jumlah_contoh' => $jenis->jumlah_contoh,
                 // 'bahan_pengawet' => $jenis->bahan_pengawet,
@@ -101,6 +103,7 @@ class DokumenController extends Controller
                 // 'jenis_pengujian' => $jenis->jenis_pengujian,
                 // 'total_harga' => $jenis->total_harga,
             ];
+            dd($data_pass);
             $pdf = Pdf::loadView('pages.pdf_template.hasil_pengujian',$data_pass);
             return $pdf->stream('Sertifikat.pdf');
     }

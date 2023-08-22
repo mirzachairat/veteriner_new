@@ -23,7 +23,11 @@ class PengirimController extends Controller
         $id=[];
         $data=[];
         
-        $data = Permohonan::with('jenis_sampel')->with('user')->where('users_id', auth()->id())->get();
+        $data = Permohonan::with('progres')
+        ->with('jenis_sampel')
+        ->with('user')
+        ->where('users_id', auth()->id())->get();
+
         return view('pages.pengirim.pengirim', compact('data'));
     //     if($data != ''){
     //        $data = Permohonan::where('users_id', auth()->id())->get();

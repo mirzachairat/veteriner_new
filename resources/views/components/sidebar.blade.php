@@ -16,7 +16,7 @@
             <div class="menu-content h-100" data-simplebar>
                 <ul class="metismenu left-sidenav-menu">
                     <li class="menu-label mt-0">Main</li>
-                    @if(Auth::user()->jabatan_id == 1)
+                    @if(Auth::user())
                     <li>
                         <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>PEMOHON</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">

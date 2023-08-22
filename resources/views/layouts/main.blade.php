@@ -44,6 +44,7 @@
             
         <!-- App js -->
         <script src="{{asset('js/app.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
         @stack('script')
     </body>
 </html>

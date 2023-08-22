@@ -17,6 +17,7 @@ use App\Http\Controllers\BendaharaController;
 use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\AuthController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +36,9 @@ Route::get('/register', [UserController::class, 'create_user']);
 Route::post('/login', [AuthController::class, 'loginAction'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::middleware(['auth'])->group(function () {
+Route::group([
+    'middleware' => 'web',
+],function($router){
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);

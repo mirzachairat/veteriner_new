@@ -391,12 +391,12 @@
             <tr>
               <td>Tgl. Terima</td>
               <td>:</td>
-              <td>{{$tgl_terima}}</td>
+              <td>{{\Carbon\Carbon::parse($tgl_terima)->format('j F, Y')}}</td>
             </tr>
             <tr>
               <td>Tgl. Uji</td>
               <td>:</td>
-              <td>{{$tgl_terima}}</td>
+              <td>{{\Carbon\Carbon::parse($tgl_terima)->format('j F, Y')}}</td>
             </tr>
             <tr>
               <td>No Epi</td>

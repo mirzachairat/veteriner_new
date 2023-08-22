@@ -6,39 +6,48 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class AuthController extends Controller
 {
-    public function loginAction(Request $request){
+    // public function __construct() {
+    //     $this->middleware('auth', ['except' => ['login', 'register']]);
+    // }
 
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+    public function loginAction(Request $request){
+        // dd($request->all());    
+
+        $validator = Validator::make($request->all(), [
+            'email'    => 'required|email',
+            'password' => 'required'
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if ($validator->fails()) return sendError('Validation Error.', $validator->errors(), 422);
+        $credentials = $request->only('email', 'password');
+        if (Auth()->attempt($credentials)) {
             $request->session()->regenerate();
-             
-            if (auth()->user()->jabatan_id == '1') {
+            $user = Auth::user()->jabatan_id;
+            if ($user == '1') {
                 return redirect()->route('pengirim');
             }
-            if (auth()->user()->jabatan_id == '2') {
+            if ($user == '2') {
                 return redirect()->route('penerima');
             }
-            if (auth()->user()->jabatan_id == '3') {
+            if ($user == '3') {
                 return redirect()->route('manager');
             }
-            if (auth()->user()->jabatan_id == '4') {
+            if ($user == '4') {
                 return redirect()->route('penyelia');
             }
-            if (auth()->user()->jabatan_id == '5') {
+            if ($user == '5') {
                 return redirect()->route('penguji');
             }
-            if (auth()->user()->jabatan_id == '6') {
+            if ($user == '6') {
                 return redirect()->route('bendahara');
             }
-            return redirect(RouteServiceProvider::HOME);
+                return redirect(RouteServiceProvider::HOME);
         }
 
         return back()->withErrors([

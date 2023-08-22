@@ -168,7 +168,7 @@
                                                     @foreach($file_dokumen as $item)
                                                         {{-- kode file 1 adalah filedokumen invoice --}}
                                                         {{-- kode file 2 adalah filedokumen sertifikat --}}
-                                                        @if($item->kode_file == 1 )
+                                                        @if($item->kode_file == 1)
                                                             <div class="file-box" style="display:none">
                                                            @else
                                                            <div class="file-box"> 

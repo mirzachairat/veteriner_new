@@ -64,7 +64,7 @@
                                      <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div class="tab-pane active p-3" id="LogIn_Tab" role="tabpanel">                                        
-                                            <form class="form-horizontal auth-form" method="POST" action="{{route('login')}}">
+                                            <form class="form-horizontal auth-form" method="POST" action="{{env('APP_URL')}}/login">
                                                 @csrf
 
                                                 @if ($errors->any())

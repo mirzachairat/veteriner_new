@@ -20,10 +20,8 @@ use App\Http\Controllers\API\JadwalController;
 //     return $request->user();
 // });
 Route::group([
-
     'middleware' => 'api',
     'prefix' => 'auth'
-
 ],function($router){
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/jadwal/store', [JadwalController::class, 'tambahjadwal']);
