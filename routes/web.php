@@ -37,9 +37,8 @@ Route::post('/login', [AuthController::class, 'loginAction'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::group([
-    'middleware' => 'web',
-    'prefix' => 'web'
-],function($router){
+    'middleware' => 'web'
+],function(){
     //Module Route Pengirim
     Route::get('/pengirim', [PengirimController::class, 'index'])->name('pengirim');
     Route::get('/form', [PengirimController::class, 'form_permohonan']);

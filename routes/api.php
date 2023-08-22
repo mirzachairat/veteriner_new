@@ -20,11 +20,7 @@ use App\Http\Controllers\API\JadwalController;
 //     return $request->user();
 // });
 
-Route::group([
-    'middleware' => 'auth:api',
-    'prefix' => 'api'
-],function($route){
     Route::post('/mobile/login', [AuthController::class, 'login']);
     Route::post('/jadwal/store', [JadwalController::class, 'tambahjadwal']);
     Route::get('view/titik', [TitikController::class, 'titikmap']);
-});
+
