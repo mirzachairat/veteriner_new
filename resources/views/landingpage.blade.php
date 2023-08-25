@@ -115,7 +115,7 @@
                                     <p class="wow fadeInUp" style="font-size:20px; font-color:blue;" data-wow-delay="0.6s" data-wow-duration="1s">Selamat Datang di Web Layanan Online Veteriner Dinas Pertanian Provinsi Banten(Love Banten)</p>
                                     <ul class="d-flex wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
                                         <li>
-                                            <a href="http://uptdppv.site/login" type="button" style="width:200px" class="btn btn-outline-light btn-lg">Login</a>
+                                            <a href="http://lovebanten.com/login" type="button" style="width:200px" class="btn btn-outline-light btn-lg">Login</a>
                                         </li>
                                         <li></li>
                                     </ul>
@@ -154,7 +154,7 @@
                                 <span>01</span>
                                 <h5>Desktop Aplikasi</h5>
                                 <p>Aplikasi Pelayanan online veteriner</p>
-                                <a href="http://uptdppv.site/login"><i class="flaticon-arrow-pointing-to-right"></i>Login here</a>
+                                <a href="http://lovebanten.com/login"><i class="flaticon-arrow-pointing-to-right"></i>Login here</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
