@@ -102,7 +102,7 @@
     <!-- end header area -->
 
     <!-- start banner area -->
-    <section class="home1 banner" data-img="assets/images/home1/banner/banner-bg.png">
+    <section class="home1 banner" data-img="assets/images/home1/banner/banner-bg3.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
