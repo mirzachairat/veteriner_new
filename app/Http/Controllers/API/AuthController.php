@@ -7,7 +7,10 @@ use App\Http\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\Facades\Validator;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
@@ -18,9 +21,9 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
 
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
+    // public function __construct() {
+    //     $this->middleware('auth:api', ['except' => ['login', 'register']]);
+    // }
 
     public function login(Request $request)
     {
@@ -31,19 +34,15 @@ class AuthController extends Controller
         if ($validator->fails()) return sendError('Validation Error.', $validator->errors(), 422);
 
         $credentials = $request->only('email', 'password');
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json([
-                'success' => false,
-                'error' => 'Unauthorized',
-            ], 401);
+        try {
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid_credentials'], 400);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return $this->respondWithToken([
-            'token' => $token,
-            'success' => true,
-            'message' => 'Berhasil Login',
-            // 'expires_in' => auth('api')->factory()->getTTL() * 60
-        ]);
+        return response()->json(compact('token'));
     }
 
     /**
