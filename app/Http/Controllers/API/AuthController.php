@@ -41,8 +41,8 @@ class AuthController extends Controller
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
-
-        return response()->json(compact('token'));
+        $data = Auth::user()->jabatan_id;
+        return response()->json(compact(['token','data']));
     }
 
     /**
