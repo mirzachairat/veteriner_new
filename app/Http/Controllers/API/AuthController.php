@@ -25,6 +25,11 @@ class AuthController extends Controller
     //     $this->middleware('auth:api', ['except' => ['login', 'register']]);
     // }
 
+
+    public function index(){
+        return view('mobile.login');
+    }
+
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [

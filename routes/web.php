@@ -16,6 +16,7 @@ use App\Http\Controllers\MapviewController;
 use App\Http\Controllers\BendaharaController;
 use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Mobile\MobileController;
 
 
 /*
@@ -126,3 +127,13 @@ Route::group([
     Route::get('/user/edit/{id}', [UserController::class, 'edituser']);
     Route::get('/user/delete/{id}', [UserController::class, 'edituser']);
 });
+
+
+//Mobile Route
+
+Route::get('/loginpage', [MobileController::class, 'index'])->name('loginpage');
+Route::post('/Mobile/login', [MobileController::class, 'login'])->name('login');
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+Route::get('/pet', [PetController::class, 'index'])->name('pet');
+Route::get('/jadwal', [JadwalController::class, 'index'])->name('pet');
+

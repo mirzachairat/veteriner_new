@@ -165,7 +165,7 @@
                                 <span>02</span>
                                 <h5>Mobile Apps</h5>
                                 <p>Aplikasi mobile layanan klinik online</p>
-                                <a href="service-detail.html"><i class="flaticon-arrow-pointing-to-right"></i>Download here</a>
+                                <a href="https://drive.google.com/file/d/1i_RWKDl6uUlAGhEhKmMFIfKEm7A61Hsx/view?usp=drive_link"><i class="flaticon-arrow-pointing-to-right"></i>Download here</a>
                             </div>
                         </div>
                     </div>
