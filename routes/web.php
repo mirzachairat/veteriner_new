@@ -132,7 +132,7 @@ Route::group([
 //Mobile Route
 
 Route::get('/loginpage', [MobileController::class, 'index'])->name('loginpage');
-Route::post('/Mobile/login', [MobileController::class, 'login'])->name('login');
+Route::post('/Mobile/login', [MobileController::class, 'login'])->name('loginmobile');
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 Route::get('/pet', [PetController::class, 'index'])->name('pet');
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('pet');
