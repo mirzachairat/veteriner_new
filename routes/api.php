@@ -22,6 +22,7 @@ use App\Http\Controllers\API\JadwalController;
 
     Route::get('/mobile', [AuthController::class, 'index']);
     Route::post('/mobile/login', [AuthController::class, 'login'])->name('mobilelogin');
+    Route::post('/mobile/register', [AuthController::class, 'register'])->name('mobileregister');
     Route::post('/pet/create', [PetController::class, 'tambah_pet']);
     Route::post('/jadwal/store', [JadwalController::class, 'tambahjadwal']);
     Route::get('view/titik', [TitikController::class, 'titikmap']);
