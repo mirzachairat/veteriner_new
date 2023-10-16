@@ -28,7 +28,8 @@ class AuthController extends Controller
 
 
     public function index(){
-        return view('mobile.login');
+        $data = Userklinik::all();
+        return response()->json(compact('data'));
     }
 
     public function login(Request $request)
@@ -66,10 +67,12 @@ class AuthController extends Controller
             if ($validator->fails()) return sendError('Validation Error.', $validator->errors(), 422);
     
             try {
-                $user = Userklinik::create([
+                $user = User::create([
                     'nama'     => $request->nama,
                     'email'    => $request->email,
-                    'phone'     => $request->phone,
+                    'no_hp'     => $request->no_hp,
+                    'type' => "mobile",
+                    'jabatan_id' => 1,
                     'password' => bcrypt($request->password)
                 ]);
 

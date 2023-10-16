@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TitikController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\JadwalController;
+use App\Http\Controllers\API\PetController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,10 +21,12 @@ use App\Http\Controllers\API\JadwalController;
 //     return $request->user();
 // });
 
-    Route::get('/mobile', [AuthController::class, 'index']);
+    Route::get('/mobile/user', [AuthController::class, 'index']);
     Route::post('/mobile/login', [AuthController::class, 'login'])->name('mobilelogin');
     Route::post('/mobile/register', [AuthController::class, 'register'])->name('mobileregister');
-    Route::post('/pet/create', [PetController::class, 'tambah_pet']);
-    Route::post('/jadwal/store', [JadwalController::class, 'tambahjadwal']);
-    Route::get('view/titik', [TitikController::class, 'titikmap']);
+    Route::post('/mobile/pet/create', [PetController::class, 'tambah_pet']);
+    Route::get('/mobile/pet', [PetController::class, 'index']);
+    Route::post('/mobile/jadwal/create', [JadwalController::class, 'tambahjadwal']);
+    Route::post('/mobile/jadwal/{id}', [JadwalController::class, 'show']);
+    Route::get('mobile/view/titik', [TitikController::class, 'titikmap']);
 

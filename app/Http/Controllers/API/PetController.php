@@ -8,6 +8,16 @@ use App\Models\Pet;
 
 class PetController extends Controller
 {
+
+     public function index(){
+          $datapet = Pet::all();
+          return response()->json([
+               $message = 'Semua data hewan',
+               $status = true,
+               $data = $datapet
+          ]) ;   
+     }
+
     public function tambah_pet(){
 
         $message = '';
