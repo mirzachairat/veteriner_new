@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\User;
+use App\Models\User;
+use App\Models\Userklinik;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -59,31 +60,27 @@ class AuthController extends Controller
     public function register(Request $request)
         {
             $validator = Validator::make($request->all(), [
-                'nama'     => 'required',
-                'email'    => 'required|email|unique:users',
-                'phone' => 'require',
-                'password' => 'required|min:8'
+                'email'    => 'required|email',
+                'password' => 'required'
             ]);
-
             if ($validator->fails()) return sendError('Validation Error.', $validator->errors(), 422);
-
+    
             try {
-                $user = User::create([
+                $user = Userklinik::create([
                     'nama'     => $request->nama,
                     'email'    => $request->email,
                     'phone'     => $request->phone,
                     'password' => bcrypt($request->password)
                 ]);
 
-                $success['nama']  = $user->nama;
                 $message          = 'Yay! A user has been successfully created.';
-                $success['token'] = $user->createToken('accessToken')->accessToken;
+                $success    = true;
             } catch (Exception $e) {
-                $success['token'] = [];
+                $success         = false;
                 $message          = 'Oops! Unable to create a new user.';
             }
 
-            return sendResponse($success, $message);
+            return response()->json(compact(['success','message']));
         }
 
         /**

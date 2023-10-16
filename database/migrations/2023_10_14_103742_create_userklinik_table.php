@@ -18,6 +18,7 @@ class CreateUserklinikTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('phone');
+            $table->string('password');
             $table->timestamps();
         });
     }
