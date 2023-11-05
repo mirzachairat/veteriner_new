@@ -24,6 +24,7 @@ class JadwalController extends Controller
         $message = '';
         $data = '';
         $validate_jadwal = Jadwal::where('tanggal', $date_request)->where('waktu',$time_request)->first();
+        $antrian = $validate_jadwal->antrian;
         // dd($validate_jadwal);
         if($validate_jadwal !== null){
             $status = false;
