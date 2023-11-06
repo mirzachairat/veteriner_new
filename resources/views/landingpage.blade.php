@@ -110,9 +110,9 @@
                         <div class="row">
                             <div class="col-lg-7 order-1 order-lg-0">
                                 <div class="text-area">
-                                    <p class="wow fadeInUp" style="font-size:15px" data-wow-delay="0.2s" data-wow-duration="1s">PELAYANAN DAN PENGUJIAN VETERINER</p>
-                                    <p class="wow fadeInUp" style="font-size:35px" data-wow-delay="0.4s" data-wow-duration="1s">DINAS PERTANIAN</p>
-                                    <p class="wow fadeInUp" style="font-size:35px" data-wow-delay="0.4s" data-wow-duration="1s">PROVINSI BANTEN</p>
+                                    <h2 class="wow fadeInUp" style="font-size:15px" data-wow-delay="0.2s" data-wow-duration="1s">PELAYANAN DAN PENGUJIAN VETERINER</h2>
+                                    <h2 class="wow fadeInUp" style="font-size:35px" data-wow-delay="0.4s" data-wow-duration="1s">DINAS PERTANIAN</h2>
+                                    <h2 class="wow fadeInUp" style="font-size:35px" data-wow-delay="0.4s" data-wow-duration="1s">PROVINSI BANTEN</h2>
                                     <p class="wow fadeInUp" style="font-size:15px; font-color:white;" data-wow-delay="0.6s" data-wow-duration="1s">Selamat Datang di Web Layanan Online Veteriner Dinas Pertanian Provinsi Banten(Love Banten)</p>
                                     <ul class="d-flex wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
                                         <li>
