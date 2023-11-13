@@ -132,9 +132,9 @@
         </div><!--end col-->
     </div><!--end row-->
     <div class="card">
-        @foreach($files as $item)
+        {{-- @foreach($files as $item)
             <img src="{{$item}}" alt="">
-        @endforeach
+        @endforeach --}}
     </div>
 </div><!-- container -->
 @endsection

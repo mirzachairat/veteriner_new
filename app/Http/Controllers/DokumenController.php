@@ -103,7 +103,6 @@ class DokumenController extends Controller
                 // 'jenis_pengujian' => $jenis->jenis_pengujian,
                 // 'total_harga' => $jenis->total_harga,
             ];
-            dd($data_pass);
             $pdf = Pdf::loadView('pages.pdf_template.hasil_pengujian',$data_pass);
             return $pdf->stream('Sertifikat.pdf');
     }

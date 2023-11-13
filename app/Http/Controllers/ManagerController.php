@@ -65,6 +65,8 @@ class ManagerController extends Controller
                 'workflow_id' => $request->workflow_id,
                 'approval' => $request->approval
             ]);
+
+            
         }else{
             Progres::where('status',5)->where('permohonan_id',$permohonan_id)->delete();
              $progress = Progres::create([

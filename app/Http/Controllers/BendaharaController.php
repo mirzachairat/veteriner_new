@@ -22,7 +22,6 @@ class BendaharaController extends Controller
         $data = Jenis_sampel::with('permohonan')->where('permohonan_id', $id)->get();
         $users = Permohonan::with('user')->where('id', $id)->get();
         $files =  Filedokumen::where('permohonan_id',$id)->first('file_link');
-        
         return view('pages.bendahara.form_bendahara', compact(['data','users','files']));
     }   
 }

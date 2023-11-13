@@ -24,7 +24,7 @@ class PenerimaController extends Controller
 
     //menampilkan tabel semua user yang telah di kirim untuk di cetak dokumen pdf    
     public function view_allform(){
-        $data = Permohonan::with('jenis_sampel')->get();
+        $data = Permohonan::with('jenis_sampel')->with('progres')->get();
         return view('pages.penerima.detail_penerima', compact('data'));
     }
 
