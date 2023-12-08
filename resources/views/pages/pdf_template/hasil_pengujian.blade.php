@@ -374,57 +374,64 @@
             <tr>
               <td>No</td>
               <td >: 524.36/56</td>
+              <td></td>
             </tr>
             <tr>
               <td>Lampiran</td>
               <td>: 1 berkas</td>
+              <td></td>
             </tr>
             <tr>
               <td>Perihal</td>
-              <td>: ..................</td>
-            </tr>
-            <tr>
-              <td>Tgl. Kirim / No Surat</td>
               <td>:</td>
               <td></td>
             </tr>
             <tr>
+              <td>Tgl. Kirim / No Surat </td>
+              <td> :</td>
+              <td></td>
+            </tr>
+            <tr>
               <td>Tgl. Terima</td>
-              <td>:</td>
-              <td>{{\Carbon\Carbon::parse($tgl_terima)->format('j F, Y')}}</td>
+              <td> : {{\Carbon\Carbon::parse($tgl_terima)->format('j F, Y')}}</td>
             </tr>
             <tr>
               <td>Tgl. Uji</td>
-              <td>:</td>
-              <td>{{\Carbon\Carbon::parse($tgl_terima)->format('j F, Y')}}</td>
+              <td> : {{\Carbon\Carbon::parse($tgl_terima)->format('j F, Y')}}</td>
+              <td></td>
             </tr>
             <tr>
               <td>No Epi</td>
-              <td>:</td>
-              <td>{{$no_epi}}</td>
+              <td> : {{$no_epi}}</td>
             </tr>
             <tr>
               <td>Jenis Layanan</td>
-              <td>:</td>
+              <td> :</td>
+              <td></td>
             </tr>
             <tr>
               <td>Input Data</td>
-              <td>: ..................</td>
+              <td>:</td>
+              <td></td>
             </tr>
           </table>
         </div>
-        <div class="kop2">
+        <div class="kop2" style="margin-top:5%">
           <table style="border-style: none">
             <tr>
+              <td></td>
               <td>Kepada YTH:</td>
             </tr>
             <tr>
+              <td></td>
               <td>{{$instansi}}</td>
             </tr>
             <tr>
+              <td></td>
               <td>{{$alamat}}</td>
             </tr>
             <tr>
+              <td></td>
               <td>Kabupaten Tangerang</td>
             </tr>
           </table>
@@ -500,7 +507,7 @@
         <text>Catatan</text>
         <table style="width: 100%">
           <tr>
-            <td style="height:20%">{{$catatan}}</td>
+            <td style="height:35%">{{$catatan}}</td>
           </tr>
         </table>
         <br />
@@ -597,7 +604,9 @@
           </tr>
         </table>
         <br />
-        <text style="font-style: italic">Satu Juta Lima Ratus dua puluh</text>
+        @foreach($jenis as $item)
+        <text style="font-style: italic">Terbilang : {{terbilang($item->total_harga)}} rupiah</text>
+        @endforeach
         <br />
         <br />
         <text style="font-weight: bold">Catatan Tagihan</text>
@@ -611,4 +620,5 @@
       </div>
     </div>
   </body>
+
 </html>

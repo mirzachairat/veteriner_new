@@ -391,10 +391,10 @@
             <text style="font-weight: bold;text-decoration: underline">TANDA BUKTI PEMBAYARAN</text><br>
             <span>No.Bukti :......................... </span>
           </div>
-          <div class="body-content">
+          <div class="body-content" style="width: 100%">
             <table class="first" style="width: 100%; border-style:hidden">
               <tr>
-                <td colspan="6">a. Bendahara Penerima/Bendahara Penerimaan Pembantu : Dinas Pertanian Provinsi Banten</td>
+                <td colspan="10">a. Bendahara Penerima/Bendahara Penerimaan Pembantu : Dinas Pertanian Provinsi Banten</td>
               <td></td>
               </tr>
               <tr>  
@@ -406,10 +406,10 @@
 
               @foreach($user as $item)
               <tr>  
-                <td style="width: 10%">c. dari:</td>
+                <td>c. dari:</td> 
                 <td>Nama/Nama Perusahaan</td>
                 <td>:</td>
-                <td colspan="4">{{$item->nama}} / {{$item->instansi}}</td>
+                <td colspan="10">{{$item->nama}} / {{$item->instansi}}</td>
               </tr>
               <tr>
                 <td></td>

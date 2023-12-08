@@ -73,13 +73,11 @@ class DokumenController extends Controller
     }
 
     public function sertifikat($id){
-        // $user = Auth::user()->id;
-        // $user_data = User::where('id',$user)->get();
         $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
         $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)
                                 ->with('jenis_harga')
                                 ->get();
-                                                                      
+
         $data_pass = [
                 'nama' => $permohonan->nama,
                 'instansi' => $permohonan->instansi,
@@ -103,6 +101,7 @@ class DokumenController extends Controller
                 // 'jenis_pengujian' => $jenis->jenis_pengujian,
                 // 'total_harga' => $jenis->total_harga,
             ];
+
             $pdf = Pdf::loadView('pages.pdf_template.hasil_pengujian',$data_pass);
             return $pdf->stream('Sertifikat.pdf');
     }
