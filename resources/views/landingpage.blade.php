@@ -124,7 +124,7 @@
                             </div>
                             <div class="col-lg-5 order-0 order-lg-1">
                                 <div class="image-area text-end wow fadeInRight" data-wow-delay="0.3s" data-wow-duration="1s">
-                                    <img src="assets/images/home1/banner/" alt="Banner">
+                                    <!-- <img src="assets/images/home1/banner/" alt="Banner"> -->
                                 </div>
                             </div>
                         </div>
