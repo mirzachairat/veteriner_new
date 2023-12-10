@@ -50,25 +50,39 @@ class PengirimController extends Controller
     }
 
     public function file_upload(Request $request, $id){
-        $validasi_data = $request->validate([
-            'file' => 'image|file|max:1024' 
-        ]);
-        
-        if($request->file('image')){
-                $validasi_data['payment_link'] = $request->file('image')->store('post-images');
-        }
+       
+        $validator =  $request->validate([
+            'image' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    // Custom validation rule for image type
+                    $allowedTypes = ['jpeg', 'png', 'jpg', 'gif'];
+                    $extension = pathinfo($value->getClientOriginalName(), PATHINFO_EXTENSION);
 
-        $validasi_data['permohonan_id'] = $id;
-
-        //1 invoice 
-        Tagihan::where('permohonan_id', $id)->update([
-            'payment_link' => $request->file('image')->store('post-images'),
-            'payment_status' => 1,
-            'amount' => 1,
-            'doc_no' => 1
+                    if (!in_array($extension, $allowedTypes)) {
+                        $fail("$attribute harus bertype: " . implode(', ', $allowedTypes));
+                    }
+                },
+                'max:2048', // Adjust the allowed file size as needed
+            ],
         ]);
+
+        // If validation passes, continue with your logic to handle the uploaded image
+        // For example, storing the image in the storage or public directory
+        $imagePath = $request->file('image')->store('post-images');
+        // $request->image->move(public_path('images'), $imagePath);
         
-        return redirect()->back();
+            //1 invoice 
+            Tagihan::where('permohonan_id', $id)->update([
+                'payment_link' => $request->file('image')->store('post-images'),
+                'payment_status' => 1,
+                'amount' => 1,
+                'doc_no' => 1
+            ]);    
+
+        // Your additional logic...
+
+        return Redirect()->back();
     }
 
     public function form_permohonan()

@@ -202,10 +202,16 @@
                                                 <form action="{{env('APP_URL')}}/upload/filedokumen/{{$dt->id}}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                         <input type="file" name="image" id="image-0">
+                                                        @error('image')
+                                                            <div class="alert alert-warning" role="alert">
+                                                                         {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                         <button class="btn btn-primary btn-small" type="submit">Kirim</button>
-                                                </form>
-                                            @endforeach
-                                        </div>
+                                                    </form>
+                                                    @endforeach
+                                                </div>
+    
                                     </div>
                                 </div><!--end card-body-->
                             </div><!--end card-->
