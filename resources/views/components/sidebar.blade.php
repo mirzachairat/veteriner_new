@@ -64,7 +64,33 @@
                     @endif
                     
                     <hr class="hr-dashed hr-menu">
-                    @if(Auth::user()->jabatan_id == 6 || 7)
+                    @if(Auth::user()->jabatan_id == 6 )
+                    <li>
+                        <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>BENDAHARA</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/bendahara"><i data-feather="home" class="align-self-center menu-icon"></i>Tabel Bendahara</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>DAFTAR HARGA</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/harga"><i data-feather="home" class="align-self-center menu-icon"></i>Tabel Bendahara</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>User Admin</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/user/view"><i data-feather="home" class="align-self-center menu-icon"></i>Tabel User</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>MAP</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="{{env('APP_URL')}}/mapview"><i data-feather="home" class="align-self-center menu-icon"></i>Lihat Map</a></li>
+                        </ul>
+                    </li>
+                    @endif
+                    @if(Auth::user()->jabatan_id == 7 )
                     <li>
                         <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>BENDAHARA</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
