@@ -12,12 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    // public function __construct() {
-    //     $this->middleware('auth', ['except' => ['login', 'register']]);
-    // }
-
     public function loginAction(Request $request){
-        // dd($request->all());    
 
         $validator = Validator::make($request->all(), [
             'email'    => 'required|email',
@@ -29,22 +24,22 @@ class AuthController extends Controller
         if (Auth()->attempt($credentials)) {
             $request->session()->regenerate();
             $user = Auth::user()->jabatan_id;
-            if ($user == '1') {
+            if ($user == 1) {
                 return redirect()->route('pengirim');
             }
-            if ($user == '2') {
+            if ($user == 2) {
                 return redirect()->route('penerima');
             }
-            if ($user == '3') {
+            if ($user == 3) {
                 return redirect()->route('manager');
             }
-            if ($user == '4') {
+            if ($user == 4) {
                 return redirect()->route('penyelia');
             }
-            if ($user == '5') {
+            if ($user == 5) {
                 return redirect()->route('penguji');
             }
-            if ($user == '6') {
+            if ($user == 6 || 7) {
                 return redirect()->route('bendahara');
             }
                 return redirect(RouteServiceProvider::HOME);

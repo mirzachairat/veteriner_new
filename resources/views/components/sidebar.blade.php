@@ -64,7 +64,7 @@
                     @endif
                     
                     <hr class="hr-dashed hr-menu">
-                    @if(Auth::user()->jabatan_id == 6)
+                    @if(Auth::user()->jabatan_id == 6 || 7)
                     <li>
                         <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>BENDAHARA</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
