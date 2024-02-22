@@ -600,7 +600,7 @@
             >
               Total Tagihan
             </td>
-            <td>:</td>
+              <td class="totaltagihan">:{{$jumlah}}</td>
           </tr>
         </table>
         <br />

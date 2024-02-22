@@ -36,6 +36,7 @@ class PenyeliaController extends Controller
 
     // update status progress dan permohonan
     public function update_jenis_sampel(Request $request){
+
         $permohonan_id = $request->permohonan_id;
         $data_permohonan = Permohonan::where('id', $permohonan_id)->first();
         $status_a = $request->status_delete;
@@ -44,7 +45,6 @@ class PenyeliaController extends Controller
         foreach($sts_progres as $item){
             $st_status = $item->status;
         }
-
 
         //kondisi penyelia sebagai approval
         if($st_status == 2){
@@ -105,6 +105,7 @@ class PenyeliaController extends Controller
                'approval' => $request->approval
            ]);
         }
+
 
          return redirect('/penyelia');
     }

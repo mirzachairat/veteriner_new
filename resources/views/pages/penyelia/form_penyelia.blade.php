@@ -116,7 +116,11 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="nilai">Hasil Uji</label>
-                                                        <input type="text" class="form-control input-nilai" id="nilai-0" name="nilai[]">
+                                                        <select type="text" class="form-control" id="nilai-0" name="nilai[]">
+                                                            <option value="baik">Baik</option>
+                                                            <option value="kurang baik">Kurang Baik</option>
+                                                            <option value="buruk">Buruk</option>
+                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">

@@ -91,6 +91,7 @@ class DokumenController extends Controller
                 'saran' => $permohonan->saran,
                 'kesimpulan' => $permohonan->kesimpulan,
                 'catatan' => $permohonan->catatan,
+                'permohonan'=>$permohonan,
                 'jenis' => $jenis
 
                 // 'jenis_sampel' => $jenis->jenis_sampel,
